@@ -1,0 +1,678 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		596D24A720FF2A0E00CA5462 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24A620FF2A0E00CA5462 /* AppDelegate.m */; };
+		596D24AD20FF2A0E00CA5462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596D24AB20FF2A0E00CA5462 /* Main.storyboard */; };
+		596D24AF20FF2A1000CA5462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596D24AE20FF2A1000CA5462 /* Assets.xcassets */; };
+		596D24B220FF2A1000CA5462 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596D24B020FF2A1000CA5462 /* LaunchScreen.storyboard */; };
+		596D24B520FF2A1000CA5462 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24B420FF2A1000CA5462 /* main.m */; };
+		596D24BF20FF2A1000CA5462 /* ToeicIpadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24BE20FF2A1000CA5462 /* ToeicIpadTests.m */; };
+		596D24CA20FF2A1000CA5462 /* ToeicIpadUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24C920FF2A1000CA5462 /* ToeicIpadUITests.m */; };
+		596D24E120FF2B5C00CA5462 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24E020FF2B5C00CA5462 /* BaseViewController.m */; };
+		596D24E520FF2BC800CA5462 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24E320FF2BC800CA5462 /* HomeViewController.m */; };
+		596D24E620FF2BC800CA5462 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596D24E420FF2BC800CA5462 /* HomeViewController.xib */; };
+		596D24EC20FF2CC000CA5462 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24EB20FF2CC000CA5462 /* Util.m */; };
+		596D24F320FF2D2300CA5462 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24ED20FF2D2300CA5462 /* NSData+Base64.m */; };
+		596D24F420FF2D2300CA5462 /* AESCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24EE20FF2D2300CA5462 /* AESCrypto.m */; };
+		596D24F520FF2D2300CA5462 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24F120FF2D2300CA5462 /* APIClient.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		596D24BB20FF2A1000CA5462 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 596D249A20FF2A0E00CA5462 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 596D24A120FF2A0E00CA5462;
+			remoteInfo = ToeicIpad;
+		};
+		596D24C620FF2A1000CA5462 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 596D249A20FF2A0E00CA5462 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 596D24A120FF2A0E00CA5462;
+			remoteInfo = ToeicIpad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		596D24A220FF2A0E00CA5462 /* ToeicIpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToeicIpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		596D24A520FF2A0E00CA5462 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		596D24A620FF2A0E00CA5462 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		596D24AC20FF2A0E00CA5462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		596D24AE20FF2A1000CA5462 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		596D24B120FF2A1000CA5462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		596D24B320FF2A1000CA5462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		596D24B420FF2A1000CA5462 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		596D24BA20FF2A1000CA5462 /* ToeicIpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToeicIpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		596D24BE20FF2A1000CA5462 /* ToeicIpadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToeicIpadTests.m; sourceTree = "<group>"; };
+		596D24C020FF2A1000CA5462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		596D24C520FF2A1000CA5462 /* ToeicIpadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToeicIpadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		596D24C920FF2A1000CA5462 /* ToeicIpadUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToeicIpadUITests.m; sourceTree = "<group>"; };
+		596D24CB20FF2A1000CA5462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		596D24DF20FF2B5C00CA5462 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		596D24E020FF2B5C00CA5462 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		596D24E220FF2BC800CA5462 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		596D24E320FF2BC800CA5462 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		596D24E420FF2BC800CA5462 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		596D24E920FF2C9900CA5462 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		596D24EA20FF2CC000CA5462 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		596D24EB20FF2CC000CA5462 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		596D24ED20FF2D2300CA5462 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		596D24EE20FF2D2300CA5462 /* AESCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypto.m; sourceTree = "<group>"; };
+		596D24EF20FF2D2300CA5462 /* AESCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypto.h; sourceTree = "<group>"; };
+		596D24F020FF2D2300CA5462 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		596D24F120FF2D2300CA5462 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		596D24F220FF2D2300CA5462 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		596D249F20FF2A0E00CA5462 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596D24B720FF2A1000CA5462 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596D24C220FF2A1000CA5462 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		596D249920FF2A0E00CA5462 = {
+			isa = PBXGroup;
+			children = (
+				596D24A420FF2A0E00CA5462 /* ToeicIpad */,
+				596D24E720FF2BCD00CA5462 /* Resource */,
+				596D24BD20FF2A1000CA5462 /* ToeicIpadTests */,
+				596D24C820FF2A1000CA5462 /* ToeicIpadUITests */,
+				596D24A320FF2A0E00CA5462 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		596D24A320FF2A0E00CA5462 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				596D24A220FF2A0E00CA5462 /* ToeicIpad.app */,
+				596D24BA20FF2A1000CA5462 /* ToeicIpadTests.xctest */,
+				596D24C520FF2A1000CA5462 /* ToeicIpadUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		596D24A420FF2A0E00CA5462 /* ToeicIpad */ = {
+			isa = PBXGroup;
+			children = (
+				596D24D720FF2A5300CA5462 /* Common */,
+				596D24DA20FF2A7800CA5462 /* Manager */,
+				596D24DE20FF2B2800CA5462 /* Helper */,
+				596D24DB20FF2A8000CA5462 /* Model */,
+				596D24D820FF2A5900CA5462 /* ViewController */,
+				596D24B320FF2A1000CA5462 /* Info.plist */,
+			);
+			path = ToeicIpad;
+			sourceTree = "<group>";
+		};
+		596D24BD20FF2A1000CA5462 /* ToeicIpadTests */ = {
+			isa = PBXGroup;
+			children = (
+				596D24BE20FF2A1000CA5462 /* ToeicIpadTests.m */,
+				596D24C020FF2A1000CA5462 /* Info.plist */,
+			);
+			path = ToeicIpadTests;
+			sourceTree = "<group>";
+		};
+		596D24C820FF2A1000CA5462 /* ToeicIpadUITests */ = {
+			isa = PBXGroup;
+			children = (
+				596D24C920FF2A1000CA5462 /* ToeicIpadUITests.m */,
+				596D24CB20FF2A1000CA5462 /* Info.plist */,
+			);
+			path = ToeicIpadUITests;
+			sourceTree = "<group>";
+		};
+		596D24D720FF2A5300CA5462 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				596D24A520FF2A0E00CA5462 /* AppDelegate.h */,
+				596D24A620FF2A0E00CA5462 /* AppDelegate.m */,
+				596D24DF20FF2B5C00CA5462 /* BaseViewController.h */,
+				596D24E020FF2B5C00CA5462 /* BaseViewController.m */,
+				596D24E920FF2C9900CA5462 /* Global.h */,
+				596D24EA20FF2CC000CA5462 /* Util.h */,
+				596D24EB20FF2CC000CA5462 /* Util.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		596D24D820FF2A5900CA5462 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				596D24DC20FF2ABA00CA5462 /* Home */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		596D24DA20FF2A7800CA5462 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				596D24DD20FF2AF800CA5462 /* Service */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		596D24DB20FF2A8000CA5462 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		596D24DC20FF2ABA00CA5462 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				596D24E220FF2BC800CA5462 /* HomeViewController.h */,
+				596D24E320FF2BC800CA5462 /* HomeViewController.m */,
+				596D24E420FF2BC800CA5462 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		596D24DD20FF2AF800CA5462 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				596D24EF20FF2D2300CA5462 /* AESCrypto.h */,
+				596D24EE20FF2D2300CA5462 /* AESCrypto.m */,
+				596D24F020FF2D2300CA5462 /* APIClient.h */,
+				596D24F120FF2D2300CA5462 /* APIClient.m */,
+				596D24F220FF2D2300CA5462 /* NSData+Base64.h */,
+				596D24ED20FF2D2300CA5462 /* NSData+Base64.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		596D24DE20FF2B2800CA5462 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		596D24E720FF2BCD00CA5462 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				596D24AB20FF2A0E00CA5462 /* Main.storyboard */,
+				596D24AE20FF2A1000CA5462 /* Assets.xcassets */,
+				596D24B020FF2A1000CA5462 /* LaunchScreen.storyboard */,
+				596D24B420FF2A1000CA5462 /* main.m */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		596D24A120FF2A0E00CA5462 /* ToeicIpad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 596D24CE20FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpad" */;
+			buildPhases = (
+				596D249E20FF2A0E00CA5462 /* Sources */,
+				596D249F20FF2A0E00CA5462 /* Frameworks */,
+				596D24A020FF2A0E00CA5462 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToeicIpad;
+			productName = ToeicIpad;
+			productReference = 596D24A220FF2A0E00CA5462 /* ToeicIpad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		596D24B920FF2A1000CA5462 /* ToeicIpadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 596D24D120FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpadTests" */;
+			buildPhases = (
+				596D24B620FF2A1000CA5462 /* Sources */,
+				596D24B720FF2A1000CA5462 /* Frameworks */,
+				596D24B820FF2A1000CA5462 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				596D24BC20FF2A1000CA5462 /* PBXTargetDependency */,
+			);
+			name = ToeicIpadTests;
+			productName = ToeicIpadTests;
+			productReference = 596D24BA20FF2A1000CA5462 /* ToeicIpadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		596D24C420FF2A1000CA5462 /* ToeicIpadUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 596D24D420FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpadUITests" */;
+			buildPhases = (
+				596D24C120FF2A1000CA5462 /* Sources */,
+				596D24C220FF2A1000CA5462 /* Frameworks */,
+				596D24C320FF2A1000CA5462 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				596D24C720FF2A1000CA5462 /* PBXTargetDependency */,
+			);
+			name = ToeicIpadUITests;
+			productName = ToeicIpadUITests;
+			productReference = 596D24C520FF2A1000CA5462 /* ToeicIpadUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		596D249A20FF2A0E00CA5462 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = DungLM3;
+				TargetAttributes = {
+					596D24A120FF2A0E00CA5462 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					596D24B920FF2A1000CA5462 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 596D24A120FF2A0E00CA5462;
+					};
+					596D24C420FF2A1000CA5462 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 596D24A120FF2A0E00CA5462;
+					};
+				};
+			};
+			buildConfigurationList = 596D249D20FF2A0E00CA5462 /* Build configuration list for PBXProject "ToeicIpad" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 596D249920FF2A0E00CA5462;
+			productRefGroup = 596D24A320FF2A0E00CA5462 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				596D24A120FF2A0E00CA5462 /* ToeicIpad */,
+				596D24B920FF2A1000CA5462 /* ToeicIpadTests */,
+				596D24C420FF2A1000CA5462 /* ToeicIpadUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		596D24A020FF2A0E00CA5462 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596D24B220FF2A1000CA5462 /* LaunchScreen.storyboard in Resources */,
+				596D24AF20FF2A1000CA5462 /* Assets.xcassets in Resources */,
+				596D24AD20FF2A0E00CA5462 /* Main.storyboard in Resources */,
+				596D24E620FF2BC800CA5462 /* HomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596D24B820FF2A1000CA5462 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596D24C320FF2A1000CA5462 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		596D249E20FF2A0E00CA5462 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596D24F420FF2D2300CA5462 /* AESCrypto.m in Sources */,
+				596D24E120FF2B5C00CA5462 /* BaseViewController.m in Sources */,
+				596D24B520FF2A1000CA5462 /* main.m in Sources */,
+				596D24F520FF2D2300CA5462 /* APIClient.m in Sources */,
+				596D24F320FF2D2300CA5462 /* NSData+Base64.m in Sources */,
+				596D24E520FF2BC800CA5462 /* HomeViewController.m in Sources */,
+				596D24A720FF2A0E00CA5462 /* AppDelegate.m in Sources */,
+				596D24EC20FF2CC000CA5462 /* Util.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596D24B620FF2A1000CA5462 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596D24BF20FF2A1000CA5462 /* ToeicIpadTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596D24C120FF2A1000CA5462 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596D24CA20FF2A1000CA5462 /* ToeicIpadUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		596D24BC20FF2A1000CA5462 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 596D24A120FF2A0E00CA5462 /* ToeicIpad */;
+			targetProxy = 596D24BB20FF2A1000CA5462 /* PBXContainerItemProxy */;
+		};
+		596D24C720FF2A1000CA5462 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 596D24A120FF2A0E00CA5462 /* ToeicIpad */;
+			targetProxy = 596D24C620FF2A1000CA5462 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		596D24AB20FF2A0E00CA5462 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				596D24AC20FF2A0E00CA5462 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		596D24B020FF2A1000CA5462 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				596D24B120FF2A1000CA5462 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		596D24CC20FF2A1000CA5462 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		596D24CD20FF2A1000CA5462 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		596D24CF20FF2A1000CA5462 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL6NM6R58B;
+				INFOPLIST_FILE = ToeicIpad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpad;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		596D24D020FF2A1000CA5462 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL6NM6R58B;
+				INFOPLIST_FILE = ToeicIpad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpad;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		596D24D220FF2A1000CA5462 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToeicIpadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToeicIpad.app/ToeicIpad";
+			};
+			name = Debug;
+		};
+		596D24D320FF2A1000CA5462 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToeicIpadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpadTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToeicIpad.app/ToeicIpad";
+			};
+			name = Release;
+		};
+		596D24D520FF2A1000CA5462 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToeicIpadUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ToeicIpad;
+			};
+			name = Debug;
+		};
+		596D24D620FF2A1000CA5462 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToeicIpadUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpadUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ToeicIpad;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		596D249D20FF2A0E00CA5462 /* Build configuration list for PBXProject "ToeicIpad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596D24CC20FF2A1000CA5462 /* Debug */,
+				596D24CD20FF2A1000CA5462 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		596D24CE20FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596D24CF20FF2A1000CA5462 /* Debug */,
+				596D24D020FF2A1000CA5462 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		596D24D120FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596D24D220FF2A1000CA5462 /* Debug */,
+				596D24D320FF2A1000CA5462 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		596D24D420FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpadUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596D24D520FF2A1000CA5462 /* Debug */,
+				596D24D620FF2A1000CA5462 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 596D249A20FF2A0E00CA5462 /* Project object */;
+}

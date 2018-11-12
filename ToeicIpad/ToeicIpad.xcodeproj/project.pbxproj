@@ -7,235 +7,315 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		596D24A720FF2A0E00CA5462 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24A620FF2A0E00CA5462 /* AppDelegate.m */; };
-		596D24AD20FF2A0E00CA5462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596D24AB20FF2A0E00CA5462 /* Main.storyboard */; };
-		596D24AF20FF2A1000CA5462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596D24AE20FF2A1000CA5462 /* Assets.xcassets */; };
-		596D24B220FF2A1000CA5462 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 596D24B020FF2A1000CA5462 /* LaunchScreen.storyboard */; };
-		596D24B520FF2A1000CA5462 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24B420FF2A1000CA5462 /* main.m */; };
-		596D24BF20FF2A1000CA5462 /* ToeicIpadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24BE20FF2A1000CA5462 /* ToeicIpadTests.m */; };
-		596D24CA20FF2A1000CA5462 /* ToeicIpadUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24C920FF2A1000CA5462 /* ToeicIpadUITests.m */; };
-		596D24E120FF2B5C00CA5462 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24E020FF2B5C00CA5462 /* BaseViewController.m */; };
-		596D24E520FF2BC800CA5462 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24E320FF2BC800CA5462 /* HomeViewController.m */; };
-		596D24E620FF2BC800CA5462 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596D24E420FF2BC800CA5462 /* HomeViewController.xib */; };
-		596D24EC20FF2CC000CA5462 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24EB20FF2CC000CA5462 /* Util.m */; };
-		596D24F320FF2D2300CA5462 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24ED20FF2D2300CA5462 /* NSData+Base64.m */; };
-		596D24F420FF2D2300CA5462 /* AESCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24EE20FF2D2300CA5462 /* AESCrypto.m */; };
-		596D24F520FF2D2300CA5462 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 596D24F120FF2D2300CA5462 /* APIClient.m */; };
+		100F7A24CC659F44C9E54D80 /* Pods_ToeicIpadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E1749E83C1D993ACEEEBD4 /* Pods_ToeicIpadTests.framework */; };
+		594905AC218FDF2F001E860C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905AB218FDF2F001E860C /* AppDelegate.swift */; };
+		594905B1218FDF2F001E860C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 594905AF218FDF2F001E860C /* Main.storyboard */; };
+		594905B3218FDF31001E860C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 594905B2218FDF31001E860C /* Assets.xcassets */; };
+		594905B6218FDF31001E860C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 594905B4218FDF31001E860C /* LaunchScreen.storyboard */; };
+		594905C1218FDF31001E860C /* ToeicIpadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905C0218FDF31001E860C /* ToeicIpadTests.swift */; };
+		594905CC218FDF31001E860C /* ToeicIpadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905CB218FDF31001E860C /* ToeicIpadUITests.swift */; };
+		594905E5218FE0B5001E860C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905E4218FE0B5001E860C /* Util.swift */; };
+		594905E7218FE158001E860C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905E6218FE158001E860C /* Global.swift */; };
+		594905EB218FE1B2001E860C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905E9218FE1B2001E860C /* HomeViewController.swift */; };
+		594905EC218FE1B2001E860C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594905EA218FE1B2001E860C /* HomeViewController.xib */; };
+		594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905EE218FE3AB001E860C /* BaseViewController.swift */; };
+		598085112193E157004E731C /* DownloadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598085102193E157004E731C /* DownloadClient.swift */; };
+		5992F69E2195269200ED9298 /* ProgressDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992F69C2195269200ED9298 /* ProgressDownloadViewController.swift */; };
+		5992F69F2195269200ED9298 /* ProgressDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */; };
+		5992F6A4219567A200ED9298 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992F6A3219567A200ED9298 /* FileUtil.swift */; };
+		59C7A42C2192D438007251DB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C7A42B2192D438007251DB /* ApiClient.swift */; };
+		CECC151A8483079CD57EFF39 /* Pods_ToeicIpadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20C6B8187F6D298E0284479 /* Pods_ToeicIpadUITests.framework */; };
+		DF9C8CB9BF8D9FC045C11887 /* Pods_ToeicIpad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C94CBBCB5F58B4114632C5 /* Pods_ToeicIpad.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		596D24BB20FF2A1000CA5462 /* PBXContainerItemProxy */ = {
+		594905BD218FDF31001E860C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 596D249A20FF2A0E00CA5462 /* Project object */;
+			containerPortal = 594905A0218FDF2F001E860C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 596D24A120FF2A0E00CA5462;
+			remoteGlobalIDString = 594905A7218FDF2F001E860C;
 			remoteInfo = ToeicIpad;
 		};
-		596D24C620FF2A1000CA5462 /* PBXContainerItemProxy */ = {
+		594905C8218FDF31001E860C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 596D249A20FF2A0E00CA5462 /* Project object */;
+			containerPortal = 594905A0218FDF2F001E860C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 596D24A120FF2A0E00CA5462;
+			remoteGlobalIDString = 594905A7218FDF2F001E860C;
 			remoteInfo = ToeicIpad;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		596D24A220FF2A0E00CA5462 /* ToeicIpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToeicIpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		596D24A520FF2A0E00CA5462 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		596D24A620FF2A0E00CA5462 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		596D24AC20FF2A0E00CA5462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		596D24AE20FF2A1000CA5462 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		596D24B120FF2A1000CA5462 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		596D24B320FF2A1000CA5462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		596D24B420FF2A1000CA5462 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		596D24BA20FF2A1000CA5462 /* ToeicIpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToeicIpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		596D24BE20FF2A1000CA5462 /* ToeicIpadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToeicIpadTests.m; sourceTree = "<group>"; };
-		596D24C020FF2A1000CA5462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		596D24C520FF2A1000CA5462 /* ToeicIpadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToeicIpadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		596D24C920FF2A1000CA5462 /* ToeicIpadUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToeicIpadUITests.m; sourceTree = "<group>"; };
-		596D24CB20FF2A1000CA5462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		596D24DF20FF2B5C00CA5462 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		596D24E020FF2B5C00CA5462 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		596D24E220FF2BC800CA5462 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		596D24E320FF2BC800CA5462 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		596D24E420FF2BC800CA5462 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		596D24E920FF2C9900CA5462 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
-		596D24EA20FF2CC000CA5462 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		596D24EB20FF2CC000CA5462 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
-		596D24ED20FF2D2300CA5462 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		596D24EE20FF2D2300CA5462 /* AESCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypto.m; sourceTree = "<group>"; };
-		596D24EF20FF2D2300CA5462 /* AESCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypto.h; sourceTree = "<group>"; };
-		596D24F020FF2D2300CA5462 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
-		596D24F120FF2D2300CA5462 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
-		596D24F220FF2D2300CA5462 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		1FA76661B10E96DF42A56A8D /* Pods-ToeicIpadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadUITests/Pods-ToeicIpadUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		21E1749E83C1D993ACEEEBD4 /* Pods_ToeicIpadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToeicIpadTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55C94CBBCB5F58B4114632C5 /* Pods_ToeicIpad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToeicIpad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		594905A8218FDF2F001E860C /* ToeicIpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToeicIpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		594905AB218FDF2F001E860C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		594905B0218FDF2F001E860C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		594905B2218FDF31001E860C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		594905B5218FDF31001E860C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		594905B7218FDF31001E860C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		594905BC218FDF31001E860C /* ToeicIpadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToeicIpadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		594905C0218FDF31001E860C /* ToeicIpadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToeicIpadTests.swift; sourceTree = "<group>"; };
+		594905C2218FDF31001E860C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		594905C7218FDF31001E860C /* ToeicIpadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToeicIpadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		594905CB218FDF31001E860C /* ToeicIpadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToeicIpadUITests.swift; sourceTree = "<group>"; };
+		594905CD218FDF31001E860C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		594905E4218FE0B5001E860C /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		594905E6218FE158001E860C /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		594905E9218FE1B2001E860C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		594905EA218FE1B2001E860C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		594905EE218FE3AB001E860C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		598085102193E157004E731C /* DownloadClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadClient.swift; sourceTree = "<group>"; };
+		5992F69C2195269200ED9298 /* ProgressDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDownloadViewController.swift; sourceTree = "<group>"; };
+		5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressDownloadViewController.xib; sourceTree = "<group>"; };
+		5992F6A3219567A200ED9298 /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
+		59C7A42B2192D438007251DB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		7063D447A3D99B587CA15D51 /* Pods-ToeicIpadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadTests/Pods-ToeicIpadTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8D8126E760600E9704A1AA87 /* Pods-ToeicIpad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad.debug.xcconfig"; sourceTree = "<group>"; };
+		B8572038EF10CBF84D889FEB /* Pods-ToeicIpadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadTests/Pods-ToeicIpadTests.release.xcconfig"; sourceTree = "<group>"; };
+		BF9E21CD3907278DCA4DC120 /* Pods-ToeicIpad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpad.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad.release.xcconfig"; sourceTree = "<group>"; };
+		C20C6B8187F6D298E0284479 /* Pods_ToeicIpadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToeicIpadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB06AFB53992B2CB57186C76 /* Pods-ToeicIpadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadUITests/Pods-ToeicIpadUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		596D249F20FF2A0E00CA5462 /* Frameworks */ = {
+		594905A5218FDF2F001E860C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF9C8CB9BF8D9FC045C11887 /* Pods_ToeicIpad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		596D24B720FF2A1000CA5462 /* Frameworks */ = {
+		594905B9218FDF31001E860C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				100F7A24CC659F44C9E54D80 /* Pods_ToeicIpadTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		596D24C220FF2A1000CA5462 /* Frameworks */ = {
+		594905C4218FDF31001E860C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECC151A8483079CD57EFF39 /* Pods_ToeicIpadUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		596D249920FF2A0E00CA5462 = {
+		4F5DAB0AE3CB4C37E6555720 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				596D24A420FF2A0E00CA5462 /* ToeicIpad */,
-				596D24E720FF2BCD00CA5462 /* Resource */,
-				596D24BD20FF2A1000CA5462 /* ToeicIpadTests */,
-				596D24C820FF2A1000CA5462 /* ToeicIpadUITests */,
-				596D24A320FF2A0E00CA5462 /* Products */,
+				55C94CBBCB5F58B4114632C5 /* Pods_ToeicIpad.framework */,
+				21E1749E83C1D993ACEEEBD4 /* Pods_ToeicIpadTests.framework */,
+				C20C6B8187F6D298E0284479 /* Pods_ToeicIpadUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5949059F218FDF2F001E860C = {
+			isa = PBXGroup;
+			children = (
+				594905AA218FDF2F001E860C /* ToeicIpad */,
+				594905BF218FDF31001E860C /* ToeicIpadTests */,
+				594905CA218FDF31001E860C /* ToeicIpadUITests */,
+				594905A9218FDF2F001E860C /* Products */,
+				A7D376BAC667C5E170AFC42E /* Pods */,
+				4F5DAB0AE3CB4C37E6555720 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		596D24A320FF2A0E00CA5462 /* Products */ = {
+		594905A9218FDF2F001E860C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				596D24A220FF2A0E00CA5462 /* ToeicIpad.app */,
-				596D24BA20FF2A1000CA5462 /* ToeicIpadTests.xctest */,
-				596D24C520FF2A1000CA5462 /* ToeicIpadUITests.xctest */,
+				594905A8218FDF2F001E860C /* ToeicIpad.app */,
+				594905BC218FDF31001E860C /* ToeicIpadTests.xctest */,
+				594905C7218FDF31001E860C /* ToeicIpadUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		596D24A420FF2A0E00CA5462 /* ToeicIpad */ = {
+		594905AA218FDF2F001E860C /* ToeicIpad */ = {
 			isa = PBXGroup;
 			children = (
-				596D24D720FF2A5300CA5462 /* Common */,
-				596D24DA20FF2A7800CA5462 /* Manager */,
-				596D24DE20FF2B2800CA5462 /* Helper */,
-				596D24DB20FF2A8000CA5462 /* Model */,
-				596D24D820FF2A5900CA5462 /* ViewController */,
-				596D24B320FF2A1000CA5462 /* Info.plist */,
+				594905DE218FE02F001E860C /* Resource */,
+				594905DD218FE023001E860C /* Library */,
+				594905DC218FE010001E860C /* Classes */,
+				594905AF218FDF2F001E860C /* Main.storyboard */,
+				594905B2218FDF31001E860C /* Assets.xcassets */,
+				594905B4218FDF31001E860C /* LaunchScreen.storyboard */,
+				594905B7218FDF31001E860C /* Info.plist */,
 			);
 			path = ToeicIpad;
 			sourceTree = "<group>";
 		};
-		596D24BD20FF2A1000CA5462 /* ToeicIpadTests */ = {
+		594905BF218FDF31001E860C /* ToeicIpadTests */ = {
 			isa = PBXGroup;
 			children = (
-				596D24BE20FF2A1000CA5462 /* ToeicIpadTests.m */,
-				596D24C020FF2A1000CA5462 /* Info.plist */,
+				594905C0218FDF31001E860C /* ToeicIpadTests.swift */,
+				594905C2218FDF31001E860C /* Info.plist */,
 			);
 			path = ToeicIpadTests;
 			sourceTree = "<group>";
 		};
-		596D24C820FF2A1000CA5462 /* ToeicIpadUITests */ = {
+		594905CA218FDF31001E860C /* ToeicIpadUITests */ = {
 			isa = PBXGroup;
 			children = (
-				596D24C920FF2A1000CA5462 /* ToeicIpadUITests.m */,
-				596D24CB20FF2A1000CA5462 /* Info.plist */,
+				594905CB218FDF31001E860C /* ToeicIpadUITests.swift */,
+				594905CD218FDF31001E860C /* Info.plist */,
 			);
 			path = ToeicIpadUITests;
 			sourceTree = "<group>";
 		};
-		596D24D720FF2A5300CA5462 /* Common */ = {
+		594905DC218FE010001E860C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				596D24A520FF2A0E00CA5462 /* AppDelegate.h */,
-				596D24A620FF2A0E00CA5462 /* AppDelegate.m */,
-				596D24DF20FF2B5C00CA5462 /* BaseViewController.h */,
-				596D24E020FF2B5C00CA5462 /* BaseViewController.m */,
-				596D24E920FF2C9900CA5462 /* Global.h */,
-				596D24EA20FF2CC000CA5462 /* Util.h */,
-				596D24EB20FF2CC000CA5462 /* Util.m */,
+				5992F6A02195676E00ED9298 /* Helpers */,
+				594905E3218FE099001E860C /* Models */,
+				594905E2218FE088001E860C /* Managers */,
+				594905E1218FE07E001E860C /* Common */,
+				594905E0218FE075001E860C /* ViewControllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		594905DD218FE023001E860C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		594905DE218FE02F001E860C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		594905E0218FE075001E860C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5992F69B2195265800ED9298 /* Download */,
+				594905ED218FE398001E860C /* Base */,
+				594905E8218FE186001E860C /* Home */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		594905E1218FE07E001E860C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				594905AB218FDF2F001E860C /* AppDelegate.swift */,
+				594905E6218FE158001E860C /* Global.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		596D24D820FF2A5900CA5462 /* ViewController */ = {
+		594905E2218FE088001E860C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				596D24DC20FF2ABA00CA5462 /* Home */,
+				594905F0218FE3F6001E860C /* ApiClient */,
 			);
-			path = ViewController;
+			path = Managers;
 			sourceTree = "<group>";
 		};
-		596D24DA20FF2A7800CA5462 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				596D24DD20FF2AF800CA5462 /* Service */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		596D24DB20FF2A8000CA5462 /* Model */ = {
+		594905E3218FE099001E860C /* Models */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		596D24DC20FF2ABA00CA5462 /* Home */ = {
+		594905E8218FE186001E860C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				596D24E220FF2BC800CA5462 /* HomeViewController.h */,
-				596D24E320FF2BC800CA5462 /* HomeViewController.m */,
-				596D24E420FF2BC800CA5462 /* HomeViewController.xib */,
+				594905E9218FE1B2001E860C /* HomeViewController.swift */,
+				594905EA218FE1B2001E860C /* HomeViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		596D24DD20FF2AF800CA5462 /* Service */ = {
+		594905ED218FE398001E860C /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				596D24EF20FF2D2300CA5462 /* AESCrypto.h */,
-				596D24EE20FF2D2300CA5462 /* AESCrypto.m */,
-				596D24F020FF2D2300CA5462 /* APIClient.h */,
-				596D24F120FF2D2300CA5462 /* APIClient.m */,
-				596D24F220FF2D2300CA5462 /* NSData+Base64.h */,
-				596D24ED20FF2D2300CA5462 /* NSData+Base64.m */,
+				594905EE218FE3AB001E860C /* BaseViewController.swift */,
 			);
-			path = Service;
+			path = Base;
 			sourceTree = "<group>";
 		};
-		596D24DE20FF2B2800CA5462 /* Helper */ = {
+		594905F0218FE3F6001E860C /* ApiClient */ = {
 			isa = PBXGroup;
 			children = (
+				59C7A42B2192D438007251DB /* ApiClient.swift */,
+				598085102193E157004E731C /* DownloadClient.swift */,
 			);
-			path = Helper;
+			path = ApiClient;
 			sourceTree = "<group>";
 		};
-		596D24E720FF2BCD00CA5462 /* Resource */ = {
+		5992F69B2195265800ED9298 /* Download */ = {
 			isa = PBXGroup;
 			children = (
-				596D24AB20FF2A0E00CA5462 /* Main.storyboard */,
-				596D24AE20FF2A1000CA5462 /* Assets.xcassets */,
-				596D24B020FF2A1000CA5462 /* LaunchScreen.storyboard */,
-				596D24B420FF2A1000CA5462 /* main.m */,
+				5992F69C2195269200ED9298 /* ProgressDownloadViewController.swift */,
+				5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */,
 			);
-			path = Resource;
+			path = Download;
+			sourceTree = "<group>";
+		};
+		5992F6A02195676E00ED9298 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5992F6A22195678600ED9298 /* Util */,
+				5992F6A12195677C00ED9298 /* File */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5992F6A12195677C00ED9298 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				5992F6A3219567A200ED9298 /* FileUtil.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		5992F6A22195678600ED9298 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				594905E4218FE0B5001E860C /* Util.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		A7D376BAC667C5E170AFC42E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D8126E760600E9704A1AA87 /* Pods-ToeicIpad.debug.xcconfig */,
+				BF9E21CD3907278DCA4DC120 /* Pods-ToeicIpad.release.xcconfig */,
+				7063D447A3D99B587CA15D51 /* Pods-ToeicIpadTests.debug.xcconfig */,
+				B8572038EF10CBF84D889FEB /* Pods-ToeicIpadTests.release.xcconfig */,
+				1FA76661B10E96DF42A56A8D /* Pods-ToeicIpadUITests.debug.xcconfig */,
+				FB06AFB53992B2CB57186C76 /* Pods-ToeicIpadUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		596D24A120FF2A0E00CA5462 /* ToeicIpad */ = {
+		594905A7218FDF2F001E860C /* ToeicIpad */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 596D24CE20FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpad" */;
+			buildConfigurationList = 594905D0218FDF31001E860C /* Build configuration list for PBXNativeTarget "ToeicIpad" */;
 			buildPhases = (
-				596D249E20FF2A0E00CA5462 /* Sources */,
-				596D249F20FF2A0E00CA5462 /* Frameworks */,
-				596D24A020FF2A0E00CA5462 /* Resources */,
+				DEB1D1EC6E7CE8B901E25552 /* [CP] Check Pods Manifest.lock */,
+				594905A4218FDF2F001E860C /* Sources */,
+				594905A5218FDF2F001E860C /* Frameworks */,
+				594905A6218FDF2F001E860C /* Resources */,
+				313A6481F57D26F6E2447B4E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -243,68 +323,73 @@
 			);
 			name = ToeicIpad;
 			productName = ToeicIpad;
-			productReference = 596D24A220FF2A0E00CA5462 /* ToeicIpad.app */;
+			productReference = 594905A8218FDF2F001E860C /* ToeicIpad.app */;
 			productType = "com.apple.product-type.application";
 		};
-		596D24B920FF2A1000CA5462 /* ToeicIpadTests */ = {
+		594905BB218FDF31001E860C /* ToeicIpadTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 596D24D120FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpadTests" */;
+			buildConfigurationList = 594905D3218FDF31001E860C /* Build configuration list for PBXNativeTarget "ToeicIpadTests" */;
 			buildPhases = (
-				596D24B620FF2A1000CA5462 /* Sources */,
-				596D24B720FF2A1000CA5462 /* Frameworks */,
-				596D24B820FF2A1000CA5462 /* Resources */,
+				1058E9B030E70C2DE7742C48 /* [CP] Check Pods Manifest.lock */,
+				594905B8218FDF31001E860C /* Sources */,
+				594905B9218FDF31001E860C /* Frameworks */,
+				594905BA218FDF31001E860C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				596D24BC20FF2A1000CA5462 /* PBXTargetDependency */,
+				594905BE218FDF31001E860C /* PBXTargetDependency */,
 			);
 			name = ToeicIpadTests;
 			productName = ToeicIpadTests;
-			productReference = 596D24BA20FF2A1000CA5462 /* ToeicIpadTests.xctest */;
+			productReference = 594905BC218FDF31001E860C /* ToeicIpadTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		596D24C420FF2A1000CA5462 /* ToeicIpadUITests */ = {
+		594905C6218FDF31001E860C /* ToeicIpadUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 596D24D420FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpadUITests" */;
+			buildConfigurationList = 594905D6218FDF31001E860C /* Build configuration list for PBXNativeTarget "ToeicIpadUITests" */;
 			buildPhases = (
-				596D24C120FF2A1000CA5462 /* Sources */,
-				596D24C220FF2A1000CA5462 /* Frameworks */,
-				596D24C320FF2A1000CA5462 /* Resources */,
+				4CB89A51666861B44A1364AF /* [CP] Check Pods Manifest.lock */,
+				594905C3218FDF31001E860C /* Sources */,
+				594905C4218FDF31001E860C /* Frameworks */,
+				594905C5218FDF31001E860C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				596D24C720FF2A1000CA5462 /* PBXTargetDependency */,
+				594905C9218FDF31001E860C /* PBXTargetDependency */,
 			);
 			name = ToeicIpadUITests;
 			productName = ToeicIpadUITests;
-			productReference = 596D24C520FF2A1000CA5462 /* ToeicIpadUITests.xctest */;
+			productReference = 594905C7218FDF31001E860C /* ToeicIpadUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		596D249A20FF2A0E00CA5462 /* Project object */ = {
+		594905A0218FDF2F001E860C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = DungLM3;
 				TargetAttributes = {
-					596D24A120FF2A0E00CA5462 = {
+					594905A7218FDF2F001E860C = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
-					596D24B920FF2A1000CA5462 = {
+					594905BB218FDF31001E860C = {
 						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 596D24A120FF2A0E00CA5462;
+						LastSwiftMigration = 1010;
+						TestTargetID = 594905A7218FDF2F001E860C;
 					};
-					596D24C420FF2A1000CA5462 = {
+					594905C6218FDF31001E860C = {
 						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 596D24A120FF2A0E00CA5462;
+						LastSwiftMigration = 1010;
+						TestTargetID = 594905A7218FDF2F001E860C;
 					};
 				};
 			};
-			buildConfigurationList = 596D249D20FF2A0E00CA5462 /* Build configuration list for PBXProject "ToeicIpad" */;
+			buildConfigurationList = 594905A3218FDF2F001E860C /* Build configuration list for PBXProject "ToeicIpad" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -312,38 +397,39 @@
 				en,
 				Base,
 			);
-			mainGroup = 596D249920FF2A0E00CA5462;
-			productRefGroup = 596D24A320FF2A0E00CA5462 /* Products */;
+			mainGroup = 5949059F218FDF2F001E860C;
+			productRefGroup = 594905A9218FDF2F001E860C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				596D24A120FF2A0E00CA5462 /* ToeicIpad */,
-				596D24B920FF2A1000CA5462 /* ToeicIpadTests */,
-				596D24C420FF2A1000CA5462 /* ToeicIpadUITests */,
+				594905A7218FDF2F001E860C /* ToeicIpad */,
+				594905BB218FDF31001E860C /* ToeicIpadTests */,
+				594905C6218FDF31001E860C /* ToeicIpadUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		596D24A020FF2A0E00CA5462 /* Resources */ = {
+		594905A6218FDF2F001E860C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596D24B220FF2A1000CA5462 /* LaunchScreen.storyboard in Resources */,
-				596D24AF20FF2A1000CA5462 /* Assets.xcassets in Resources */,
-				596D24AD20FF2A0E00CA5462 /* Main.storyboard in Resources */,
-				596D24E620FF2BC800CA5462 /* HomeViewController.xib in Resources */,
+				594905B6218FDF31001E860C /* LaunchScreen.storyboard in Resources */,
+				594905B3218FDF31001E860C /* Assets.xcassets in Resources */,
+				594905B1218FDF2F001E860C /* Main.storyboard in Resources */,
+				594905EC218FE1B2001E860C /* HomeViewController.xib in Resources */,
+				5992F69F2195269200ED9298 /* ProgressDownloadViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		596D24B820FF2A1000CA5462 /* Resources */ = {
+		594905BA218FDF31001E860C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		596D24C320FF2A1000CA5462 /* Resources */ = {
+		594905C5218FDF31001E860C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,66 +438,142 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1058E9B030E70C2DE7742C48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToeicIpadTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		313A6481F57D26F6E2447B4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CB89A51666861B44A1364AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToeicIpadUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEB1D1EC6E7CE8B901E25552 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToeicIpad-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		596D249E20FF2A0E00CA5462 /* Sources */ = {
+		594905A4218FDF2F001E860C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596D24F420FF2D2300CA5462 /* AESCrypto.m in Sources */,
-				596D24E120FF2B5C00CA5462 /* BaseViewController.m in Sources */,
-				596D24B520FF2A1000CA5462 /* main.m in Sources */,
-				596D24F520FF2D2300CA5462 /* APIClient.m in Sources */,
-				596D24F320FF2D2300CA5462 /* NSData+Base64.m in Sources */,
-				596D24E520FF2BC800CA5462 /* HomeViewController.m in Sources */,
-				596D24A720FF2A0E00CA5462 /* AppDelegate.m in Sources */,
-				596D24EC20FF2CC000CA5462 /* Util.m in Sources */,
+				594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */,
+				594905EB218FE1B2001E860C /* HomeViewController.swift in Sources */,
+				594905E7218FE158001E860C /* Global.swift in Sources */,
+				5992F69E2195269200ED9298 /* ProgressDownloadViewController.swift in Sources */,
+				594905E5218FE0B5001E860C /* Util.swift in Sources */,
+				594905AC218FDF2F001E860C /* AppDelegate.swift in Sources */,
+				5992F6A4219567A200ED9298 /* FileUtil.swift in Sources */,
+				598085112193E157004E731C /* DownloadClient.swift in Sources */,
+				59C7A42C2192D438007251DB /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		596D24B620FF2A1000CA5462 /* Sources */ = {
+		594905B8218FDF31001E860C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596D24BF20FF2A1000CA5462 /* ToeicIpadTests.m in Sources */,
+				594905C1218FDF31001E860C /* ToeicIpadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		596D24C120FF2A1000CA5462 /* Sources */ = {
+		594905C3218FDF31001E860C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596D24CA20FF2A1000CA5462 /* ToeicIpadUITests.m in Sources */,
+				594905CC218FDF31001E860C /* ToeicIpadUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		596D24BC20FF2A1000CA5462 /* PBXTargetDependency */ = {
+		594905BE218FDF31001E860C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 596D24A120FF2A0E00CA5462 /* ToeicIpad */;
-			targetProxy = 596D24BB20FF2A1000CA5462 /* PBXContainerItemProxy */;
+			target = 594905A7218FDF2F001E860C /* ToeicIpad */;
+			targetProxy = 594905BD218FDF31001E860C /* PBXContainerItemProxy */;
 		};
-		596D24C720FF2A1000CA5462 /* PBXTargetDependency */ = {
+		594905C9218FDF31001E860C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 596D24A120FF2A0E00CA5462 /* ToeicIpad */;
-			targetProxy = 596D24C620FF2A1000CA5462 /* PBXContainerItemProxy */;
+			target = 594905A7218FDF2F001E860C /* ToeicIpad */;
+			targetProxy = 594905C8218FDF31001E860C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		596D24AB20FF2A0E00CA5462 /* Main.storyboard */ = {
+		594905AF218FDF2F001E860C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				596D24AC20FF2A0E00CA5462 /* Base */,
+				594905B0218FDF2F001E860C /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		596D24B020FF2A1000CA5462 /* LaunchScreen.storyboard */ = {
+		594905B4218FDF31001E860C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				596D24B120FF2A1000CA5462 /* Base */,
+				594905B5218FDF31001E860C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -419,7 +581,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		596D24CC20FF2A1000CA5462 /* Debug */ = {
+		594905CE218FDF31001E860C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -474,10 +636,12 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		596D24CD20FF2A1000CA5462 /* Release */ = {
+		594905CF218FDF31001E860C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -525,12 +689,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		596D24CF20FF2A1000CA5462 /* Debug */ = {
+		594905D1218FDF31001E860C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D8126E760600E9704A1AA87 /* Pods-ToeicIpad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -542,12 +709,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		596D24D020FF2A1000CA5462 /* Release */ = {
+		594905D2218FDF31001E860C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF9E21CD3907278DCA4DC120 /* Pods-ToeicIpad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -559,15 +728,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		596D24D220FF2A1000CA5462 /* Debug */ = {
+		594905D4218FDF31001E860C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7063D447A3D99B587CA15D51 /* Pods-ToeicIpadTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3267Z52VP5;
 				INFOPLIST_FILE = ToeicIpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -576,16 +749,20 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpadTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToeicIpad.app/ToeicIpad";
 			};
 			name = Debug;
 		};
-		596D24D320FF2A1000CA5462 /* Release */ = {
+		594905D5218FDF31001E860C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8572038EF10CBF84D889FEB /* Pods-ToeicIpadTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3267Z52VP5;
 				INFOPLIST_FILE = ToeicIpadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,15 +771,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpadTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToeicIpad.app/ToeicIpad";
 			};
 			name = Release;
 		};
-		596D24D520FF2A1000CA5462 /* Debug */ = {
+		594905D7218FDF31001E860C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FA76661B10E96DF42A56A8D /* Pods-ToeicIpadUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3267Z52VP5;
 				INFOPLIST_FILE = ToeicIpadUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -611,15 +792,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpadUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ToeicIpad;
 			};
 			name = Debug;
 		};
-		596D24D620FF2A1000CA5462 /* Release */ = {
+		594905D8218FDF31001E860C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB06AFB53992B2CB57186C76 /* Pods-ToeicIpadUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3267Z52VP5;
 				INFOPLIST_FILE = ToeicIpadUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -628,6 +813,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpadUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ToeicIpad;
 			};
@@ -636,43 +822,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		596D249D20FF2A0E00CA5462 /* Build configuration list for PBXProject "ToeicIpad" */ = {
+		594905A3218FDF2F001E860C /* Build configuration list for PBXProject "ToeicIpad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				596D24CC20FF2A1000CA5462 /* Debug */,
-				596D24CD20FF2A1000CA5462 /* Release */,
+				594905CE218FDF31001E860C /* Debug */,
+				594905CF218FDF31001E860C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		596D24CE20FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpad" */ = {
+		594905D0218FDF31001E860C /* Build configuration list for PBXNativeTarget "ToeicIpad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				596D24CF20FF2A1000CA5462 /* Debug */,
-				596D24D020FF2A1000CA5462 /* Release */,
+				594905D1218FDF31001E860C /* Debug */,
+				594905D2218FDF31001E860C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		596D24D120FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpadTests" */ = {
+		594905D3218FDF31001E860C /* Build configuration list for PBXNativeTarget "ToeicIpadTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				596D24D220FF2A1000CA5462 /* Debug */,
-				596D24D320FF2A1000CA5462 /* Release */,
+				594905D4218FDF31001E860C /* Debug */,
+				594905D5218FDF31001E860C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		596D24D420FF2A1000CA5462 /* Build configuration list for PBXNativeTarget "ToeicIpadUITests" */ = {
+		594905D6218FDF31001E860C /* Build configuration list for PBXNativeTarget "ToeicIpadUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				596D24D520FF2A1000CA5462 /* Debug */,
-				596D24D620FF2A1000CA5462 /* Release */,
+				594905D7218FDF31001E860C /* Debug */,
+				594905D8218FDF31001E860C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 596D249A20FF2A0E00CA5462 /* Project object */;
+	rootObject = 594905A0218FDF2F001E860C /* Project object */;
 }

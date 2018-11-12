@@ -1,0 +1,6 @@
+framework module Pods_ToeicIpad {
+  umbrella header "Pods-ToeicIpad-umbrella.h"
+
+  export *
+  module * { export * }
+}

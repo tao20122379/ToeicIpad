@@ -23,6 +23,8 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func TestSelected(_ sender: Any) {
+        DownloadClient.shareClient.downloadDataPart1(test_id: "1")
+        return
         let downloadRequest = DownloadClient();
         downloadRequest.delegate = self
  

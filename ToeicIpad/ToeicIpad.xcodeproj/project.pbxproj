@@ -24,6 +24,10 @@
 		5992F69F2195269200ED9298 /* ProgressDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */; };
 		5992F6A4219567A200ED9298 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992F6A3219567A200ED9298 /* FileUtil.swift */; };
 		59C7A42C2192D438007251DB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C7A42B2192D438007251DB /* ApiClient.swift */; };
+		59D298E521C4EA6500433F03 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E121C4EA6500433F03 /* BookManager.swift */; };
+		59D298E621C4EA6500433F03 /* QuestionPart1Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */; };
+		59D298E721C4EA6500433F03 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E321C4EA6500433F03 /* DatabaseManager.swift */; };
+		59D298E821C4EA6500433F03 /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E421C4EA6500433F03 /* TestManager.swift */; };
 		CECC151A8483079CD57EFF39 /* Pods_ToeicIpadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20C6B8187F6D298E0284479 /* Pods_ToeicIpadUITests.framework */; };
 		DF9C8CB9BF8D9FC045C11887 /* Pods_ToeicIpad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C94CBBCB5F58B4114632C5 /* Pods_ToeicIpad.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +75,10 @@
 		5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressDownloadViewController.xib; sourceTree = "<group>"; };
 		5992F6A3219567A200ED9298 /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
 		59C7A42B2192D438007251DB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		59D298E121C4EA6500433F03 /* BookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
+		59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionPart1Manager.swift; sourceTree = "<group>"; };
+		59D298E321C4EA6500433F03 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		59D298E421C4EA6500433F03 /* TestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
 		7063D447A3D99B587CA15D51 /* Pods-ToeicIpadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadTests/Pods-ToeicIpadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D8126E760600E9704A1AA87 /* Pods-ToeicIpad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad.debug.xcconfig"; sourceTree = "<group>"; };
 		B8572038EF10CBF84D889FEB /* Pods-ToeicIpadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadTests/Pods-ToeicIpadTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +227,7 @@
 		594905E2218FE088001E860C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				59D298E021C4EA6500433F03 /* Database */,
 				594905F0218FE3F6001E860C /* ApiClient */,
 			);
 			path = Managers;
@@ -289,6 +298,17 @@
 				594905E4218FE0B5001E860C /* Util.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		59D298E021C4EA6500433F03 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				59D298E121C4EA6500433F03 /* BookManager.swift */,
+				59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */,
+				59D298E321C4EA6500433F03 /* DatabaseManager.swift */,
+				59D298E421C4EA6500433F03 /* TestManager.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		A7D376BAC667C5E170AFC42E /* Pods */ = {
@@ -465,10 +485,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -518,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59D298E621C4EA6500433F03 /* QuestionPart1Manager.swift in Sources */,
 				594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */,
 				594905EB218FE1B2001E860C /* HomeViewController.swift in Sources */,
 				594905E7218FE158001E860C /* Global.swift in Sources */,
@@ -525,7 +550,10 @@
 				594905E5218FE0B5001E860C /* Util.swift in Sources */,
 				594905AC218FDF2F001E860C /* AppDelegate.swift in Sources */,
 				5992F6A4219567A200ED9298 /* FileUtil.swift in Sources */,
+				59D298E721C4EA6500433F03 /* DatabaseManager.swift in Sources */,
 				598085112193E157004E731C /* DownloadClient.swift in Sources */,
+				59D298E821C4EA6500433F03 /* TestManager.swift in Sources */,
+				59D298E521C4EA6500433F03 /* BookManager.swift in Sources */,
 				59C7A42C2192D438007251DB /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

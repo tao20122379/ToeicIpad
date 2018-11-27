@@ -23,7 +23,7 @@ class DownloadClient: NSObject,UITableViewDelegate {
     var fileName:String = ""
     
     static let shareClient: DownloadClient = DownloadClient()
-
+    
     override init() {
     }
     
@@ -55,8 +55,23 @@ class DownloadClient: NSObject,UITableViewDelegate {
         task.resume()
     }
     
- 
-    
+    func downloadDataPart1(test_id:String) {
+        let params = NSMutableDictionary()
+        //        params.setValue("1", forKey: "test_id")
+        ApiClient.shareClient.callMethod(method: "question-part1/search", withParams: params) { (data, error) in
+            let decoder = JSONDecoder()
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (object) in
+                        
+                    })
+                }catch {
+                    print(error)
+                }
+            }
+        }
+    }
 }
 
 extension DownloadClient:URLSessionTaskDelegate,URLSessionDownloadDelegate{
@@ -92,6 +107,15 @@ extension DownloadClient:URLSessionTaskDelegate,URLSessionDownloadDelegate{
     }
     
 }
+
+struct Question1: Codable {
+    var id = ""
+    var test_id = ""
+    var image_url = ""
+    var answerA = ""
+
+}
+
 
 
 

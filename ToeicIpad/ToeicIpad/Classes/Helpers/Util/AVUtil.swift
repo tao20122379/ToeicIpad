@@ -17,10 +17,11 @@ class AVUtil: NSObject, AVAudioPlayerDelegate{
     var longTime:TimeInterval?
     
     override init(){
-        playerController = AVAudioPlayer()
+       
     }
     
     func playAudio(fileName:String, start:Double, end:Double) -> Void {
+        playerController = AVAudioPlayer()
         timeStart = start
         timeEnd = end
         longTime = timeEnd! - timeStart!
@@ -30,14 +31,13 @@ class AVUtil: NSObject, AVAudioPlayerDelegate{
             playerController?.numberOfLoops = 0
             playerController?.enableRate = true
             playerController?.currentTime = timeStart!
-            playerController?.play()
         } catch let error as NSError {
             print(error)
         }
     }
     
     func stop(){
-        if (playerController?.isPlaying == true) {
+        if (playerController != nil && playerController?.isPlaying == true) {
             playerController?.stop()
             if (timeStart != nil) {
                 playerController?.currentTime = timeStart!
@@ -49,34 +49,58 @@ class AVUtil: NSObject, AVAudioPlayerDelegate{
     }
     
     func pause() {
-        if (playerController?.isPlaying == true) {
+        if (playerController != nil && playerController?.isPlaying == true) {
             playerController?.pause()
         }
     }
     
     func play() {
-        if (playerController?.isPlaying == false) {
+        if (playerController != nil && playerController?.isPlaying == false) {
             playerController?.play()
         }
     }
     
     func resetAudio() {
-        playerController?.currentTime = timeStart!
+        if (playerController != nil) {
+            playerController?.currentTime = timeStart!
+        }
     }
     
     func getProgress() -> Float {
-        if ( playerController?.currentTime != nil && longTime != nil && longTime != 0) {
+        if (playerController != nil && longTime != nil && longTime != 0) {
             return Float(((playerController?.currentTime)! - timeStart!)/longTime!)
         }
         return 0
-      
     }
     
-    func getTimeFromeValue(value:Float) -> TimeInterval{
+    func beginString() -> String {
+        if (playerController != nil && timeStart != nil) {
+            return String(format: "%.2d:%.2d", Int(((playerController?.currentTime)! - timeStart!)/60), Int((playerController?.currentTime)! - timeStart!)%60)
+        }
+        return "00:00"
+    
+    }
+    
+    func endString() -> String {
+        if (longTime == nil) {
+            return "00:00"
+        }
+        return String(format: "%.2d:%.2d", Int(self.longTime!/60), Int(self.longTime!.truncatingRemainder(dividingBy: 60)))
+    }
+    
+    
+    func setAudioTimeValue(value:Float) -> Void {
         if (longTime != nil && timeStart != nil) {
             let time = Double(value) * longTime! + timeStart!
-            return time
+            playerController?.currentTime = time
+          
         }
-        return 0
+    }
+    
+    func isPlay() -> Bool {
+        if (playerController != nil) {
+            return (playerController?.isPlaying)!
+        }
+        return true
     }
 }

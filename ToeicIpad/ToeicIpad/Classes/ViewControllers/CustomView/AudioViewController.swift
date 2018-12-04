@@ -1,38 +1,32 @@
 //
-//  AudioView.swift
+//  AudioViewController.swift
 //  ToeicIpad
 //
-//  Created by DungLM3 on 11/30/18.
+//  Created by DungLM3 on 12/31/18.
 //  Copyright © 2018 DungLM3. All rights reserved.
 //
 
 import UIKit
 
-class AudioView: UIView {
+class AudioViewController: UIViewController {
+
+
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressController: UISlider!
     @IBOutlet weak var timeStartLb: UILabel!
     @IBOutlet weak var timeEndLb: UILabel!
     @IBOutlet weak var playBtn: UIButton!
-    @IBOutlet weak var tabBar: UITabBar!
-    
-    @IBOutlet weak var customView: UIView!
-    
     var pauseBtn: UIButton?
     var repeatBtn:UIButton?
     var stopBtn: UIButton?
     var timer:Timer?
     let TIME_PROGRESS = 0.1
     var isRepeat:Bool = false
-    var view: UIView!
-    var isCurrentlyPlayingHidden = false
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        progressController.setThumbImage(UIImage(named: "thump"), for: UIControl.State.normal)
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-
+    
     func initAudio(fileName: String, start: Double, end: Double) -> Void{
         AVUtil.shareAudio.playAudio(fileName: fileName, start: start, end: end)
         timer?.invalidate()
@@ -53,7 +47,7 @@ class AudioView: UIView {
             } else {
                 AVUtil.shareAudio.stop()
                 timer?.invalidate()
-
+                
             }
         }
         timeStartLb.text = AVUtil.shareAudio.beginString()
@@ -74,17 +68,19 @@ class AudioView: UIView {
         playBtn.setImage(UIImage(named: "audio_pause"), for: .normal)
     }
     
-    @IBAction func sliderTouchDown(_ sender: UISlider) {
-        timer?.invalidate()
+    @IBAction func sliderTouchDown(_ sender: Any) {
+         timer?.invalidate()
     }
-
+    
+    
     @IBAction func sliderTouchUpInSide(_ sender: UISlider) {
         AVUtil.shareAudio.setAudioTimeValue(value: sender.value)
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: TIME_PROGRESS, repeats: true, block: { (timer) in
-                    self.processAudio()
+            self.processAudio()
         })
     }
+    
     
     @IBAction func playSelected(_ sender: UIButton) {
         
@@ -96,8 +92,10 @@ class AudioView: UIView {
     }
     
     @IBAction func sliderDrag(_ sender: UISlider) {
-          AVUtil.shareAudio.setAudioTimeValue(value: sender.value)
-          timeStartLb.text = AVUtil.shareAudio.beginString()
+        AVUtil.shareAudio.setAudioTimeValue(value: sender.value)
+        timeStartLb.text = AVUtil.shareAudio.beginString()
     }
     
+
+ 
 }

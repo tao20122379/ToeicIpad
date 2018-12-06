@@ -8,13 +8,21 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+enum PartType: Int {
+    case part1 = 1, part2, part3, part4
+}
+
+class HomeViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var testImage: UIImageView!
-    var progressVC:ProgressDownloadViewController?
-    var show: Bool = false
-    var alertVC:UIAlertController?
+    let listParts = [["type":"1", "title":"Part1: Photo"],
+                     ["type":"2", "title":"Part2: Question - Response"],
+                     ["type":"3", "title":"Part3: Short Conversation"],
+                     ["type":"4", "title":"Part4: Short Tallks"],
+                     ["type":"5", "title":"All Test"]
+                     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
@@ -26,94 +34,37 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func TestSelected(_ sender: Any) {
-        
-    
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if (show) {
-            appDelegate.hideAidoView()
-            show = false
-        } else {
-            appDelegate.showAudioView()
-            show = true
-        }
-
-        return
-        
-        let newVC = UIViewController()
-        newVC.view.backgroundColor = UIColor.white
-        self.navigationController?.pushViewController(newVC, animated: true)
-
-        return
-      
-        let question1: QuestionPart1 = QuestionPart1Manager.getQuestion1(question_id: 1)
-        print(question1)
+    @IBAction func TestSelected(_ sender: UIButton) {
     }
     
-    
 
-    func showProgressDownload() -> Void {
-        let downloadRequest = DownloadClient();
-        downloadRequest.delegate = self
-        
-        progressVC = ProgressDownloadViewController(nibName: "ProgressDownloadViewController", bundle: nil)
-        
-        alertVC = UIAlertController(title: "", message: nil, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert) in
-        }
-        alertVC?.addAction(cancelAction)
-        let customView = UIView()
-        alertVC?.view.addSubview(customView)
-        Util.SetContraintCustomViewAlert(alertVC: alertVC!, customView: customView)
-        progressVC?.view.frame = CGRect(x: 0, y: 0, width: customView.frame.size.width, height: customView.frame.size.height)
-        progressVC?.view.backgroundColor = UIColor.clear
-        customView.addSubview((progressVC?.view)!)
-        if (FileUtil.fileExitsAtName(fileName: "1.png") == false) {
-            self.present(alertVC!, animated: true) {
-                downloadRequest.downloadImage(name: "1.png") { (url, response) in
-                }
-            }
-        }
-        let filePath = FileUtil.pathOfFile(fileName: "1.png")
-        testImage.image = UIImage(contentsOfFile: filePath)
-    }
 }
 
 
-extension HomeViewController:DownloadClientDelegate {
-    func downloadClientCompleteHandler(filePath: String) {
-        progressVC = nil
-        DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
+
+extension HomeViewController: UIPopoverPresentationControllerDelegate {
     
-    func downloadClientErrorHandler(error: NSError?) {
-        DispatchQueue.main.async {
-            self.progressVC = nil
-            self.dismiss(animated: true, completion: nil)
-        }
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
-    
-    func downloadClientProgressHandler(progress: Float, fileSize: Float) {
-        DispatchQueue.main.async {
-            self.progressVC?.downloadProgress.progress = progress
-        }
-    }
-    
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return listParts.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewVC = FirstViewController(nibName: "FirstViewController", bundle: nil)
-        viewVC.view.backgroundColor = UIColor.white
-        viewVC.title = "Test"
-        self.navigationController?.pushViewController(viewVC, animated: true)
+        let listTestVC = ListTestViewController(nibName: "ListTestViewController", bundle: nil)
+      
+        let type = listParts[indexPath.row]["type"]
+   
+        listTestVC.type = PartType(rawValue: Int(type!)!)
+        self.navigationController?.pushViewController(listTestVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,8 +72,8 @@ extension HomeViewController:DownloadClientDelegate {
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
         }
-        
-        cell!.textLabel?.text = String(format: "%d", indexPath.row)
+        let cellData = listParts[indexPath.row]
+        cell!.textLabel?.text = cellData["title"]
         return cell!
     }
     
@@ -134,4 +85,3 @@ extension HomeViewController:DownloadClientDelegate {
         return 0.001
     }
 }
-

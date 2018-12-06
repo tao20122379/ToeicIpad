@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var audioView: AudioView?
     let audioHeight: CGFloat = 80
     var tabBarController: UITabBarController?
+    var audioIsShow: Bool = false
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         do {
@@ -37,10 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = nav
         nav.navigationBar.isHidden = true
         audioView = (Bundle.main.loadNibNamed("AudioView", owner: self, options: nil)?.first as! AudioView)
-        audioView?.frame =  CGRect(x: 0, y: Global.SCREEN_HEIGHT-129, width: Global.SCREEN_WIDTH, height:audioHeight)
-        audioView?.isHidden = true
-        audioView?.alpha = 0
-        window?.addSubview(audioView!)
+        audioView?.frame =  CGRect(x: 0, y: Global.SCREEN_HEIGHT-49, width: Global.SCREEN_WIDTH, height:audioHeight)
+        audioView?.isHidden = false
+        audioView?.alpha = 1
+        tabBarController?.view.addSubview(audioView!)
+        tabBarController?.view.addSubview((tabBarController?.tabBar)!)
+        
         return true
     }
     
@@ -49,14 +52,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabViewController1 = HomeViewController(
             nibName: "HomeViewController",
             bundle: nil)
+        tabViewController1.tabBarItem.image = UIImage(named: "home")
         let nav = UINavigationController(rootViewController: tabViewController1)
-        //nav.navigationBar.isHidden = true
+        
         let tabViewController2 = FirstViewController(
             nibName:"FirstViewController",
             bundle: nil)
+        tabViewController2.tabBarItem.image = UIImage(named: "thong_ke")
         let nav1 = UINavigationController(rootViewController: tabViewController2)
-        tabViewController2.title = "First"
-        let controllers = [nav,nav1]
+        tabViewController2.title = "Thống Kê"
+        
+        let tabViewController3 = FirstViewController(
+            nibName:"FirstViewController",
+            bundle: nil)
+        tabViewController3.tabBarItem.image = UIImage(named: "setting")
+        tabViewController3.title = "Setting"
+        let nav2 = UINavigationController(rootViewController: tabViewController3)
+        
+        let controllers = [nav,nav1,nav2]
         tabBarController = UITabBarController()
         tabBarController?.tabBar.isTranslucent = false
         tabBarController?.viewControllers = controllers
@@ -79,18 +92,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func showAudioView() -> Void {
-        audioView?.isHidden = false
         UIView.animate(withDuration: 0.5) {
-            self.audioView?.alpha = 1
+            self.audioView?.transform = CGAffineTransform(translationX: 0, y: -80)
         }
+        audioIsShow = true
     }
     
     func hideAidoView() -> Void {
         UIView.animate(withDuration: 0.5, animations: {
-            self.audioView?.alpha = 0
-        }) { (bool) in
-            self.audioView?.isHidden = true
-        }
+            self.audioView?.transform = CGAffineTransform(translationX: 0, y: 0)
+        })
+          audioIsShow = false
     }
 
 

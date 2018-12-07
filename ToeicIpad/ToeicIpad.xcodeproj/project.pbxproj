@@ -20,6 +20,12 @@
 		594905EB218FE1B2001E860C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905E9218FE1B2001E860C /* HomeViewController.swift */; };
 		594905EC218FE1B2001E860C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594905EA218FE1B2001E860C /* HomeViewController.xib */; };
 		594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905EE218FE3AB001E860C /* BaseViewController.swift */; };
+		596060CA21BA0586004D64B0 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596060C821BA0586004D64B0 /* DescriptionCell.swift */; };
+		596060CB21BA0586004D64B0 /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596060C921BA0586004D64B0 /* DescriptionCell.xib */; };
+		596060CC21BA1182004D64B0 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962518021B8BC0D00D3C96D /* QuestionCell.swift */; };
+		596060CE21BA1DE0004D64B0 /* QuestionPart2Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596060CD21BA1DE0004D64B0 /* QuestionPart2Manager.swift */; };
+		596060D021BA1E0C004D64B0 /* QuestionPart3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596060CF21BA1E0C004D64B0 /* QuestionPart3Manager.swift */; };
+		596060D221BA1E1A004D64B0 /* QuestionPart4Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596060D121BA1E1A004D64B0 /* QuestionPart4Manager.swift */; };
 		5962517E21B8B9DA00D3C96D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5962517D21B8B9DA00D3C96D /* CoreGraphics.framework */; };
 		5962518221B8BC0D00D3C96D /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962518021B8BC0D00D3C96D /* QuestionCell.swift */; };
 		5962518321B8BC0D00D3C96D /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5962518121B8BC0D00D3C96D /* QuestionCell.xib */; };
@@ -92,6 +98,11 @@
 		594905E9218FE1B2001E860C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		594905EA218FE1B2001E860C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		594905EE218FE3AB001E860C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		596060C821BA0586004D64B0 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
+		596060C921BA0586004D64B0 /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
+		596060CD21BA1DE0004D64B0 /* QuestionPart2Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPart2Manager.swift; sourceTree = "<group>"; };
+		596060CF21BA1E0C004D64B0 /* QuestionPart3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPart3Manager.swift; sourceTree = "<group>"; };
+		596060D121BA1E1A004D64B0 /* QuestionPart4Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPart4Manager.swift; sourceTree = "<group>"; };
 		5962517D21B8B9DA00D3C96D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5962518021B8BC0D00D3C96D /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		5962518121B8BC0D00D3C96D /* QuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCell.xib; sourceTree = "<group>"; };
@@ -260,6 +271,8 @@
 				5995858021B7B7A7008E7AF0 /* Part1 */,
 				59725F4B21B9052C0013A170 /* Part2 */,
 				59725F4C21B905330013A170 /* Part34 */,
+				596060C521BA0283004D64B0 /* Setting */,
+				596060C621BA02BA004D64B0 /* ThongKe */,
 				594905E8218FE186001E860C /* Home */,
 			);
 			path = ViewControllers;
@@ -316,6 +329,29 @@
 				598085102193E157004E731C /* DownloadClient.swift */,
 			);
 			path = ApiClient;
+			sourceTree = "<group>";
+		};
+		596060C521BA0283004D64B0 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		596060C621BA02BA004D64B0 /* ThongKe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThongKe;
+			sourceTree = "<group>";
+		};
+		596060C721BA0560004D64B0 /* DescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				596060C821BA0586004D64B0 /* DescriptionCell.swift */,
+				596060C921BA0586004D64B0 /* DescriptionCell.xib */,
+			);
+			path = DescriptionCell;
 			sourceTree = "<group>";
 		};
 		5962517F21B8BBF500D3C96D /* QuestionCell */ = {
@@ -428,6 +464,7 @@
 		59A1843521CB2D0E00E754B2 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				596060C721BA0560004D64B0 /* DescriptionCell */,
 				59725F4621B900380013A170 /* SubmitCell */,
 				5962517F21B8BBF500D3C96D /* QuestionCell */,
 				5995858C21B7C915008E7AF0 /* ImageCell */,
@@ -440,10 +477,13 @@
 		59D298E021C4EA6500433F03 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				59D298E121C4EA6500433F03 /* BookManager.swift */,
-				59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */,
 				59D298E321C4EA6500433F03 /* DatabaseManager.swift */,
+				59D298E121C4EA6500433F03 /* BookManager.swift */,
 				59D298E421C4EA6500433F03 /* TestManager.swift */,
+				59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */,
+				596060CD21BA1DE0004D64B0 /* QuestionPart2Manager.swift */,
+				596060CF21BA1E0C004D64B0 /* QuestionPart3Manager.swift */,
+				596060D121BA1E1A004D64B0 /* QuestionPart4Manager.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -577,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59725F5421B905AE0013A170 /* Part34ViewController.xib in Resources */,
+				596060CB21BA0586004D64B0 /* DescriptionCell.xib in Resources */,
 				594905B6218FDF31001E860C /* LaunchScreen.storyboard in Resources */,
 				593C8A2A21B4C81300F87D9B /* AudioView.xib in Resources */,
 				594905B3218FDF31001E860C /* Assets.xcassets in Resources */,
@@ -697,6 +738,7 @@
 			files = (
 				5995858921B7BCE6008E7AF0 /* Part1ViewController.swift in Sources */,
 				59D298E621C4EA6500433F03 /* QuestionPart1Manager.swift in Sources */,
+				596060D021BA1E0C004D64B0 /* QuestionPart3Manager.swift in Sources */,
 				59A1843721CB2D0E00E754B2 /* AudioView.swift in Sources */,
 				5995858421B7BC86008E7AF0 /* ListTestViewController.swift in Sources */,
 				594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */,
@@ -709,12 +751,15 @@
 				59725F4421B8DBBA0013A170 /* ImageCell.swift in Sources */,
 				59A1843421CB2D0E00E754B2 /* AVUtil.swift in Sources */,
 				59725F4F21B905900013A170 /* Part2ViewController.swift in Sources */,
+				596060D221BA1E1A004D64B0 /* QuestionPart4Manager.swift in Sources */,
 				59D6884E21B6321300EB4F18 /* FirstViewController.swift in Sources */,
 				5962518221B8BC0D00D3C96D /* QuestionCell.swift in Sources */,
 				594905AC218FDF2F001E860C /* AppDelegate.swift in Sources */,
 				5992F6A4219567A200ED9298 /* FileUtil.swift in Sources */,
 				59D298E721C4EA6500433F03 /* DatabaseManager.swift in Sources */,
+				596060CE21BA1DE0004D64B0 /* QuestionPart2Manager.swift in Sources */,
 				598085112193E157004E731C /* DownloadClient.swift in Sources */,
+				596060CA21BA0586004D64B0 /* DescriptionCell.swift in Sources */,
 				59D298E821C4EA6500433F03 /* TestManager.swift in Sources */,
 				59D298E521C4EA6500433F03 /* BookManager.swift in Sources */,
 				59C7A42C2192D438007251DB /* ApiClient.swift in Sources */,
@@ -734,6 +779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				594905CC218FDF31001E860C /* ToeicIpadUITests.swift in Sources */,
+				596060CC21BA1182004D64B0 /* QuestionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

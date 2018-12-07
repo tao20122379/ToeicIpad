@@ -66,7 +66,7 @@ class QuestionPart1: Object {
     @objc dynamic var answerB = ""
     @objc dynamic var answerC = ""
     @objc dynamic var answerD = ""
-    @objc dynamic var answer_true = 1
+    @objc dynamic var answer_true = 0
     @objc dynamic var time_start = 0.0
     @objc dynamic var time_end = 0.0
     @objc dynamic var description_text = ""

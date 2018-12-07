@@ -8,7 +8,7 @@ PODS:
     - Realm (= 3.11.1)
 
 DEPENDENCIES:
-  - DLRadioButton (~> 1.4)
+  - DLRadioButton
   - OAuthSwift (~> 1.2.0)
   - RealmSwift
 
@@ -25,6 +25,6 @@ SPEC CHECKSUMS:
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
 
-PODFILE CHECKSUM: d8bc4cdc87c1bb8979ae67159d1e91bf3ded41db
+PODFILE CHECKSUM: f914604fe579ca009ce77607575f1a9cad26a3cb
 
 COCOAPODS: 1.5.3

@@ -10,7 +10,7 @@ import UIKit
 
 class ApiClient {
     
-    var baseUrl = "http://testyii.local/";
+    var baseUrl = "http://testcrm.tomorrowmarketers.org/";
     static let shareClient: ApiClient = ApiClient()
     
     private init() {

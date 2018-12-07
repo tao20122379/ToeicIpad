@@ -7,10 +7,14 @@
 //
 
 import UIKit
+protocol SubmitCellDelegate {
+    func submitCellSelected() -> Void
+}
 
 class SubmitCell: UITableViewCell {
 
     @IBOutlet weak var btnSubmit: UIButton!
+    var delegate: SubmitCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,12 +23,17 @@ class SubmitCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func layoutSubviews() {
         btnSubmit.layer.cornerRadius = 8
+    }
+    
+    
+    @IBAction func submitCellSelected(_ sender: Any) {
+        if (delegate != nil) {
+            delegate?.submitCellSelected()
+        }
     }
     
 }

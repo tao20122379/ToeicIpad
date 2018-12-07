@@ -19,7 +19,7 @@ public protocol DownloadClientDelegate {
 class DownloadClient: NSObject,UITableViewDelegate {
     
     var delegate:DownloadClientDelegate?
-    var baseUrl = "http://testyii.local/"
+    var baseUrl = "http://testcrm.tomorrowmarketers.org/"
     var fileName:String = ""
     
     static let shareClient: DownloadClient = DownloadClient()
@@ -41,6 +41,7 @@ class DownloadClient: NSObject,UITableViewDelegate {
         task.resume()
     }
     
+    
     func downloadAudio(name:String, completionHandler: @escaping(URL?,Error?) -> Swift.Void) -> Swift.Void {
         fileName = name;
         let urlStr = String(format: "%@audio/%@", baseUrl, fileName)
@@ -53,6 +54,38 @@ class DownloadClient: NSObject,UITableViewDelegate {
         let task = session.downloadTask(with: fileURL!)
         
         task.resume()
+    }
+    
+    func downloadBooks() {
+        let params = NSMutableDictionary()
+        ApiClient.shareClient.callMethod(method: "list-book/search", withParams: params) { (data, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (bookData) in
+                        BookManager.addBook(bookData: bookData as NSDictionary)
+                    })
+                }catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func downloadTests() {
+        let params = NSMutableDictionary()
+        ApiClient.shareClient.callMethod(method: "test-book/search", withParams: params) { (data, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (bookData) in
+                        TestManager.addTest(testData: bookData as NSDictionary)
+                    })
+                }catch {
+                    print(error)
+                }
+            }
+        }
     }
     
     func downloadDataPart1(test_id:String) {
@@ -72,6 +105,94 @@ class DownloadClient: NSObject,UITableViewDelegate {
             }
         }
     }
+    
+    func downloadDataPart2(test_id:String) {
+        let params = NSMutableDictionary()
+        params.setValue(test_id, forKey: "test_id")
+        ApiClient.shareClient.callMethod(method: "question-part2/search", withParams: params) { (data, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (question1Data) in
+                        QuestionPart2Manager.addQuestion2(data: question1Data as NSDictionary)
+                    })
+                }catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func downloadQuesionPart3(test_id:String) {
+        let params = NSMutableDictionary()
+        params.setValue(test_id, forKey: "test_id")
+        ApiClient.shareClient.callMethod(method: "question-part3/search", withParams: params) { (data, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (question1Data) in
+                        QuestionPart3Manager.addPart3Question(data: question1Data as NSDictionary)
+                    })
+                }catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func downloadQuesionPart4(test_id:String) {
+        let params = NSMutableDictionary()
+        params.setValue(test_id, forKey: "test_id")
+        ApiClient.shareClient.callMethod(method: "question-part4/search", withParams: params) { (data, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (question1Data) in
+                        QuestionPart4Manager.addPart4Question(data: question1Data as NSDictionary)
+                    })
+                }catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func downloadPassagePart3(test_id:String) {
+        let params = NSMutableDictionary()
+        params.setValue(test_id, forKey: "test_id")
+        ApiClient.shareClient.callMethod(method: "passage-part3/search", withParams: params) { (data, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (question1Data) in
+                        QuestionPart3Manager.addPart3Passage(data: question1Data as NSDictionary)
+                    })
+                }catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func downloadPassagePart4(test_id:String) {
+        let params = NSMutableDictionary()
+        params.setValue(test_id, forKey: "test_id")
+        ApiClient.shareClient.callMethod(method: "passage-part3/search", withParams: params) { (data, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (question1Data) in
+                        QuestionPart4Manager.addPart4Passage(data: question1Data as NSDictionary)
+                    })
+                }catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    
+    
 }
 
 extension DownloadClient:URLSessionTaskDelegate,URLSessionDownloadDelegate{

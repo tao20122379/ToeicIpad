@@ -24,10 +24,10 @@ class BookManager: NSObject {
         return book!
     }
     
-    class internal func addBook(book_id: Int, book_name: String) -> Swift.Void {
+    class internal func addBook(bookData: NSDictionary) -> Swift.Void {
         let book = Book()
-        book.book_id = book_id
-        book.book_name = book_name
+        book.book_id = bookData["book_id"] as! Int
+        book.book_name = bookData["book_name"] as! String
         do {
             let realm = try Realm()
             try realm.write {

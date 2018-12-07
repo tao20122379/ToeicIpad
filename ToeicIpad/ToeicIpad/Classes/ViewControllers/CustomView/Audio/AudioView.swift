@@ -54,7 +54,7 @@ class AudioView: UIView {
             if (isRepeat == true){
                 AVUtil.shareAudio.resetAudio()
             } else {
-                AVUtil.shareAudio.stop()
+                self.pause()
                 timer?.invalidate()
 
             }
@@ -127,7 +127,6 @@ class AudioView: UIView {
         } else {
             isRepeat = true
             sender.tintColor = Util.hexStringToUIColor(hex: "0096FF")
-            
         }
     }
     
@@ -138,6 +137,7 @@ class AudioView: UIView {
 extension AudioView: SpeedTable_Delegate {
     func slecteedSpeed(speed: String) {
         speedBtn.setTitle(String(format: "%@ x", speed), for: UIControl.State.normal)
+        AVUtil.shareAudio.setSpeed(speed: Float(speed)!)
     }
 }
 

@@ -34,11 +34,11 @@ class TestManager: NSObject {
         return test!
     }
     
-    class internal func addTest(book_id: Int, test_id: Int, test_name: String) -> Swift.Void {
+    class internal func addTest(testData: NSDictionary) -> Swift.Void {
         let testBook = TestBook()
-        testBook.book_id = book_id
-        testBook.test_id = test_id
-        testBook.test_name = test_name
+        testBook.book_id = testData["book_id"] as! Int 
+        testBook.test_id = testData["test_id"] as! Int
+        testBook.test_name = testData["test_name"] as! String
         do {
             let realm = try Realm()
             try realm.write {

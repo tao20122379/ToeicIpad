@@ -66,6 +66,12 @@ class AVUtil: NSObject, AVAudioPlayerDelegate{
         }
     }
     
+    func setSpeed(speed:Float) -> Void {
+        if (playerController != nil) {
+            playerController?.rate = speed
+        }
+    }
+    
     func getProgress() -> Float {
         if (playerController != nil && longTime != nil && longTime != 0) {
             return Float(((playerController?.currentTime)! - timeStart!)/longTime!)

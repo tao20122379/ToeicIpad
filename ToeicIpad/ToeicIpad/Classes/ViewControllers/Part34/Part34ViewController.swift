@@ -16,6 +16,7 @@ class Part34ViewController: BaseViewController {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.showAudioView()
+        appDelegate.audioView?.initAudio(fileName: "1.mp3", start: 0, end: 20)
         title = "part3"
         initTableView()
     }

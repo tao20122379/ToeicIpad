@@ -14,6 +14,7 @@ class ListTestViewController: BaseViewController {
     @IBOutlet weak var listTestTableView: UITableView!
     
     var type: PartType?
+    let listBooks = BookManager.getBooks()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ extension ListTestViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return listBooks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,7 +40,7 @@ extension ListTestViewController: UITableViewDelegate, UITableViewDataSource {
             cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "listTest")
         }
         
-        cell?.textLabel?.text = String(format: "Test %d", indexPath.row)
+        cell?.textLabel?.text = listBooks[indexPath.row].book_name
         return cell!
     }
     

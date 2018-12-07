@@ -11,7 +11,7 @@ import UIKit
 class FileUtil: NSObject {
     class func pathOfFile(fileName: String) -> String {
         let documentsUrl:URL =  (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL?)!
-
+        print(documentsUrl)
         let destinationFileUrl = documentsUrl.appendingPathComponent(fileName)
         return destinationFileUrl.path
     }

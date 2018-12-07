@@ -39,6 +39,7 @@ class QuestionPart2Manager: NSObject {
         question2.question = data["question"] as! String
         question2.answerA = data["answerA"] as! String
         question2.answerB = data["answerB"] as! String
+        question2.answer_true = data["answer_true"] as! Int
         question2.answerC = data["answerC"] as! String
         question2.time_start = data["time_start"] as! Double
         question2.time_end = data["time_end"] as! Double

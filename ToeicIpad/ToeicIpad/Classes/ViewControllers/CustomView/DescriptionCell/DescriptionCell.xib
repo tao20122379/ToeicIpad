@@ -19,18 +19,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="90.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9l-FB-Sg2">
-                        <rect key="frame" x="15" y="5" width="300" height="80.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbq-dd-1Xm">
+                        <rect key="frame" x="15" y="15" width="300" height="65.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9l-FB-Sg2">
+                                <rect key="frame" x="5" y="5" width="290" height="55.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="dfdf  suds s pdf ds dg ds sdfs fis fsa fasdf sarf dfas fası ast df">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o9l-FB-Sg2" firstAttribute="top" secondItem="rbq-dd-1Xm" secondAttribute="top" constant="5" id="QCJ-0s-7qI"/>
+                            <constraint firstItem="o9l-FB-Sg2" firstAttribute="leading" secondItem="rbq-dd-1Xm" secondAttribute="leading" constant="5" id="ZNx-F7-kKd"/>
+                            <constraint firstAttribute="trailing" secondItem="o9l-FB-Sg2" secondAttribute="trailing" constant="5" id="m97-dH-WdA"/>
+                            <constraint firstAttribute="bottom" secondItem="o9l-FB-Sg2" secondAttribute="bottom" constant="5" id="stJ-4X-Pdy"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="o9l-FB-Sg2" secondAttribute="bottom" constant="5" id="I3j-0Z-Rbj"/>
-                    <constraint firstItem="o9l-FB-Sg2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Rfs-eA-cva"/>
-                    <constraint firstAttribute="trailing" secondItem="o9l-FB-Sg2" secondAttribute="trailing" constant="5" id="V6V-mC-TGk"/>
-                    <constraint firstItem="o9l-FB-Sg2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="XaT-Dz-S6T"/>
+                    <constraint firstItem="rbq-dd-1Xm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="4O2-eV-IAe"/>
+                    <constraint firstAttribute="trailing" secondItem="rbq-dd-1Xm" secondAttribute="trailing" constant="5" id="C9w-1y-jaA"/>
+                    <constraint firstAttribute="bottom" secondItem="rbq-dd-1Xm" secondAttribute="bottom" constant="10" id="F7J-5T-qqG"/>
+                    <constraint firstItem="rbq-dd-1Xm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="UPk-gm-qeY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

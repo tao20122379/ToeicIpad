@@ -13,6 +13,7 @@ class Part2ViewController: BaseViewController {
     @IBOutlet weak var part2TableView: UITableView!
     var isSubmit: Bool = false
     let part2Data = QuestionPart2Manager.getQuestion2(question_id: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

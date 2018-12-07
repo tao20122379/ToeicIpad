@@ -44,6 +44,7 @@ class QuestionCell: UITableViewCell {
         btnC.tag = 3
         btnD.tag = 4
     }
+
     
     func showDataPart1(data: QuestionPart1) -> Void {
         answerALabel.text = String(format: "(A) %@", data.answerA)
@@ -66,6 +67,16 @@ class QuestionCell: UITableViewCell {
         answerBLabel.text = String(format: "(B) %@", data.answerB)
         answerCLabel.text = String(format: "(C) %@", data.answerC)
         
+        showAnswerTrueFalse(index: data.answer_true, isTrue: true)
+        if (selectedIndex != nil) {
+            if (!(data.answer_true == selectedIndex)) {
+                showAnswerTrueFalse(index: selectedIndex!, isTrue: false)
+            }
+        }
+        
+    }
+    
+    func showDataPart3(data: QuestionPart3) -> Void {
         showAnswerTrueFalse(index: data.answer_true, isTrue: true)
         if (selectedIndex != nil) {
             if (!(data.answer_true == selectedIndex)) {

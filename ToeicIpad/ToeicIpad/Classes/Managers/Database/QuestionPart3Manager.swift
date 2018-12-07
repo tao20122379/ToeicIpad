@@ -42,7 +42,7 @@ class QuestionPart3Manager: NSObject {
     
     class func getPart3Passages(passage_id: Int) -> PassagePart3 {
         let realm = try! Realm()
-        let passage = realm.objects(PassagePart3.self).filter(String(format: "passage_id=%i", passage_id)).first
+        let passage = realm.objects(PassagePart3.self).filter(String(format: "id=%i", passage_id)).first
         return passage!
     }
     

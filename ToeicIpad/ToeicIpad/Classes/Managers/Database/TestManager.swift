@@ -27,6 +27,18 @@ class TestManager: NSObject {
         }
     }
     
+    class internal func getAllTests() -> Array<TestBook> {
+        do {
+            let realm = try Realm()
+            
+            let tests = realm.objects(TestBook.self).sorted(byKeyPath: "test_id")
+            return Array(tests)
+        } catch let error as NSError {
+            print(error)
+            return Array()
+        }
+    }
+    
     
     class func getTest(test_id: Int) -> TestBook {
         let realm = try! Realm()

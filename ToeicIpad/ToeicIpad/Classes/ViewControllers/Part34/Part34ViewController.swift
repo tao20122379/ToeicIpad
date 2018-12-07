@@ -11,6 +11,9 @@ import UIKit
 class Part34ViewController: BaseViewController {
 
     @IBOutlet weak var part3TableView: UITableView!
+    let passage3Data = QuestionPart3Manager.getPart3Passages(passage_id: 1)
+    let part3Questions = QuestionPart3Manager.getPart3Questions(passage_id: 1)
+    var isSubmit: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,7 @@ class Part34ViewController: BaseViewController {
         part3TableView.register(UINib(nibName: "QuestionCell", bundle: nil), forCellReuseIdentifier: "questionCellPart1")
         part3TableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "imageCellPart1")
         part3TableView.register(UINib(nibName: "SubmitCell", bundle: nil), forCellReuseIdentifier: "submitCellPart1")
+        part3TableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "descriptionCellPart3")
         
     }
     
@@ -40,17 +44,39 @@ extension Part34ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        if (isSubmit) {
+            return (part3Questions.count + 2)
+        }
+        return (part3Questions.count + 1)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row < 3) {
+        if (indexPath.row <= 2) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "questionCellPart1") as! QuestionCell
+            let questionData = part3Questions[indexPath.row]
+            cell.questionLabel.text = String(format: "%d. %@", indexPath.row + 1, questionData.question)
+            cell.answerALabel.text = String(format: "(A) %@", questionData.answerA)
+            cell.answerBLabel.text = String(format: "(B) %@", questionData.answerB)
+            cell.answerCLabel.text = String(format: "(C) %@", questionData.answerC)
+            cell.answerDLabel.text = String(format: "(D) %@", questionData.answerD)
+            if (isSubmit) {
+                cell.showDataPart3(data: questionData)
+            }
+ 
+            return cell
+        } else if (indexPath.row == 3) {
+            if (isSubmit){
+                let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellPart3") as! DescriptionCell
+                cell.descripLabel.text = passage3Data.passage
+                return cell
+            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "submitCellPart1") as! SubmitCell
+            cell.delegate = self
             return cell
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "submitCellPart1") as! SubmitCell
-        
+        cell.delegate = self
         return cell
     }
     
@@ -61,5 +87,13 @@ extension Part34ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.001
+    }
+}
+
+
+extension Part34ViewController: SubmitCellDelegate {
+    func submitCellSelected() {
+        isSubmit = true
+        part3TableView.reloadData()
     }
 }

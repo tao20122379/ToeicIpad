@@ -1,5 +1,8 @@
 PODS:
   - DLRadioButton (1.4.12)
+  - KRActivityIndicatorView (3.0.0)
+  - KRProgressHUD (3.4.0):
+    - KRActivityIndicatorView (= 3.0.0)
   - OAuthSwift (1.2.2)
   - Realm (3.11.1):
     - Realm/Headers (= 3.11.1)
@@ -9,22 +12,27 @@ PODS:
 
 DEPENDENCIES:
   - DLRadioButton
+  - KRProgressHUD
   - OAuthSwift (~> 1.2.0)
   - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DLRadioButton
+    - KRActivityIndicatorView
+    - KRProgressHUD
     - OAuthSwift
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
+  KRActivityIndicatorView: c414000730a6f4969eeb354bee4f2aebc89c2c2e
+  KRProgressHUD: 79c8703f82179fe34b3602f10b30726f887983fa
   OAuthSwift: 27b34fe80b76b67cd8f45571e0be2432bc9f6de1
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
 
-PODFILE CHECKSUM: f914604fe579ca009ce77607575f1a9cad26a3cb
+PODFILE CHECKSUM: ea0e47a074b6a6687a44bcaec3e6251b482627af
 
 COCOAPODS: 1.5.3

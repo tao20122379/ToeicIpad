@@ -15,16 +15,16 @@ class Part1ViewController: BaseViewController {
     var part1Data = QuestionPart1Manager.getQuestion1(question_id: 1)
     var isSubmit: Bool = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.showAudioView()
         appDelegate.audioView?.initAudio(fileName: "1.mp3", start: 0, end: 20)
         title = "part1"
-
         initTableView()
-        
     }
+    
     
     func initTableView() -> Void {
         part1TableView.delegate = self
@@ -36,11 +36,12 @@ class Part1ViewController: BaseViewController {
         part1TableView.register(UINib(nibName: "SubmitCell", bundle: nil), forCellReuseIdentifier: "submitCellPart1")
         part1TableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "descriptionCellPart1")
     }
-
-    @IBAction func testSelected(_ sender: Any) {
-        self.downloadImage(name: "1.png")
+    
+    func getDataPart1() -> Void {
         
     }
+
+
 }
 
 extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {

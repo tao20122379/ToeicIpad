@@ -72,7 +72,7 @@ class DownloadClient: NSObject,UITableViewDelegate {
         }
     }
     
-    func downloadTests() {
+    func downloadTests(completionHandler: @escaping(Bool?) -> Swift.Void) -> Swift.Void {
         let params = NSMutableDictionary()
         ApiClient.shareClient.callMethod(method: "test-book/search", withParams: params) { (data, error) in
             if let data = data {
@@ -81,14 +81,16 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (bookData) in
                         TestManager.addTest(testData: bookData as NSDictionary)
                     })
+                    completionHandler(true)
                 }catch {
                     print(error)
+                    completionHandler(false)
                 }
             }
         }
     }
     
-    func downloadDataPart1(test_id:String) {
+    func downloadDataPart1(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
         let params = NSMutableDictionary()
         params.setValue(test_id, forKey: "test_id")
         ApiClient.shareClient.callMethod(method: "question-part1/search", withParams: params) { (data, error) in
@@ -97,16 +99,18 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
                     json.forEach({ (question1Data) in
                         QuestionPart1Manager.addQuestion1(data: question1Data as NSDictionary)
-                        
                     })
+                    compleHandler(true)
                 }catch {
-                    print(error)
+                    compleHandler(false)
                 }
+            } else {
+                  compleHandler(false)
             }
         }
     }
     
-    func downloadDataPart2(test_id:String) {
+    func downloadDataPart2(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
         let params = NSMutableDictionary()
         params.setValue(test_id, forKey: "test_id")
         ApiClient.shareClient.callMethod(method: "question-part2/search", withParams: params) { (data, error) in
@@ -116,14 +120,18 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart2Manager.addQuestion2(data: question1Data as NSDictionary)
                     })
+                    compleHandler(true)
                 }catch {
+                    compleHandler(false)
                     print(error)
                 }
+            } else {
+                 compleHandler(false)
             }
         }
     }
     
-    func downloadQuesionPart3(test_id:String) {
+    func downloadQuesionPart3(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
         let params = NSMutableDictionary()
         params.setValue(test_id, forKey: "test_id")
         ApiClient.shareClient.callMethod(method: "question-part3/search", withParams: params) { (data, error) in
@@ -133,14 +141,18 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart3Manager.addPart3Question(data: question1Data as NSDictionary)
                     })
+                    compleHandler(true)
                 }catch {
                     print(error)
+                    compleHandler(false)
                 }
+            } else {
+                compleHandler(false)
             }
         }
     }
     
-    func downloadQuesionPart4(test_id:String) {
+    func downloadQuesionPart4(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
         let params = NSMutableDictionary()
         params.setValue(test_id, forKey: "test_id")
         ApiClient.shareClient.callMethod(method: "question-part4/search", withParams: params) { (data, error) in
@@ -150,14 +162,18 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart4Manager.addPart4Question(data: question1Data as NSDictionary)
                     })
+                    compleHandler(true)
                 }catch {
                     print(error)
+                    compleHandler(false)
                 }
+            } else {
+                compleHandler(false)
             }
         }
     }
     
-    func downloadPassagePart3(test_id:String) {
+    func downloadPassagePart3(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
         let params = NSMutableDictionary()
         params.setValue(test_id, forKey: "test_id")
         ApiClient.shareClient.callMethod(method: "passage-part3/search", withParams: params) { (data, error) in
@@ -167,26 +183,34 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart3Manager.addPart3Passage(data: question1Data as NSDictionary)
                     })
+                    compleHandler(true)
                 }catch {
                     print(error)
+                    compleHandler(false)
                 }
+            } else {
+                compleHandler(false)
             }
         }
     }
     
-    func downloadPassagePart4(test_id:String) {
+    func downloadPassagePart4(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
         let params = NSMutableDictionary()
         params.setValue(test_id, forKey: "test_id")
-        ApiClient.shareClient.callMethod(method: "passage-part3/search", withParams: params) { (data, error) in
+        ApiClient.shareClient.callMethod(method: "passage-part4/search", withParams: params) { (data, error) in
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
                     json.forEach({ (question1Data) in
                         QuestionPart4Manager.addPart4Passage(data: question1Data as NSDictionary)
                     })
+                    compleHandler(true)
                 }catch {
                     print(error)
+                    compleHandler(false)
                 }
+            } else {
+                    compleHandler(false)
             }
         }
     }

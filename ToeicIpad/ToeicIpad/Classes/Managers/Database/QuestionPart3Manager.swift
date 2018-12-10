@@ -30,7 +30,7 @@ class QuestionPart3Manager: NSObject {
         do {
             let realm = try Realm()
             var tests = realm.objects(QuestionPart3.self)
-            if ((passage_id) != nil) {
+            if ((passage_id) != nil && tests.count > 0) {
                 tests = realm.objects(QuestionPart3.self).filter(String(format: "passage_id=%i", passage_id!))
             }
             return Array(tests)

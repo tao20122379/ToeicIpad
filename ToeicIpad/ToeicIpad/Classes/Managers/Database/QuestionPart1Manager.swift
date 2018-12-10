@@ -16,7 +16,7 @@ class QuestionPart1Manager: NSObject {
         do {
             let realm = try Realm()
             var tests = realm.objects(QuestionPart1.self)
-            if ((test_id) != nil) {
+            if ((test_id) != nil && tests.count > 0) {
                 tests = realm.objects(QuestionPart1.self).filter(String(format: "test_id=%i", test_id!))
             }
             return Array(tests)

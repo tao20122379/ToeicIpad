@@ -46,13 +46,49 @@ class TestManager: NSObject {
         return test!
     }
     
+    class func updateDataTest(test: TestBook, part: Int) -> Void {
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    switch part {
+                    case 1:
+                        test.isDataPart1 = true
+                        break
+                    case 2:
+                        test.isDataPart2 = true
+                        break
+                    case 3:
+                        test.isDataPart3 = true
+                        break
+                    case 4:
+                        test.isDataPart4 = true
+                        break
+                    default:
+                        break
+                    }
+            
+                }
+
+            } catch let error as NSError {
+                print(error)
+            }
+     
+    
+    }
+    
     class internal func addTest(testData: NSDictionary) -> Swift.Void {
         let testBook = TestBook()
         testBook.book_id = testData["book_id"] as! Int 
         testBook.test_id = testData["test_id"] as! Int
         testBook.test_name = testData["test_name"] as! String
+
         do {
             let realm = try Realm()
+            let part1Data = realm.objects(QuestionPart1.self).filter(String(format: "test_id=%i", testBook.test_id))
+            if (part1Data.count > 0) {
+                testBook.isDataPart1 = true
+            }
+            
             try realm.write {
                 realm.add(testBook, update: true);
             }
@@ -67,6 +103,10 @@ class TestBook: Object {
     @objc dynamic var test_id = 0
     @objc dynamic var book_id = 0
     @objc dynamic var test_name = ""
+    @objc dynamic var isDataPart1 = false
+    @objc dynamic var isDataPart2 = false
+    @objc dynamic var isDataPart3 = false
+    @objc dynamic var isDataPart4 = false
     
     override static func primaryKey() -> String? {
         return "test_id"

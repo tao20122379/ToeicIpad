@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TestCell" customModule="ToeicIpad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="421" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="421" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzn-Ud-opJ">
+                        <rect key="frame" x="377.5" y="5" width="33.5" height="33.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Yzn-Ud-opJ" secondAttribute="height" multiplier="1:1" id="LQP-tJ-ERN"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                        <state key="normal" image="download"/>
+                        <connections>
+                            <action selector="downloadBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BnA-0s-ZMT"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad5-Hz-A9F">
+                        <rect key="frame" x="15" y="5" width="357.5" height="33.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Yzn-Ud-opJ" secondAttribute="bottom" constant="5" id="01w-sN-u2X"/>
+                    <constraint firstItem="ad5-Hz-A9F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4cP-tt-eV1"/>
+                    <constraint firstAttribute="bottom" secondItem="ad5-Hz-A9F" secondAttribute="bottom" constant="5" id="T74-eU-qMz"/>
+                    <constraint firstItem="ad5-Hz-A9F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="W0v-WR-eY6"/>
+                    <constraint firstItem="Yzn-Ud-opJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="iZn-wa-Llp"/>
+                    <constraint firstAttribute="trailing" secondItem="Yzn-Ud-opJ" secondAttribute="trailing" constant="10" id="yxd-AS-tAv"/>
+                    <constraint firstItem="Yzn-Ud-opJ" firstAttribute="leading" secondItem="ad5-Hz-A9F" secondAttribute="trailing" constant="5" id="zbe-WV-3R3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="downloadBtn" destination="Yzn-Ud-opJ" id="wFQ-lq-85s"/>
+                <outlet property="titleLabel" destination="ad5-Hz-A9F" id="Kt7-IF-vJq"/>
+            </connections>
+            <point key="canvasLocation" x="-345" y="136"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="download" width="112" height="112"/>
+    </resources>
+</document>

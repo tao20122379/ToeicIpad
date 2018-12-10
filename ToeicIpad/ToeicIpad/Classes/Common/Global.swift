@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 class Global: NSObject {
-  static let SCREEN_WIDTH = UIScreen.main.bounds.width
-  static let SCREEN_HEIGHT = UIScreen.main.bounds.height
-  static let CELL_SPEED_HEIGHT = 40
+    static let SCREEN_WIDTH = UIScreen.main.bounds.width
+    static let SCREEN_HEIGHT = UIScreen.main.bounds.height
+    static let CELL_SPEED_HEIGHT = 40
+    static let IS_FIRST_LOGIN = "is_first_login"
 }

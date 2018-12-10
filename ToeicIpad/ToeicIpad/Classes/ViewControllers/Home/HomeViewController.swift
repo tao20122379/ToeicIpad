@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import KRProgressHUD
+import KRActivityIndicatorView
 
 enum PartType: Int {
     case part1 = 1, part2, part3, part4
@@ -31,16 +33,18 @@ class HomeViewController: BaseViewController {
         DownloadClient.shareClient.downloadAudio(name: "1.mp3") { (url, error) in
             
         }
-        
-        DownloadClient.shareClient.downloadBooks()
-        DownloadClient.shareClient.downloadTests()
-        DownloadClient.shareClient.downloadDataPart1(test_id: "1")
-        DownloadClient.shareClient.downloadDataPart2(test_id: "1")
-        DownloadClient.shareClient.downloadPassagePart3(test_id: "1")
-        DownloadClient.shareClient.downloadQuesionPart3(test_id: "1")
-        DownloadClient.shareClient.downloadPassagePart4(test_id: "1")
-        DownloadClient.shareClient.downloadQuesionPart4(test_id: "1")
-        
+       // initData()
+    }
+    
+    func initData() -> Void {
+        //DownloadClient.shareClient.downloadBooks()
+        //DownloadClient.shareClient.downloadTests()
+//        DownloadClient.shareClient.downloadDataPart1(test_id: "1")
+//        DownloadClient.shareClient.downloadDataPart2(test_id: "1")
+//        DownloadClient.shareClient.downloadPassagePart3(test_id: "1")
+//        DownloadClient.shareClient.downloadQuesionPart3(test_id: "1")
+//        DownloadClient.shareClient.downloadPassagePart4(test_id: "1")
+//        DownloadClient.shareClient.downloadQuesionPart4(test_id: "1")
     }
 
     override func didReceiveMemoryWarning() {

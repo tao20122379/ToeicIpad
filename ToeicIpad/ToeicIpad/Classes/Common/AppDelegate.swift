@@ -48,28 +48,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func createTabbars() -> Void {
-     
+        UserDefaults.standard.set(true, forKey: Global.IS_FIRST_LOGIN)
         let tabViewController1 = HomeViewController(
             nibName: "HomeViewController",
             bundle: nil)
         tabViewController1.tabBarItem.image = UIImage(named: "home")
         let nav = UINavigationController(rootViewController: tabViewController1)
         
-        let tabViewController2 = FirstViewController(
-            nibName:"FirstViewController",
+        let thongKeVC = ThongKeViewController(
+            nibName:"ThongKeViewController",
             bundle: nil)
-        tabViewController2.tabBarItem.image = UIImage(named: "thong_ke")
-        let nav1 = UINavigationController(rootViewController: tabViewController2)
-        tabViewController2.title = "Thống Kê"
+        thongKeVC.tabBarItem.image = UIImage(named: "thong_ke")
+        let nav1 = UINavigationController(rootViewController: thongKeVC)
+        thongKeVC.title = "Thống Kê"
         
-        let tabViewController3 = FirstViewController(
-            nibName:"FirstViewController",
+        let settingVC = SettingViewController(
+            nibName:"SettingViewController",
             bundle: nil)
-        tabViewController3.tabBarItem.image = UIImage(named: "setting")
-        tabViewController3.title = "Setting"
-        let nav2 = UINavigationController(rootViewController: tabViewController3)
+        settingVC.tabBarItem.image = UIImage(named: "setting")
+        settingVC.title = "Setting"
+        let nav2 = UINavigationController(rootViewController: settingVC)
         
-        let controllers = [nav,nav1,nav2]
+        let controllers = [nav,nav2]
         tabBarController = UITabBarController()
         tabBarController?.tabBar.isTranslucent = false
         tabBarController?.viewControllers = controllers

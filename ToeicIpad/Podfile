@@ -9,6 +9,7 @@
   pod 'OAuthSwift', '~> 1.2.0'
   pod 'RealmSwift'
   pod 'DLRadioButton'
+  pod 'KRProgressHUD'
   target 'ToeicIpadTests' do
     inherit! :search_paths
     # Pods for testing

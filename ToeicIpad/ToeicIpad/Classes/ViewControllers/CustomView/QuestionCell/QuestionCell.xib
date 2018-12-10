@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,25 +25,25 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="(A)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmC-ap-4ah">
-                        <rect key="frame" x="50" y="38.5" width="487" height="19.5"/>
+                        <rect key="frame" x="45" y="38.5" width="492" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="(B)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPM-GM-SqQ">
-                        <rect key="frame" x="50" y="68" width="487" height="27.5"/>
+                        <rect key="frame" x="45" y="68" width="492" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="(C)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wlc-EQ-jHu">
-                        <rect key="frame" x="50" y="105.5" width="487" height="19.5"/>
+                        <rect key="frame" x="45" y="105.5" width="492" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(D)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1F-Kp-7JJ">
-                        <rect key="frame" x="50" y="135" width="487" height="19.5"/>
+                        <rect key="frame" x="45" y="135" width="492" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -110,21 +109,21 @@
                         </connections>
                     </button>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljY-bj-9h6">
-                        <rect key="frame" x="50" y="62.5" width="487" height="0.5"/>
+                        <rect key="frame" x="45" y="62.5" width="492" height="0.5"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="Pi5-dT-wpb"/>
                         </constraints>
                     </view>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvj-A7-Mhp">
-                        <rect key="frame" x="50" y="100" width="487" height="0.5"/>
+                        <rect key="frame" x="45" y="100" width="492" height="0.5"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="8P7-4w-s7S"/>
                         </constraints>
                     </view>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XS8-VF-Xw6">
-                        <rect key="frame" x="50" y="129.5" width="487" height="0.5"/>
+                        <rect key="frame" x="45" y="129.5" width="492" height="0.5"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="xWd-FN-Cra"/>
@@ -146,7 +145,7 @@
                     <constraint firstItem="QiE-Y4-IbH" firstAttribute="centerY" secondItem="Wlc-EQ-jHu" secondAttribute="centerY" id="JuF-IN-CGy"/>
                     <constraint firstItem="ljY-bj-9h6" firstAttribute="leading" secondItem="KmC-ap-4ah" secondAttribute="leading" id="KqQ-L5-BYx"/>
                     <constraint firstItem="QiE-Y4-IbH" firstAttribute="trailing" secondItem="92H-vn-NQX" secondAttribute="trailing" id="QJ8-NJ-9tI"/>
-                    <constraint firstItem="KmC-ap-4ah" firstAttribute="leading" secondItem="Fn5-Fk-UdP" secondAttribute="leading" constant="35" id="WMX-Kp-wJP"/>
+                    <constraint firstItem="KmC-ap-4ah" firstAttribute="leading" secondItem="Fn5-Fk-UdP" secondAttribute="leading" constant="30" id="WMX-Kp-wJP"/>
                     <constraint firstAttribute="trailing" secondItem="92H-vn-NQX" secondAttribute="trailing" constant="5" id="Z1v-bD-VAy"/>
                     <constraint firstItem="ljY-bj-9h6" firstAttribute="trailing" secondItem="KmC-ap-4ah" secondAttribute="trailing" id="Z8e-Nf-s2T"/>
                     <constraint firstItem="Fn5-Fk-UdP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="b78-AA-RvL"/>
@@ -171,7 +170,6 @@
                     <constraint firstItem="XS8-VF-Xw6" firstAttribute="trailing" secondItem="lvj-A7-Mhp" secondAttribute="trailing" id="zhc-9i-LdN"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="answerALabel" destination="KmC-ap-4ah" id="zbK-DR-2fY"/>
                 <outlet property="answerBLabel" destination="IPM-GM-SqQ" id="Vkt-6q-Nw3"/>

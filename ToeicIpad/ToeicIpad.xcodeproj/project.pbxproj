@@ -20,6 +20,15 @@
 		594905EB218FE1B2001E860C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905E9218FE1B2001E860C /* HomeViewController.swift */; };
 		594905EC218FE1B2001E860C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594905EA218FE1B2001E860C /* HomeViewController.xib */; };
 		594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905EE218FE3AB001E860C /* BaseViewController.swift */; };
+		595D336621BDF96600559A3E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D336421BDF96500559A3E /* SettingViewController.swift */; };
+		595D336721BDF96600559A3E /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595D336521BDF96500559A3E /* SettingViewController.xib */; };
+		595D336A21BDF97700559A3E /* ThongKeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D336821BDF97700559A3E /* ThongKeViewController.swift */; };
+		595D336B21BDF97700559A3E /* ThongKeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595D336921BDF97700559A3E /* ThongKeViewController.xib */; };
+		595D336F21BDFCD400559A3E /* Part4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D336D21BDFCD400559A3E /* Part4ViewController.swift */; };
+		595D337021BDFCD400559A3E /* Part4ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595D336E21BDFCD400559A3E /* Part4ViewController.xib */; };
+		595D337121BDFD9400559A3E /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962518021B8BC0D00D3C96D /* QuestionCell.swift */; };
+		595D337521BE053200559A3E /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D337321BE053200559A3E /* TestCell.swift */; };
+		595D337621BE053200559A3E /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595D337421BE053200559A3E /* TestCell.xib */; };
 		596060CA21BA0586004D64B0 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596060C821BA0586004D64B0 /* DescriptionCell.swift */; };
 		596060CB21BA0586004D64B0 /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596060C921BA0586004D64B0 /* DescriptionCell.xib */; };
 		596060CC21BA1182004D64B0 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962518021B8BC0D00D3C96D /* QuestionCell.swift */; };
@@ -35,8 +44,8 @@
 		59725F4A21B9004F0013A170 /* SubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59725F4821B9004F0013A170 /* SubmitCell.xib */; };
 		59725F4F21B905900013A170 /* Part2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59725F4D21B905900013A170 /* Part2ViewController.swift */; };
 		59725F5021B905900013A170 /* Part2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59725F4E21B905900013A170 /* Part2ViewController.xib */; };
-		59725F5321B905AE0013A170 /* Part34ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59725F5121B905AE0013A170 /* Part34ViewController.swift */; };
-		59725F5421B905AE0013A170 /* Part34ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59725F5221B905AE0013A170 /* Part34ViewController.xib */; };
+		59725F5321B905AE0013A170 /* Part3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59725F5121B905AE0013A170 /* Part3ViewController.swift */; };
+		59725F5421B905AE0013A170 /* Part3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59725F5221B905AE0013A170 /* Part3ViewController.xib */; };
 		598085112193E157004E731C /* DownloadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598085102193E157004E731C /* DownloadClient.swift */; };
 		5992F69E2195269200ED9298 /* ProgressDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992F69C2195269200ED9298 /* ProgressDownloadViewController.swift */; };
 		5992F69F2195269200ED9298 /* ProgressDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */; };
@@ -53,8 +62,6 @@
 		59D298E621C4EA6500433F03 /* QuestionPart1Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */; };
 		59D298E721C4EA6500433F03 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E321C4EA6500433F03 /* DatabaseManager.swift */; };
 		59D298E821C4EA6500433F03 /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E421C4EA6500433F03 /* TestManager.swift */; };
-		59D6884E21B6321300EB4F18 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D6884C21B6321300EB4F18 /* FirstViewController.swift */; };
-		59D6884F21B6321300EB4F18 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59D6884D21B6321300EB4F18 /* FirstViewController.xib */; };
 		CECC151A8483079CD57EFF39 /* Pods_ToeicIpadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20C6B8187F6D298E0284479 /* Pods_ToeicIpadUITests.framework */; };
 		DF9C8CB9BF8D9FC045C11887 /* Pods_ToeicIpad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C94CBBCB5F58B4114632C5 /* Pods_ToeicIpad.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +105,14 @@
 		594905E9218FE1B2001E860C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		594905EA218FE1B2001E860C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		594905EE218FE3AB001E860C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		595D336421BDF96500559A3E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		595D336521BDF96500559A3E /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		595D336821BDF97700559A3E /* ThongKeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThongKeViewController.swift; sourceTree = "<group>"; };
+		595D336921BDF97700559A3E /* ThongKeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThongKeViewController.xib; sourceTree = "<group>"; };
+		595D336D21BDFCD400559A3E /* Part4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part4ViewController.swift; sourceTree = "<group>"; };
+		595D336E21BDFCD400559A3E /* Part4ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part4ViewController.xib; sourceTree = "<group>"; };
+		595D337321BE053200559A3E /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		595D337421BE053200559A3E /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		596060C821BA0586004D64B0 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		596060C921BA0586004D64B0 /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		596060CD21BA1DE0004D64B0 /* QuestionPart2Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPart2Manager.swift; sourceTree = "<group>"; };
@@ -112,8 +127,8 @@
 		59725F4821B9004F0013A170 /* SubmitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitCell.xib; sourceTree = "<group>"; };
 		59725F4D21B905900013A170 /* Part2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part2ViewController.swift; sourceTree = "<group>"; };
 		59725F4E21B905900013A170 /* Part2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part2ViewController.xib; sourceTree = "<group>"; };
-		59725F5121B905AE0013A170 /* Part34ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part34ViewController.swift; sourceTree = "<group>"; };
-		59725F5221B905AE0013A170 /* Part34ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part34ViewController.xib; sourceTree = "<group>"; };
+		59725F5121B905AE0013A170 /* Part3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3ViewController.swift; sourceTree = "<group>"; };
+		59725F5221B905AE0013A170 /* Part3ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Part3ViewController.xib; sourceTree = "<group>"; };
 		598085102193E157004E731C /* DownloadClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadClient.swift; sourceTree = "<group>"; };
 		5992F69C2195269200ED9298 /* ProgressDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDownloadViewController.swift; sourceTree = "<group>"; };
 		5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressDownloadViewController.xib; sourceTree = "<group>"; };
@@ -130,8 +145,6 @@
 		59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionPart1Manager.swift; sourceTree = "<group>"; };
 		59D298E321C4EA6500433F03 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		59D298E421C4EA6500433F03 /* TestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
-		59D6884C21B6321300EB4F18 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		59D6884D21B6321300EB4F18 /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		7063D447A3D99B587CA15D51 /* Pods-ToeicIpadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadTests/Pods-ToeicIpadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D8126E760600E9704A1AA87 /* Pods-ToeicIpad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad.debug.xcconfig"; sourceTree = "<group>"; };
 		B8572038EF10CBF84D889FEB /* Pods-ToeicIpadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadTests/Pods-ToeicIpadTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,7 +283,8 @@
 				5995858121B7BC6D008E7AF0 /* ListTest */,
 				5995858021B7B7A7008E7AF0 /* Part1 */,
 				59725F4B21B9052C0013A170 /* Part2 */,
-				59725F4C21B905330013A170 /* Part34 */,
+				59725F4C21B905330013A170 /* Part3 */,
+				595D336C21BDFCBB00559A3E /* Part4 */,
 				596060C521BA0283004D64B0 /* Setting */,
 				596060C621BA02BA004D64B0 /* ThongKe */,
 				594905E8218FE186001E860C /* Home */,
@@ -308,8 +322,6 @@
 			children = (
 				594905E9218FE1B2001E860C /* HomeViewController.swift */,
 				594905EA218FE1B2001E860C /* HomeViewController.xib */,
-				59D6884C21B6321300EB4F18 /* FirstViewController.swift */,
-				59D6884D21B6321300EB4F18 /* FirstViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -331,9 +343,29 @@
 			path = ApiClient;
 			sourceTree = "<group>";
 		};
+		595D336C21BDFCBB00559A3E /* Part4 */ = {
+			isa = PBXGroup;
+			children = (
+				595D336D21BDFCD400559A3E /* Part4ViewController.swift */,
+				595D336E21BDFCD400559A3E /* Part4ViewController.xib */,
+			);
+			path = Part4;
+			sourceTree = "<group>";
+		};
+		595D337221BE04E400559A3E /* TestCell */ = {
+			isa = PBXGroup;
+			children = (
+				595D337321BE053200559A3E /* TestCell.swift */,
+				595D337421BE053200559A3E /* TestCell.xib */,
+			);
+			path = TestCell;
+			sourceTree = "<group>";
+		};
 		596060C521BA0283004D64B0 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				595D336421BDF96500559A3E /* SettingViewController.swift */,
+				595D336521BDF96500559A3E /* SettingViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -341,6 +373,8 @@
 		596060C621BA02BA004D64B0 /* ThongKe */ = {
 			isa = PBXGroup;
 			children = (
+				595D336821BDF97700559A3E /* ThongKeViewController.swift */,
+				595D336921BDF97700559A3E /* ThongKeViewController.xib */,
 			);
 			path = ThongKe;
 			sourceTree = "<group>";
@@ -381,13 +415,13 @@
 			path = Part2;
 			sourceTree = "<group>";
 		};
-		59725F4C21B905330013A170 /* Part34 */ = {
+		59725F4C21B905330013A170 /* Part3 */ = {
 			isa = PBXGroup;
 			children = (
-				59725F5121B905AE0013A170 /* Part34ViewController.swift */,
-				59725F5221B905AE0013A170 /* Part34ViewController.xib */,
+				59725F5121B905AE0013A170 /* Part3ViewController.swift */,
+				59725F5221B905AE0013A170 /* Part3ViewController.xib */,
 			);
-			path = Part34;
+			path = Part3;
 			sourceTree = "<group>";
 		};
 		5992F69B2195265800ED9298 /* Download */ = {
@@ -464,6 +498,7 @@
 		59A1843521CB2D0E00E754B2 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				595D337221BE04E400559A3E /* TestCell */,
 				596060C721BA0560004D64B0 /* DescriptionCell */,
 				59725F4621B900380013A170 /* SubmitCell */,
 				5962517F21B8BBF500D3C96D /* QuestionCell */,
@@ -616,13 +651,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59725F5421B905AE0013A170 /* Part34ViewController.xib in Resources */,
+				59725F5421B905AE0013A170 /* Part3ViewController.xib in Resources */,
+				595D336B21BDF97700559A3E /* ThongKeViewController.xib in Resources */,
 				596060CB21BA0586004D64B0 /* DescriptionCell.xib in Resources */,
 				594905B6218FDF31001E860C /* LaunchScreen.storyboard in Resources */,
 				593C8A2A21B4C81300F87D9B /* AudioView.xib in Resources */,
+				595D337621BE053200559A3E /* TestCell.xib in Resources */,
 				594905B3218FDF31001E860C /* Assets.xcassets in Resources */,
 				59725F5021B905900013A170 /* Part2ViewController.xib in Resources */,
 				59725F4A21B9004F0013A170 /* SubmitCell.xib in Resources */,
+				595D336721BDF96600559A3E /* SettingViewController.xib in Resources */,
 				594905B1218FDF2F001E860C /* Main.storyboard in Resources */,
 				594905EC218FE1B2001E860C /* HomeViewController.xib in Resources */,
 				5995858A21B7BCE6008E7AF0 /* Part1ViewController.xib in Resources */,
@@ -630,7 +668,7 @@
 				5992F69F2195269200ED9298 /* ProgressDownloadViewController.xib in Resources */,
 				5962518321B8BC0D00D3C96D /* QuestionCell.xib in Resources */,
 				5995858521B7BC86008E7AF0 /* ListTestViewController.xib in Resources */,
-				59D6884F21B6321300EB4F18 /* FirstViewController.xib in Resources */,
+				595D337021BDFCD400559A3E /* Part4ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +715,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
+				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -684,6 +724,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -743,18 +785,21 @@
 				5995858421B7BC86008E7AF0 /* ListTestViewController.swift in Sources */,
 				594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */,
 				594905EB218FE1B2001E860C /* HomeViewController.swift in Sources */,
+				595D337521BE053200559A3E /* TestCell.swift in Sources */,
 				594905E7218FE158001E860C /* Global.swift in Sources */,
-				59725F5321B905AE0013A170 /* Part34ViewController.swift in Sources */,
+				59725F5321B905AE0013A170 /* Part3ViewController.swift in Sources */,
 				59725F4921B9004F0013A170 /* SubmitCell.swift in Sources */,
 				5992F69E2195269200ED9298 /* ProgressDownloadViewController.swift in Sources */,
+				595D336A21BDF97700559A3E /* ThongKeViewController.swift in Sources */,
 				594905E5218FE0B5001E860C /* Util.swift in Sources */,
 				59725F4421B8DBBA0013A170 /* ImageCell.swift in Sources */,
 				59A1843421CB2D0E00E754B2 /* AVUtil.swift in Sources */,
 				59725F4F21B905900013A170 /* Part2ViewController.swift in Sources */,
 				596060D221BA1E1A004D64B0 /* QuestionPart4Manager.swift in Sources */,
-				59D6884E21B6321300EB4F18 /* FirstViewController.swift in Sources */,
+				595D336F21BDFCD400559A3E /* Part4ViewController.swift in Sources */,
 				5962518221B8BC0D00D3C96D /* QuestionCell.swift in Sources */,
 				594905AC218FDF2F001E860C /* AppDelegate.swift in Sources */,
+				595D336621BDF96600559A3E /* SettingViewController.swift in Sources */,
 				5992F6A4219567A200ED9298 /* FileUtil.swift in Sources */,
 				59D298E721C4EA6500433F03 /* DatabaseManager.swift in Sources */,
 				596060CE21BA1DE0004D64B0 /* QuestionPart2Manager.swift in Sources */,
@@ -771,6 +816,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				594905C1218FDF31001E860C /* ToeicIpadTests.swift in Sources */,
+				595D337121BDFD9400559A3E /* QuestionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

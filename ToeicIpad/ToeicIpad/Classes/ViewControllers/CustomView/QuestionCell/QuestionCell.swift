@@ -86,6 +86,16 @@ class QuestionCell: UITableViewCell {
         
     }
     
+    func showDataPart4(data: QuestionPart4) -> Void {
+        showAnswerTrueFalse(index: data.answer_true, isTrue: true)
+        if (selectedIndex != nil) {
+            if (!(data.answer_true == selectedIndex)) {
+                showAnswerTrueFalse(index: selectedIndex!, isTrue: false)
+            }
+        }
+        
+    }
+    
     
     func showAnswerTrueFalse(index: Int, isTrue: Bool) -> Void {
         var imageStr: String = "check_false"

@@ -36,17 +36,7 @@ class QuestionPart1Manager: NSObject {
     
     class internal func addQuestion1(data: NSDictionary) -> Swift.Void {
         let question1 = QuestionPart1()
-        question1.id = data["id"] as! Int
-        question1.test_id = data["test_id"] as! Int
-        question1.image_url = data["image_url"] as! String
-        question1.answerA = data["answerA"] as! String
-        question1.answerB = data["answerB"] as! String
-        question1.answerC = data["answerC"] as! String
-        question1.answerD = data["answerD"] as! String
-        question1.answer_true = data["answer_true"] as! Int
-        question1.time_start = data["time_start"] as! Double
-        question1.time_end = data["time_end"] as! Double
-        question1.description_text = data["description_text"] as! String
+        question1.initWithDatas(data: data)
         do {
             let realm = try Realm()
             try realm.write {
@@ -56,6 +46,8 @@ class QuestionPart1Manager: NSObject {
             print(error)
         }
     }
+    
+
 }
 
 class QuestionPart1: Object {
@@ -72,6 +64,20 @@ class QuestionPart1: Object {
     @objc dynamic var description_text = ""
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    func initWithDatas(data: NSDictionary) -> Void {
+        id = data["id"] as! Int
+        test_id = data["test_id"] as! Int
+        image_url = data["image_url"] as! String
+        answerA = data["answerA"] as! String
+        answerB = data["answerB"] as! String
+        answerC = data["answerC"] as! String
+        answerD = data["answerD"] as! String
+        answer_true = data["answer_true"] as! Int
+        time_start = data["time_start"] as! Double
+        time_end = data["time_end"] as! Double
+        description_text = data["description_text"] as! String
     }
     
 }

@@ -98,7 +98,7 @@ class DownloadClient: NSObject,UITableViewDelegate {
         let params = NSMutableDictionary()
         params.setValue(String(format: "%d", test.test_id), forKey: "test_id")
         
-        ApiClient.shareClient.alamofireCallMethod(method: "question-part1/search", withParams: params as! Dictionary<String, Any>) { (response: DataResponse<Any>) in
+        ApiClient.shareClient.alamofireCallMethod(method: "question-part1/search", withParams: params) { (response: DataResponse<Any>) in
             switch (response.result) {
             case .success(_):
                 if (response.result.value != nil) {

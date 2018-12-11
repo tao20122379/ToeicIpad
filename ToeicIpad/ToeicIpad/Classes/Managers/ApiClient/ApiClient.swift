@@ -18,7 +18,7 @@ class ApiClient {
         
     }
 
-    func alamofireCallMethod(method:String, withParams:Dictionary<String, Any>, completionHandler: @escaping(DataResponse<Any>) -> Swift.Void) -> Swift.Void {
+    func alamofireCallMethod(method:String, withParams:NSDictionary, completionHandler: @escaping(DataResponse<Any>) -> Swift.Void) -> Swift.Void {
         let urlString: String = String(format: "%@%@", baseUrl, method)
         
         guard URL(string: urlString) != nil else {
@@ -30,7 +30,7 @@ class ApiClient {
         
         var queryItems = [URLQueryItem]()
         for (key, value) in withParams {
-            queryItems.append(URLQueryItem(name: key , value: value as? String))
+            queryItems.append(URLQueryItem(name: key as! String , value: value as? String))
         }
         urlComponents?.queryItems = queryItems
         var urlRequest = URLRequest(url: (urlComponents?.url)!)

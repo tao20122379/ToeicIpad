@@ -90,6 +90,7 @@ extension ListTestViewController: UITableViewDelegate, UITableViewDataSource {
         switch type?.rawValue {
         case PartType.part1.rawValue:
             let part1VC = Part1ViewController(nibName: "Part1ViewController", bundle: nil)
+            part1VC.testData = listTests[indexPath.row]
             self.navigationController?.pushViewController(part1VC, animated: true)
             break
         case PartType.part2.rawValue:

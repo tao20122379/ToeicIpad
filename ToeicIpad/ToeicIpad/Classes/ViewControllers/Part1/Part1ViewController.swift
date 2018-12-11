@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Alamofire
+import KRProgressHUD
 
 class Part1ViewController: BaseViewController {
     
     @IBOutlet weak var part1TableView: UITableView!
 
-    var part1Data = QuestionPart1Manager.getQuestion1(question_id: 1)
+    var part1Datas: Array<QuestionPart1> = Array<QuestionPart1>()
     var isSubmit: Bool = false
+    var testData: TestBook?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,7 @@ class Part1ViewController: BaseViewController {
         appDelegate.showAudioView()
         appDelegate.audioView?.initAudio(fileName: "1.mp3", start: 0, end: 20)
         title = "part1"
+        getDataPart1()
         initTableView()
     }
     
@@ -37,6 +41,34 @@ class Part1ViewController: BaseViewController {
     }
     
     func getDataPart1() -> Void {
+        if ((testData?.isDataPart1)!) {
+            part1Datas = QuestionPart1Manager.getListQuestion1(test_id: testData?.test_id)
+            part1TableView.reloadData()
+            return
+        }
+        let actionStr = "question-part1/search"
+        let params = NSMutableDictionary()
+        params.setValue(String(format: "%d", (testData?.test_id)!), forKey: "test_id")
+        KRProgressHUD.show()
+        ApiClient.shareClient.alamofireCallMethod(method: actionStr, withParams: params) { (response: DataResponse<Any>) in
+            switch (response.result) {
+            case .success(_):
+                if (response.result.value != nil){
+                    let datas = response.result.value as! Array<Any>
+                    datas.forEach({ (data) in
+                        let question1 = QuestionPart1()
+                        question1.initWithDatas(data: data as! NSDictionary)
+                        self.part1Datas.append(question1)
+                        
+                    })
+                }
+                self.part1TableView.reloadData()
+                break
+            case .failure(_):
+                break
+            }
+            KRProgressHUD.dismiss()
+        }
         
     }
 
@@ -64,13 +96,13 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "questionCellPart1") as! QuestionCell
                 cell.questionLabel.text = ""
                 if (isSubmit) {
-                    cell.showDataPart1(data: part1Data)
+                    cell.showDataPart1(data: part1Datas[0])
                 }
                 return cell
             case 2:
                 if (isSubmit) {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellPart1") as! DescriptionCell
-                    cell.descripLabel.text = part1Data.description_text
+                    cell.descripLabel.text = part1Datas[0].description_text
                     return cell
                 }
                 let cell = tableView.dequeueReusableCell(withIdentifier: "submitCellPart1") as! SubmitCell

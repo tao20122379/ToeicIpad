@@ -36,6 +36,7 @@ class QuestionPart2Manager: NSObject {
     class internal func addQuestion2(data: NSDictionary) -> Swift.Void {
         let question2 = QuestionPart2()
         question2.id = data["id"] as! Int
+        question2.test_id = data["test_id"] as! Int
         question2.question = data["question"] as! String
         question2.answerA = data["answerA"] as! String
         question2.answerB = data["answerB"] as! String
@@ -57,6 +58,7 @@ class QuestionPart2Manager: NSObject {
 
 class QuestionPart2: Object {
     @objc dynamic var id = 0
+    @objc dynamic var test_id = 0
     @objc dynamic var question = ""
     @objc dynamic var answerA = ""
     @objc dynamic var answerB = ""

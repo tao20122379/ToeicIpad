@@ -30,10 +30,6 @@ class HomeViewController: BaseViewController {
         self.title = "Home"
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        DownloadClient.shareClient.downloadAudio(name: "1.mp3") { (url, error) in
-            
-        }
-       // initData()
     }
     
     func initData() -> Void {

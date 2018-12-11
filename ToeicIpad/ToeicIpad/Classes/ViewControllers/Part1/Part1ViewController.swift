@@ -15,7 +15,6 @@ class Part1ViewController: BaseViewController {
     var part1Data = QuestionPart1Manager.getQuestion1(question_id: 1)
     var isSubmit: Bool = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

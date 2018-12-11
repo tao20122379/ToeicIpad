@@ -85,8 +85,20 @@ class TestManager: NSObject {
         do {
             let realm = try Realm()
             let part1Data = realm.objects(QuestionPart1.self).filter(String(format: "test_id=%i", testBook.test_id))
+            let part2Data = realm.objects(QuestionPart2.self).filter(String(format: "test_id=%i", testBook.test_id))
+            let part3Data = realm.objects(PassagePart3.self).filter(String(format: "test_id=%i", testBook.test_id))
+            let part4Data = realm.objects(PassagePart4.self).filter(String(format: "test_id=%i", testBook.test_id))
             if (part1Data.count > 0) {
                 testBook.isDataPart1 = true
+            }
+            if (part2Data.count > 0) {
+                testBook.isDataPart2 = true
+            }
+            if (part3Data.count > 0) {
+                testBook.isDataPart3 = true
+            }
+            if (part4Data.count > 0) {
+                testBook.isDataPart4 = true
             }
             
             try realm.write {

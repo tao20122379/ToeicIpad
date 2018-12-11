@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ApiClient {
     
@@ -17,6 +18,30 @@ class ApiClient {
         
     }
 
+    func alamofireCallMethod(method:String, withParams:Dictionary<String, Any>, completionHandler: @escaping(DataResponse<Any>) -> Swift.Void) -> Swift.Void {
+        let urlString: String = String(format: "%@%@", baseUrl, method)
+        
+        guard URL(string: urlString) != nil else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        var urlComponents = URLComponents(string: urlString)
+        
+        var queryItems = [URLQueryItem]()
+        for (key, value) in withParams {
+            queryItems.append(URLQueryItem(name: key , value: value as? String))
+        }
+        urlComponents?.queryItems = queryItems
+        var urlRequest = URLRequest(url: (urlComponents?.url)!)
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        Alamofire.request(urlRequest).responseJSON { (response: DataResponse<Any>) in
+            completionHandler(response)
+        }
+        
+    }
+    
      func callMethod(method:String, withParams:NSDictionary, completionHandler: @escaping(Data?,Error?) -> Swift.Void) -> Swift.Void {
 
         let urlString: String = String(format: "%@%@", baseUrl, method)

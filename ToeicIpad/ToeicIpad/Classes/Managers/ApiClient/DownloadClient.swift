@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import Alamofire
 
 public protocol DownloadClientDelegate {
     @available(iOS 2.0, *)
@@ -31,13 +32,12 @@ class DownloadClient: NSObject,UITableViewDelegate {
         fileName = name;
         let urlStr = String(format: "%@image/%@", baseUrl, fileName)
         let fileURL = URL(string: urlStr)
-        
-        let sessionConfig = URLSessionConfiguration.default
+        let sessionConfig = URLSessionConfiguration.background(withIdentifier: "bgSessionConfigurationImage")
         sessionConfig.timeoutIntervalForRequest = 3.0;
         sessionConfig.timeoutIntervalForResource = 6.0;
-        let session = URLSession(configuration: sessionConfig, delegate: self,delegateQueue:  OperationQueue())
+        let session = URLSession(configuration: sessionConfig, delegate: self,delegateQueue: nil)
         let task = session.downloadTask(with: fileURL!)
-        
+        //print(String(format: "threed: %@", Thread.current.name))
         task.resume()
     }
     
@@ -46,13 +46,12 @@ class DownloadClient: NSObject,UITableViewDelegate {
         fileName = name;
         let urlStr = String(format: "%@audio/%@", baseUrl, fileName)
         let fileURL = URL(string: urlStr)
-        
-        let sessionConfig = URLSessionConfiguration.default
+        let sessionConfig = URLSessionConfiguration.background(withIdentifier: "bgSessionConfigurationAudio")
         sessionConfig.timeoutIntervalForRequest = 3.0;
         sessionConfig.timeoutIntervalForResource = 6.0;
-        let session = URLSession(configuration: sessionConfig, delegate: self,delegateQueue:  OperationQueue())
+
+        let session = URLSession(configuration: sessionConfig, delegate: self,delegateQueue: nil)
         let task = session.downloadTask(with: fileURL!)
-        
         task.resume()
     }
     
@@ -72,7 +71,7 @@ class DownloadClient: NSObject,UITableViewDelegate {
         }
     }
     
-    func downloadTests(completionHandler: @escaping(Bool?) -> Swift.Void) -> Swift.Void {
+    func downloadTests(compleHandler: @escaping(Bool?) -> Swift.Void) -> Swift.Void {
         let params = NSMutableDictionary()
         ApiClient.shareClient.callMethod(method: "test-book/search", withParams: params) { (data, error) in
             if let data = data {
@@ -81,31 +80,44 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (bookData) in
                         TestManager.addTest(testData: bookData as NSDictionary)
                     })
-                    completionHandler(true)
+                    if (json.count > 0) {
+                        compleHandler(true)
+                    } else {
+                        compleHandler(false)
+                    }
                 }catch {
                     print(error)
-                    completionHandler(false)
+                    compleHandler(false)
                 }
             }
         }
     }
     
-    func downloadDataPart1(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
+    func downloadDataPart1(test: TestBook, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
+        
         let params = NSMutableDictionary()
-        params.setValue(test_id, forKey: "test_id")
-        ApiClient.shareClient.callMethod(method: "question-part1/search", withParams: params) { (data, error) in
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    json.forEach({ (question1Data) in
-                        QuestionPart1Manager.addQuestion1(data: question1Data as NSDictionary)
+        params.setValue(String(format: "%d", test.test_id), forKey: "test_id")
+        
+        ApiClient.shareClient.alamofireCallMethod(method: "question-part1/search", withParams: params as! Dictionary<String, Any>) { (response: DataResponse<Any>) in
+            switch (response.result) {
+            case .success(_):
+                if (response.result.value != nil) {
+                    let datas = response.result.value as! Array<Any>
+                    datas.forEach({ (data) in
+                        QuestionPart1Manager.addQuestion1(data: data as! NSDictionary)
                     })
-                    compleHandler(true)
-                }catch {
-                    compleHandler(false)
+                    if (datas.count > 0) {
+                        TestManager.updateDataTest(test: test, part: 1)
+                        compleHandler(true)
+                    } else {
+                        compleHandler(false)
+                    }
                 }
-            } else {
-                  compleHandler(false)
+                break
+            case .failure(_):
+                print(response.error)
+                compleHandler(false)
+                break
             }
         }
     }
@@ -120,7 +132,11 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart2Manager.addQuestion2(data: question1Data as NSDictionary)
                     })
-                    compleHandler(true)
+                    if (json.count > 0) {
+                        compleHandler(true)
+                    } else {
+                        compleHandler(false)
+                    }
                 }catch {
                     compleHandler(false)
                     print(error)
@@ -141,7 +157,11 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart3Manager.addPart3Question(data: question1Data as NSDictionary)
                     })
-                    compleHandler(true)
+                    if (json.count > 0) {
+                        compleHandler(true)
+                    } else {
+                        compleHandler(false)
+                    }
                 }catch {
                     print(error)
                     compleHandler(false)
@@ -162,7 +182,11 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart4Manager.addPart4Question(data: question1Data as NSDictionary)
                     })
-                    compleHandler(true)
+                    if (json.count > 0) {
+                        compleHandler(true)
+                    } else {
+                        compleHandler(false)
+                    }
                 }catch {
                     print(error)
                     compleHandler(false)
@@ -183,7 +207,11 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart3Manager.addPart3Passage(data: question1Data as NSDictionary)
                     })
-                    compleHandler(true)
+                    if (json.count > 0) {
+                        compleHandler(true)
+                    } else {
+                        compleHandler(false)
+                    }
                 }catch {
                     print(error)
                     compleHandler(false)
@@ -204,7 +232,11 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     json.forEach({ (question1Data) in
                         QuestionPart4Manager.addPart4Passage(data: question1Data as NSDictionary)
                     })
-                    compleHandler(true)
+                    if (json.count > 0) {
+                        compleHandler(true)
+                    } else {
+                        compleHandler(false)
+                    }
                 }catch {
                     print(error)
                     compleHandler(false)
@@ -215,7 +247,33 @@ class DownloadClient: NSObject,UITableViewDelegate {
         }
     }
     
+    func alamofireDownloadImage(name: String) -> Void {
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            documentsURL.appendPathComponent(name)
+            return (documentsURL, [.removePreviousFile])
+        }
+        let urlStr = String(format: "%@image/%@", baseUrl, name)
+        Alamofire.download(urlStr, to: destination).responseData { response in
+            if let destinationUrl = response.destinationURL {
+                print("destinationUrl \(destinationUrl.absoluteURL)")
+            }
+        }
+    }
     
+    func alamofireDownloadAudio(name: String) -> Void {
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            documentsURL.appendPathComponent(name)
+            return (documentsURL, [.removePreviousFile])
+        }
+        let urlStr = String(format: "%@image/%@", baseUrl, name)
+        Alamofire.download(urlStr, to: destination).responseData { response in
+            if let destinationUrl = response.destinationURL {
+                print("destinationUrl \(destinationUrl.absoluteURL)")
+            }
+        }
+    }
     
 }
 

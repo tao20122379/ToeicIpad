@@ -124,10 +124,9 @@ extension ListTestViewController: TestCellDelegate {
         KRProgressHUD.show()
         switch type?.rawValue {
         case PartType.part1.rawValue:
-            DownloadClient.shareClient.downloadDataPart1(test_id: String(format: "%d", test.test_id)) { (isDownload) in
+            DownloadClient.shareClient.downloadDataPart1(test: test) { (isDownload) in
                 if (isDownload) {
                     DispatchQueue.main.async {
-                        TestManager.updateDataTest(test: test, part: 1)
                         self.reloadTableView()
                     }
                 }
@@ -137,6 +136,7 @@ extension ListTestViewController: TestCellDelegate {
         case PartType.part2.rawValue:
             DownloadClient.shareClient.downloadDataPart2(test_id: String(format: "%d", test.test_id)) { (isDownload) in
                 if (isDownload) {
+                     print(String(format: "threed: %@", Thread.current))
                     DispatchQueue.main.async {
                         TestManager.updateDataTest(test: test, part: 2)
                         self.reloadTableView()

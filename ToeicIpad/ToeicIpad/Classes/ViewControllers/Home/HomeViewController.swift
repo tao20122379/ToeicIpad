@@ -15,7 +15,7 @@ class HomeViewController: BaseViewController {
     var alertVC:UIAlertController?
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.showAudioView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,13 +23,42 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func TestSelected(_ sender: Any) {
-        DownloadClient.shareClient.downloadDataPart1(test_id: "1")
+
+        let newVC = UIViewController()
+        newVC.view.backgroundColor = UIColor.white
+        self.navigationController?.pushViewController(newVC, animated: true)
+  
+        BaseViewController.audioView?.initAudio(fileName: "1.mp3", start: 10, end: 20)
         return
+      
+
+
+        
+        let question1: QuestionPart1 = QuestionPart1Manager.getQuestion1(question_id: 1)
+        print(question1)
+    }
+    
+    @IBAction func stopAction(_ sender: Any) {
+        
+      
+    }
+    
+    @IBAction func pauseAction(_ sender: Any) {
+      BaseViewController.audioView!.pause()
+    }
+    
+    @IBAction func palyAction(_ sender: Any) {
+        BaseViewController.audioView!.play()
+    }
+    
+    
+    
+    func showProgressDownload() -> Void {
         let downloadRequest = DownloadClient();
         downloadRequest.delegate = self
- 
+        
         progressVC = ProgressDownloadViewController(nibName: "ProgressDownloadViewController", bundle: nil)
-       
+        
         alertVC = UIAlertController(title: "", message: nil, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert) in
         }
@@ -46,12 +75,11 @@ class HomeViewController: BaseViewController {
                 }
             }
         }
-        
         let filePath = FileUtil.pathOfFile(fileName: "1.png")
         testImage.image = UIImage(contentsOfFile: filePath)
     }
-    
 }
+
 
 extension HomeViewController:DownloadClientDelegate {
     func downloadClientCompleteHandler(filePath: String) {
@@ -71,11 +99,8 @@ extension HomeViewController:DownloadClientDelegate {
     func downloadClientProgressHandler(progress: Float, fileSize: Float) {
         DispatchQueue.main.async {
             self.progressVC?.downloadProgress.progress = progress
-         
         }
     }
-    
-  
     
 }
 

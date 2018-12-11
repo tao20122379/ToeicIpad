@@ -57,13 +57,13 @@ class DownloadClient: NSObject,UITableViewDelegate {
     
     func downloadDataPart1(test_id:String) {
         let params = NSMutableDictionary()
-        //        params.setValue("1", forKey: "test_id")
+        params.setValue(test_id, forKey: "test_id")
         ApiClient.shareClient.callMethod(method: "question-part1/search", withParams: params) { (data, error) in
-            let decoder = JSONDecoder()
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    json.forEach({ (object) in
+                    json.forEach({ (question1Data) in
+                        QuestionPart1Manager.addQuestion1(data: question1Data as NSDictionary)
                         
                     })
                 }catch {

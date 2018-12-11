@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-let SCREEN_WIDTH = UIScreen.main.bounds.width
-let SCREEN_HEIGHT = UIScreen.main.bounds.height
+
 class Global: NSObject {
-    
+  static let SCREEN_WIDTH = UIScreen.main.bounds.width
+  static let SCREEN_HEIGHT = UIScreen.main.bounds.height
 }

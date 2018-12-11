@@ -25,8 +25,8 @@ class Util{
         customView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         customView.centerXAnchor.constraint(equalTo: (alertVC.view.centerXAnchor)).isActive = true
         customView.topAnchor.constraint(equalTo: (alertVC.view.topAnchor)).isActive = true
-        
         customView.bottomAnchor.constraint(equalTo: (alertVC.view.bottomAnchor), constant: -32).isActive = true
     }
+
     
 }

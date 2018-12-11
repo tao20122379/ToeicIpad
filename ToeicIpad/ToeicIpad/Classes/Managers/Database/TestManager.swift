@@ -25,9 +25,6 @@ class TestManager: NSObject {
             print(error)
             return Array()
         }
-
-
-        
     }
     
     

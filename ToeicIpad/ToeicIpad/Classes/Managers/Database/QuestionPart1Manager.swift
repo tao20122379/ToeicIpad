@@ -11,7 +11,8 @@ import RealmSwift
 import Foundation
 
 class QuestionPart1Manager: NSObject {
-    class internal func getQuestion1(test_id: Int?) -> Array<QuestionPart1> {
+    
+    class internal func getListQuestion1(test_id: Int?) -> Array<QuestionPart1> {
         do {
             let realm = try Realm()
             var tests = realm.objects(QuestionPart1.self)
@@ -27,25 +28,25 @@ class QuestionPart1Manager: NSObject {
     }
     
     
-    class func getQuestion1(question_id: Int) -> TestBook {
+    class func getQuestion1(question_id: Int) -> QuestionPart1 {
         let realm = try! Realm()
-        let test = realm.objects(TestBook.self).filter(String(format: "id=%i", question_id)).first
+        let test = realm.objects(QuestionPart1.self).filter(String(format: "id=%i", question_id)).first
         return test!
     }
     
-    class internal func addQuestion1(id: Int, test_id: Int, image_url: String, answerA: String, answerB: String, answerC: String, answerD: String, answer_true: String, time_start: Double, time_end: Double, descriptionText: String) -> Swift.Void {
+    class internal func addQuestion1(data: NSDictionary) -> Swift.Void {
         let question1 = QuestionPart1()
-        question1.id = id
-        question1.test_id = test_id
-        question1.image_url = image_url
-        question1.answerA = answerA
-        question1.answerB = answerB
-        question1.answerC = answerC
-        question1.answerD = answerD
-        question1.answer_true = answer_true
-        question1.time_start = time_start
-        question1.time_end = time_end
-        question1.descriptionText = descriptionText
+        question1.id = data["id"] as! Int
+        question1.test_id = data["test_id"] as! Int
+        question1.image_url = data["image_url"] as! String
+        question1.answerA = data["answerA"] as! String
+        question1.answerB = data["answerB"] as! String
+        question1.answerC = data["answerC"] as! String
+        question1.answerD = data["answerD"] as! String
+        question1.answer_true = data["answer_true"] as! Int
+        question1.time_start = data["time_start"] as! Double
+        question1.time_end = data["time_end"] as! Double
+        question1.description_text = data["description_text"] as! String
         do {
             let realm = try Realm()
             try realm.write {
@@ -65,8 +66,12 @@ class QuestionPart1: Object {
     @objc dynamic var answerB = ""
     @objc dynamic var answerC = ""
     @objc dynamic var answerD = ""
-    @objc dynamic var answer_true = ""
+    @objc dynamic var answer_true = 1
     @objc dynamic var time_start = 0.0
     @objc dynamic var time_end = 0.0
-    @objc dynamic var descriptionText = ""
+    @objc dynamic var description_text = ""
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
 }

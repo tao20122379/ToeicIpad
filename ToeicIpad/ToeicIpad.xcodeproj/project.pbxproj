@@ -23,6 +23,9 @@
 		5992F69E2195269200ED9298 /* ProgressDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992F69C2195269200ED9298 /* ProgressDownloadViewController.swift */; };
 		5992F69F2195269200ED9298 /* ProgressDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */; };
 		5992F6A4219567A200ED9298 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992F6A3219567A200ED9298 /* FileUtil.swift */; };
+		59A1843221CB2D0E00E754B2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A1843121CB2D0E00E754B2 /* AVFoundation.framework */; };
+		59A1843421CB2D0E00E754B2 /* AVUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A1843321CB2D0E00E754B2 /* AVUtil.swift */; };
+		59A1843721CB2D0E00E754B2 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A1843621CB2D0E00E754B2 /* AudioView.swift */; };
 		59C7A42C2192D438007251DB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C7A42B2192D438007251DB /* ApiClient.swift */; };
 		59D298E521C4EA6500433F03 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E121C4EA6500433F03 /* BookManager.swift */; };
 		59D298E621C4EA6500433F03 /* QuestionPart1Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */; };
@@ -74,6 +77,9 @@
 		5992F69C2195269200ED9298 /* ProgressDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDownloadViewController.swift; sourceTree = "<group>"; };
 		5992F69D2195269200ED9298 /* ProgressDownloadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressDownloadViewController.xib; sourceTree = "<group>"; };
 		5992F6A3219567A200ED9298 /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
+		59A1843121CB2D0E00E754B2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		59A1843321CB2D0E00E754B2 /* AVUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVUtil.swift; sourceTree = "<group>"; };
+		59A1843621CB2D0E00E754B2 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		59C7A42B2192D438007251DB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		59D298E121C4EA6500433F03 /* BookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionPart1Manager.swift; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59A1843221CB2D0E00E754B2 /* AVFoundation.framework in Frameworks */,
 				DF9C8CB9BF8D9FC045C11887 /* Pods_ToeicIpad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +125,7 @@
 		4F5DAB0AE3CB4C37E6555720 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59A1843121CB2D0E00E754B2 /* AVFoundation.framework */,
 				55C94CBBCB5F58B4114632C5 /* Pods_ToeicIpad.framework */,
 				21E1749E83C1D993ACEEEBD4 /* Pods_ToeicIpadTests.framework */,
 				C20C6B8187F6D298E0284479 /* Pods_ToeicIpadUITests.framework */,
@@ -208,6 +216,7 @@
 		594905E0218FE075001E860C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				59A1843521CB2D0E00E754B2 /* CustomView */,
 				5992F69B2195265800ED9298 /* Download */,
 				594905ED218FE398001E860C /* Base */,
 				594905E8218FE186001E860C /* Home */,
@@ -296,8 +305,17 @@
 			isa = PBXGroup;
 			children = (
 				594905E4218FE0B5001E860C /* Util.swift */,
+				59A1843321CB2D0E00E754B2 /* AVUtil.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		59A1843521CB2D0E00E754B2 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				59A1843621CB2D0E00E754B2 /* AudioView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		59D298E021C4EA6500433F03 /* Database */ = {
@@ -396,6 +414,11 @@
 				TargetAttributes = {
 					594905A7218FDF2F001E860C = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					594905BB218FDF31001E860C = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -543,11 +566,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				59D298E621C4EA6500433F03 /* QuestionPart1Manager.swift in Sources */,
+				59A1843721CB2D0E00E754B2 /* AudioView.swift in Sources */,
 				594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */,
 				594905EB218FE1B2001E860C /* HomeViewController.swift in Sources */,
 				594905E7218FE158001E860C /* Global.swift in Sources */,
 				5992F69E2195269200ED9298 /* ProgressDownloadViewController.swift in Sources */,
 				594905E5218FE0B5001E860C /* Util.swift in Sources */,
+				59A1843421CB2D0E00E754B2 /* AVUtil.swift in Sources */,
 				594905AC218FDF2F001E860C /* AppDelegate.swift in Sources */,
 				5992F6A4219567A200ED9298 /* FileUtil.swift in Sources */,
 				59D298E721C4EA6500433F03 /* DatabaseManager.swift in Sources */,
@@ -729,13 +754,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HL6NM6R58B;
+				DEVELOPMENT_TEAM = 9HGK27C49F;
 				INFOPLIST_FILE = ToeicIpad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpad;
+				PRODUCT_BUNDLE_IDENTIFIER = toeicIpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -748,13 +774,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HL6NM6R58B;
+				DEVELOPMENT_TEAM = 9HGK27C49F;
 				INFOPLIST_FILE = ToeicIpad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.khactaobk.ToeicIpad;
+				PRODUCT_BUNDLE_IDENTIFIER = toeicIpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

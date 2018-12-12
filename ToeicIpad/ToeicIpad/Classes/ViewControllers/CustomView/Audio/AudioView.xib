@@ -65,6 +65,9 @@
                             <rect key="frame" x="215.5" y="71" width="41" height="39"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="audio_next"/>
+                            <connections>
+                                <action selector="btnNextSelected:" destination="iN0-l3-epB" eventType="touchUpInside" id="u3W-ue-DYd"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvv-ZV-tpF">
                             <rect key="frame" x="125.5" y="71" width="40" height="39"/>
@@ -74,6 +77,9 @@
                             </constraints>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="audio_prev"/>
+                            <connections>
+                                <action selector="btnPrevSelected:" destination="iN0-l3-epB" eventType="touchUpInside" id="piA-K3-FJg"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWU-su-4BV">
                             <rect key="frame" x="170.5" y="74" width="40" height="33"/>

@@ -34,6 +34,37 @@ class QuestionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func initUI() -> Void {
+        btnA.icon = UIImage(named: "un_check")!
+        btnA.iconSelected = UIImage(named: "checked")!
+        btnA.isSelected = false
+        
+        
+        btnB.icon = UIImage(named: "un_check")!
+        btnB.iconSelected = UIImage(named: "checked")!
+        btnB.isSelected = false
+        
+        btnC.icon = UIImage(named: "un_check")!
+        btnC.iconSelected = UIImage(named: "checked")!
+        btnC.isSelected = false
+        
+        btnD.icon = UIImage(named: "un_check")!
+        btnD.iconSelected = UIImage(named: "checked")!
+        btnD.isSelected = false
+        
+        answerALabel.textColor = UIColor.black
+        answerBLabel.textColor = UIColor.black
+        answerCLabel.textColor = UIColor.black
+        answerDLabel.textColor = UIColor.black
+        
+        answerALabel.text = "(A)"
+        answerBLabel.text = "(B)"
+        answerCLabel.text = "(C)"
+        answerDLabel.text = "(D)"
+        
+        selectedIndex = 0
+    }
+    
     override func layoutSubviews() {
         btnA.frame.size.height = answerALabel.frame.size.height + 10
         btnB.frame.size.height = answerBLabel.frame.size.height + 10

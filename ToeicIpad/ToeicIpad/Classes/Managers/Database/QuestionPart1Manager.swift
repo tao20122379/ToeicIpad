@@ -46,14 +46,12 @@ class QuestionPart1Manager: NSObject {
             print(error)
         }
     }
-    
-
 }
 
 class QuestionPart1: Object {
     @objc dynamic var id = 0
     @objc dynamic var test_id = 0
-    @objc dynamic var image_url = ""
+    @objc dynamic var image_name = ""
     @objc dynamic var answerA = ""
     @objc dynamic var answerB = ""
     @objc dynamic var answerC = ""
@@ -69,7 +67,7 @@ class QuestionPart1: Object {
     func initWithDatas(data: NSDictionary) -> Void {
         id = data["id"] as! Int
         test_id = data["test_id"] as! Int
-        image_url = data["image_url"] as! String
+        image_name = data["image_name"] as! String
         answerA = data["answerA"] as! String
         answerB = data["answerB"] as! String
         answerC = data["answerC"] as! String

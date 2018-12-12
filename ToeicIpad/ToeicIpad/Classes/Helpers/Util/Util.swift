@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import KRProgressHUD
 
 class Util{
      internal  func RGBA2UIColor(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor{
@@ -64,6 +65,21 @@ class Util{
         popOverVC?.sourceRect = CGRect(x: sender.bounds.midX, y: sender.bounds.minY, width: 0, height: 0)
         popVC.preferredContentSize = size
         appDelegate.tabBarController?.present(popVC, animated: true)
+    }
+    
+    class func loadImageView(imageView: UIImageView, imageName: String) -> Void {
+        if (FileUtil.fileExitsAtName(fileName: imageName)) {
+            let url = FileUtil.urlOfFile(fileName: imageName)
+            let data = try? Data(contentsOf: url)
+            imageView.image = UIImage(data: data!)
+           
+        } else {
+                let url = URL(string: String(format: "%@image/%@", Global.BASE_URL, imageName))
+                let data = try? Data(contentsOf: url!)
+            if (data != nil) {
+                imageView.image = UIImage(data: data!)
+            }
+        }
     }
 }
 

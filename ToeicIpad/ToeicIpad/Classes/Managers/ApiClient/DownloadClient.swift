@@ -89,6 +89,8 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     print(error)
                     compleHandler(false)
                 }
+            } else {
+                  compleHandler(false)
             }
         }
     }
@@ -102,10 +104,17 @@ class DownloadClient: NSObject,UITableViewDelegate {
             switch (response.result) {
             case .success(_):
                 if (response.result.value != nil) {
-                    let datas = response.result.value as! Array<Any>
+                    let datas = response.result.value as! Array<NSDictionary>
                     datas.forEach({ (data) in
-                        QuestionPart1Manager.addQuestion1(data: data as! NSDictionary)
+                        QuestionPart1Manager.addQuestion1(data: data )
+                        self.alamofireDownloadImage(name: data["image_name"] as! String)
                     })
+                    
+                    let audioName = String(format: "%part1_%d", test.test_id)
+                    if (!FileUtil.fileExitsAtName(fileName: audioName)) {
+                        self.alamofireDownloadAudio(name: audioName)
+                    }
+                    
                     if (datas.count > 0) {
                         TestManager.updateDataTest(test: test, part: 1)
                         compleHandler(true)

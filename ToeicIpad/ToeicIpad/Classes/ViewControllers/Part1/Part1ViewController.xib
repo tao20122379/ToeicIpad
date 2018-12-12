@@ -21,21 +21,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="gnE-ON-mf9">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="gnE-ON-mf9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="gnE-ON-mf9" secondAttribute="leading" id="KL4-i7-qvI"/>
-                <constraint firstItem="gnE-ON-mf9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Kgk-qw-3wg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gnE-ON-mf9" secondAttribute="bottom" id="l9D-ox-Ca4"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gnE-ON-mf9" secondAttribute="trailing" id="xiu-zo-FCv"/>
+                <constraint firstAttribute="leading" secondItem="gnE-ON-mf9" secondAttribute="leading" id="KL4-i7-qvI"/>
+                <constraint firstItem="gnE-ON-mf9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mug-Dd-CDe"/>
+                <constraint firstAttribute="bottom" secondItem="gnE-ON-mf9" secondAttribute="bottom" id="l9D-ox-Ca4"/>
+                <constraint firstAttribute="trailing" secondItem="gnE-ON-mf9" secondAttribute="trailing" id="xiu-zo-FCv"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <viewLayoutGuide key="safeArea" id="S6g-k3-Pja"/>
             <point key="canvasLocation" x="95.200000000000003" y="70.614692653673174"/>
         </view>
     </objects>

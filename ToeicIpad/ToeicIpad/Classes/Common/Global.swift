@@ -14,4 +14,7 @@ class Global: NSObject {
     static let SCREEN_HEIGHT = UIScreen.main.bounds.height
     static let CELL_SPEED_HEIGHT = 40
     static let IS_FIRST_LOGIN = "is_first_login"
+    static let NOTIFICATION_NEXT = "notification_next"
+    static let NOTIFICATION_PREV = "notification_prev"
+    static let BASE_URL = "http://testcrm.tomorrowmarketers.org/"
 }

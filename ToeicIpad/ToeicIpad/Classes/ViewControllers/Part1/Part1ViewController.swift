@@ -17,6 +17,7 @@ class Part1ViewController: BaseViewController {
     var part1Datas: Array<QuestionPart1> = Array<QuestionPart1>()
     var isSubmit: Bool = false
     var testData: TestBook?
+    var indexTest: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +33,18 @@ class Part1ViewController: BaseViewController {
     func initTableView() -> Void {
         part1TableView.delegate = self
         part1TableView.dataSource = self
+        part1TableView.backgroundView?.backgroundColor = UIColor.white
         part1TableView.rowHeight = UITableView.automaticDimension
         part1TableView.estimatedRowHeight = 80
         part1TableView.register(UINib(nibName: "QuestionCell", bundle: nil), forCellReuseIdentifier: "questionCellPart1")
         part1TableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "imageCellPart1")
         part1TableView.register(UINib(nibName: "SubmitCell", bundle: nil), forCellReuseIdentifier: "submitCellPart1")
         part1TableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "descriptionCellPart1")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(audioNext), name: NSNotification.Name(Global.NOTIFICATION_NEXT), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(audioPrev), name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
+        
     }
     
     func getDataPart1() -> Void {
@@ -69,10 +76,26 @@ class Part1ViewController: BaseViewController {
             }
             KRProgressHUD.dismiss()
         }
+    }
+    
+    @objc func audioNext() -> Void {
+        if (indexTest < part1Datas.count - 1) {
+            isSubmit = false
+            indexTest = indexTest + 1
+            part1TableView.reloadData()
+        }
         
     }
+    
+    @objc func audioPrev() -> Void {
+        if (indexTest > 0) {
+            isSubmit = false
+            indexTest = indexTest - 1
+            part1TableView.reloadData()
+        }
 
-
+    }
+    
 }
 
 extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -91,18 +114,23 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "imageCellPart1") as! ImageCell
+                if (indexTest < part1Datas.count) {
+                    Util.loadImageView(imageView: cell.part1ImageView, imageName: part1Datas[indexTest].image_name)
+                }
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "questionCellPart1") as! QuestionCell
                 cell.questionLabel.text = ""
                 if (isSubmit) {
-                    cell.showDataPart1(data: part1Datas[0])
+                    cell.showDataPart1(data: part1Datas[indexTest])
+                } else {
+                    cell.initUI()
                 }
                 return cell
             case 2:
                 if (isSubmit) {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellPart1") as! DescriptionCell
-                    cell.descripLabel.text = part1Datas[0].description_text
+                    cell.descripLabel.text = part1Datas[indexTest].description_text
                     return cell
                 }
                 let cell = tableView.dequeueReusableCell(withIdentifier: "submitCellPart1") as! SubmitCell
@@ -133,6 +161,14 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.001
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.row == 0 ) {
+            return 200
+        }
+        
+        return UITableView.automaticDimension
     }
 }
 

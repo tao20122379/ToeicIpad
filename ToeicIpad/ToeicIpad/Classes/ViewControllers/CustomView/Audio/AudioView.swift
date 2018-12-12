@@ -130,6 +130,14 @@ class AudioView: UIView {
         }
     }
     
+    @IBAction func btnNextSelected(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_NEXT), object: nil)
+    }
+    
+    @IBAction func btnPrevSelected(_ sender: Any) {
+         NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
+    }
+    
 }
 
 

@@ -78,6 +78,24 @@ class Part1ViewController: BaseViewController {
         }
     }
     
+     func loadImageView(imageView: UIImageView, imageName: String) -> Void {
+ 
+        if (FileUtil.fileExitsAtName(fileName: imageName)) {
+            let url = FileUtil.urlOfFile(fileName: imageName)
+            let data = try? Data(contentsOf: url)
+            imageView.image = UIImage(data: data!)
+        } else {
+           
+            let url = URL(string: String(format: "%@image/%@", Global.BASE_URL, imageName))
+            let data = try? Data(contentsOf: url!)
+            if (data != nil) {
+                imageView.image = UIImage(data: data!)
+            }
+           
+        }
+    }
+
+    
     @objc func audioNext() -> Void {
         if (indexTest < part1Datas.count - 1) {
             isSubmit = false
@@ -95,6 +113,8 @@ class Part1ViewController: BaseViewController {
         }
 
     }
+    
+    
     
 }
 
@@ -115,7 +135,7 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "imageCellPart1") as! ImageCell
                 if (indexTest < part1Datas.count) {
-                    Util.loadImageView(imageView: cell.part1ImageView, imageName: part1Datas[indexTest].image_name)
+                    loadImageView(imageView: cell.part1ImageView, imageName: part1Datas[indexTest].image_name)
                 }
                 return cell
             case 1:

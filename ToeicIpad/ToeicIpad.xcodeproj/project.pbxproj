@@ -220,8 +220,6 @@
 		594905AA218FDF2F001E860C /* ToeicIpad */ = {
 			isa = PBXGroup;
 			children = (
-				594905DE218FE02F001E860C /* Resource */,
-				594905DD218FE023001E860C /* Library */,
 				594905DC218FE010001E860C /* Classes */,
 				594905AF218FDF2F001E860C /* Main.storyboard */,
 				594905B2218FDF31001E860C /* Assets.xcassets */,
@@ -253,26 +251,11 @@
 			isa = PBXGroup;
 			children = (
 				5992F6A02195676E00ED9298 /* Helpers */,
-				594905E3218FE099001E860C /* Models */,
 				594905E2218FE088001E860C /* Managers */,
 				594905E1218FE07E001E860C /* Common */,
 				594905E0218FE075001E860C /* ViewControllers */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		594905DD218FE023001E860C /* Library */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		594905DE218FE02F001E860C /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		594905E0218FE075001E860C /* ViewControllers */ = {
@@ -308,13 +291,6 @@
 				594905F0218FE3F6001E860C /* ApiClient */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		594905E3218FE099001E860C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		594905E8218FE186001E860C /* Home */ = {

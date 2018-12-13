@@ -138,6 +138,8 @@ class AudioView: UIView {
          NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
     }
     
+    
+    
 }
 
 

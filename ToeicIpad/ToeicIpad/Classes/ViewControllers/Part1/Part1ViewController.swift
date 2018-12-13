@@ -18,19 +18,16 @@ class Part1ViewController: BaseViewController {
     var isSubmit: Bool = false
     var testData: TestBook?
     var indexTest: Int = 0
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.showAudioView()
-        appDelegate.audioView?.initAudio(fileName: "1.mp3", start: 0, end: 20)
-        title = "part1"
-        getDataPart1()
-        initTableView()
+        initData()
+        initUI()
     }
     
     
-    func initTableView() -> Void {
+    func initUI() -> Void {
         part1TableView.delegate = self
         part1TableView.dataSource = self
         part1TableView.backgroundView?.backgroundColor = UIColor.white
@@ -47,10 +44,28 @@ class Part1ViewController: BaseViewController {
         
     }
     
+    func initData() -> Void {
+        title = "part1"
+        let audioName = String(format: "part1_%d.mp3", testData!.test_id)
+        if (!FileUtil.fileExitsAtName(fileName: audioName)) {
+            DownloadClient.shareClient.alamofireDownloadAudio(name: audioName) { (isAudio) in
+                if (isAudio) {
+                    self.getDataPart1()
+                }
+            }
+        } else {
+            getDataPart1()
+        }
+    }
+    
+    
+    
     func getDataPart1() -> Void {
         if ((testData?.isDataPart1)!) {
             part1Datas = QuestionPart1Manager.getListQuestion1(test_id: testData?.test_id)
             part1TableView.reloadData()
+            self.appDelegate.showAudioView()
+            self.loadAudio()
             return
         }
         let actionStr = "question-part1/search"
@@ -70,12 +85,19 @@ class Part1ViewController: BaseViewController {
                     })
                 }
                 self.part1TableView.reloadData()
+                self.appDelegate.showAudioView()
+                self.loadAudio()
                 break
             case .failure(_):
                 break
             }
             KRProgressHUD.dismiss()
         }
+    }
+    
+    func loadAudio() -> Void {
+         appDelegate.audioView?.initAudio(fileName: String(format: "part1_%d.mp3", (self.testData?.test_id)!), start: part1Datas[indexTest].time_start, end: part1Datas[indexTest].time_end)
+        appDelegate.audioView?.play()
     }
     
      func loadImageView(imageView: UIImageView, imageName: String) -> Void {
@@ -91,7 +113,6 @@ class Part1ViewController: BaseViewController {
             if (data != nil) {
                 imageView.image = UIImage(data: data!)
             }
-           
         }
     }
 
@@ -100,7 +121,10 @@ class Part1ViewController: BaseViewController {
         if (indexTest < part1Datas.count - 1) {
             isSubmit = false
             indexTest = indexTest + 1
+            loadAudio()
             part1TableView.reloadData()
+            
+           
         }
         
     }
@@ -108,13 +132,11 @@ class Part1ViewController: BaseViewController {
     @objc func audioPrev() -> Void {
         if (indexTest > 0) {
             isSubmit = false
+            loadAudio()
             indexTest = indexTest - 1
             part1TableView.reloadData()
         }
-
     }
-    
-    
     
 }
 
@@ -124,6 +146,9 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (indexTest >= part1Datas.count) {
+            return 0
+        }
         if (isSubmit) {
             return 4
         }

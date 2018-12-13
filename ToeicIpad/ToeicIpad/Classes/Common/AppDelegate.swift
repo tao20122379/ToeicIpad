@@ -38,7 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = nav
         nav.navigationBar.isHidden = true
         audioView = (Bundle.main.loadNibNamed("AudioView", owner: self, options: nil)?.first as! AudioView)
-        audioView?.frame =  CGRect(x: 0, y: Global.SCREEN_HEIGHT-49, width: Global.SCREEN_WIDTH, height:audioHeight)
+        var safeArea: UIEdgeInsets? = UIEdgeInsets.zero
+        if #available(iOS 11.0, *) {
+            safeArea = window?.safeAreaInsets
+        }
+        UserDefaults.standard.set(safeArea?.top, forKey: Global.SAFE_AREA_TOP)
+        UserDefaults.standard.set(safeArea?.bottom, forKey: Global.SAFE_AREA_BOT)
+        audioView?.frame =  CGRect(x: 0, y: (tabBarController?.tabBar.frame.origin.y)! - (safeArea?.bottom)!, width: Global.SCREEN_WIDTH, height:audioHeight)
         audioView?.isHidden = false
         audioView?.alpha = 1
         tabBarController?.view.addSubview(audioView!)

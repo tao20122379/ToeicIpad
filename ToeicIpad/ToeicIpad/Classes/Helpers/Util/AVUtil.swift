@@ -27,7 +27,8 @@ class AVUtil: NSObject, AVAudioPlayerDelegate{
         longTime = timeEnd! - timeStart!
         do {
             playerController = nil
-            playerController = try AVAudioPlayer(contentsOf: FileUtil.urlOfFile(fileName: fileName))
+            let audioUrl:URL = FileUtil.urlOfFile(fileName: fileName)
+            playerController = try AVAudioPlayer(contentsOf: audioUrl)
             playerController?.numberOfLoops = 0
             playerController?.enableRate = true
             playerController?.currentTime = timeStart!

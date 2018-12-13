@@ -30,6 +30,7 @@ class HomeViewController: BaseViewController {
         self.title = "Home"
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        initData()
     }
     
     func initData() -> Void {
@@ -41,6 +42,10 @@ class HomeViewController: BaseViewController {
 //        DownloadClient.shareClient.downloadQuesionPart3(test_id: "1")
 //        DownloadClient.shareClient.downloadPassagePart4(test_id: "1")
 //        DownloadClient.shareClient.downloadQuesionPart4(test_id: "1")
+        
+//        DownloadClient.shareClient.downloadAudio(name: "part1_1.mp3") { (url, error) in
+//            print(error)
+//        }
     }
 
     override func didReceiveMemoryWarning() {

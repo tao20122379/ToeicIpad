@@ -109,12 +109,6 @@ class DownloadClient: NSObject,UITableViewDelegate {
                         QuestionPart1Manager.addQuestion1(data: data )
                         self.alamofireDownloadImage(name: data["image_name"] as! String)
                     })
-                    
-                    let audioName = String(format: "%part1_%d", test.test_id)
-                    if (!FileUtil.fileExitsAtName(fileName: audioName)) {
-                        self.alamofireDownloadAudio(name: audioName)
-                    }
-                    
                     if (datas.count > 0) {
                         TestManager.updateDataTest(test: test, part: 1)
                         compleHandler(true)
@@ -270,18 +264,36 @@ class DownloadClient: NSObject,UITableViewDelegate {
         }
     }
     
-    func alamofireDownloadAudio(name: String) -> Void {
+    func alamofireDownloadAudio(name: String, compleHandler: @escaping(_ loadAudio: Bool) -> Void) -> Void {
+        let audioUrl = String(format: "%@audio/%@", Global.BASE_URL, name)
+        let fileUrl = self.getSaveFileUrl(fileName: audioUrl)
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
-            var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            documentsURL.appendPathComponent(name)
-            return (documentsURL, [.removePreviousFile])
+            return (fileUrl, [.removePreviousFile, .createIntermediateDirectories])
         }
-        let urlStr = String(format: "%@image/%@", baseUrl, name)
-        Alamofire.download(urlStr, to: destination).responseData { response in
-            if let destinationUrl = response.destinationURL {
-                print("destinationUrl \(destinationUrl.absoluteURL)")
+        
+        Alamofire.download(audioUrl, to:destination)
+            .downloadProgress { (progress) in
+                //self.progressLabel.text = (String)(progress.fractionCompleted)
             }
+            .responseData { (data) in
+                switch (data.result) {
+                case .success(_):
+                    compleHandler(true)
+                    break
+                case .failure(_):
+                    compleHandler(false)
+                    break
+                }
+            
         }
+    }
+    
+    func getSaveFileUrl(fileName: String) -> URL {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let nameUrl = URL(string: fileName)
+        let fileURL = documentsURL.appendingPathComponent((nameUrl?.lastPathComponent)!)
+        NSLog(fileURL.absoluteString)
+        return fileURL;
     }
     
 }

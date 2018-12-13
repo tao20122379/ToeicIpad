@@ -17,4 +17,6 @@ class Global: NSObject {
     static let NOTIFICATION_NEXT = "notification_next"
     static let NOTIFICATION_PREV = "notification_prev"
     static let BASE_URL = "http://testcrm.tomorrowmarketers.org/"
+    static let SAFE_AREA_TOP = "safe_area_top"
+    static let SAFE_AREA_BOT = "safe_area_bot"
 }

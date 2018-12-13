@@ -20,8 +20,7 @@ public protocol DownloadClientDelegate {
 class DownloadClient: NSObject,UITableViewDelegate {
     
     var delegate:DownloadClientDelegate?
-    var baseUrl = "http://testcrm.tomorrowmarketers.org/"
-    var fileName:String = ""
+    var fileName: String = ""
     
     static let shareClient: DownloadClient = DownloadClient()
     
@@ -30,7 +29,7 @@ class DownloadClient: NSObject,UITableViewDelegate {
     
     func downloadImage(name:String, completionHandler: @escaping(URL?,Error?) -> Swift.Void) -> Swift.Void {
         fileName = name;
-        let urlStr = String(format: "%@image/%@", baseUrl, fileName)
+        let urlStr = String(format: "%@image/%@", Global.BASE_URL, fileName)
         let fileURL = URL(string: urlStr)
         let sessionConfig = URLSessionConfiguration.background(withIdentifier: "bgSessionConfigurationImage")
         sessionConfig.timeoutIntervalForRequest = 3.0;
@@ -44,7 +43,7 @@ class DownloadClient: NSObject,UITableViewDelegate {
     
     func downloadAudio(name:String, completionHandler: @escaping(URL?,Error?) -> Swift.Void) -> Swift.Void {
         fileName = name;
-        let urlStr = String(format: "%@audio/%@", baseUrl, fileName)
+        let urlStr = String(format: "%@audio/%@", Global.BASE_URL, fileName)
         let fileURL = URL(string: urlStr)
         let sessionConfig = URLSessionConfiguration.background(withIdentifier: "bgSessionConfigurationAudio")
         sessionConfig.timeoutIntervalForRequest = 3.0;
@@ -118,7 +117,6 @@ class DownloadClient: NSObject,UITableViewDelegate {
                 }
                 break
             case .failure(_):
-                print(response.error)
                 compleHandler(false)
                 break
             }
@@ -256,7 +254,7 @@ class DownloadClient: NSObject,UITableViewDelegate {
             documentsURL.appendPathComponent(name)
             return (documentsURL, [.removePreviousFile])
         }
-        let urlStr = String(format: "%@image/%@", baseUrl, name)
+        let urlStr = String(format: "%@image/%@", Global.BASE_URL, name)
         Alamofire.download(urlStr, to: destination).responseData { response in
             if let destinationUrl = response.destinationURL {
                 print("destinationUrl \(destinationUrl.absoluteURL)")

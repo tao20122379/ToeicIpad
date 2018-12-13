@@ -89,7 +89,6 @@ class QuestionCell: UITableViewCell {
                 showAnswerTrueFalse(index: selectedIndex!, isTrue: false)
             }
         }
-      
     }
     
     func showDataPart2(data: QuestionPart2) -> Void {

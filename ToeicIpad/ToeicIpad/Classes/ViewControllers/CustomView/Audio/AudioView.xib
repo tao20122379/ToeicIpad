@@ -97,6 +97,9 @@
                             <rect key="frame" x="281" y="71" width="40" height="39"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="list"/>
+                            <connections>
+                                <action selector="listBtnSelected:" destination="iN0-l3-epB" eventType="touchUpInside" id="Jp4-7P-bFN"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qq-jt-rdm">
                             <rect key="frame" x="10" y="71.5" width="41" height="38"/>

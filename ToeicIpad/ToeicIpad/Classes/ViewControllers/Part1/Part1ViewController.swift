@@ -13,19 +13,18 @@ import KRProgressHUD
 class Part1ViewController: BaseViewController {
     
     @IBOutlet weak var part1TableView: UITableView!
-
     var part1Datas: Array<QuestionPart1> = Array<QuestionPart1>()
     var isSubmit: Bool = false
     var testData: TestBook?
     var indexTest: Int = 0
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
         initUI()
     }
-    
     
     func initUI() -> Void {
         part1TableView.delegate = self
@@ -46,20 +45,25 @@ class Part1ViewController: BaseViewController {
     
     func initData() -> Void {
         title = "part1"
-        let audioName = String(format: "part1_%d.mp3", testData!.test_id)
-        if (!FileUtil.fileExitsAtName(fileName: audioName)) {
-            DownloadClient.shareClient.alamofireDownloadAudio(name: audioName) { (isAudio) in
-                if (isAudio) {
-                    self.getDataPart1()
+     
+        if (part1Datas.count <= 0) {
+            let audioName = String(format: "part1_%d.mp3", testData!.test_id)
+            if (!FileUtil.fileExitsAtName(fileName: audioName)) {
+                DownloadClient.shareClient.alamofireDownloadAudio(name: audioName) { (isAudio) in
+                    if (isAudio) {
+                        self.getDataPart1()
+                    }
                 }
+            } else {
+                getDataPart1()
             }
         } else {
-            getDataPart1()
+            loadAudio()
         }
     }
     
     
-    
+    // MARK: - Service
     func getDataPart1() -> Void {
         if ((testData?.isDataPart1)!) {
             part1Datas = QuestionPart1Manager.getListQuestion1(test_id: testData?.test_id)
@@ -95,9 +99,14 @@ class Part1ViewController: BaseViewController {
         }
     }
     
+    // MARK: - Function
     func loadAudio() -> Void {
          appDelegate.audioView?.initAudio(fileName: String(format: "part1_%d.mp3", (self.testData?.test_id)!), start: part1Datas[indexTest].time_start, end: part1Datas[indexTest].time_end)
         appDelegate.audioView?.play()
+        appDelegate.audioView?.listTest = part1Datas
+        appDelegate.audioView?.indexSelect = indexTest
+        appDelegate.audioView?.part = 1
+        appDelegate.audioView?.test = testData
     }
     
      func loadImageView(imageView: UIImageView, imageName: String) -> Void {
@@ -116,17 +125,14 @@ class Part1ViewController: BaseViewController {
         }
     }
 
-    
+    // MARK: - Action
     @objc func audioNext() -> Void {
         if (indexTest < part1Datas.count - 1) {
             isSubmit = false
             indexTest = indexTest + 1
             loadAudio()
             part1TableView.reloadData()
-            
-           
         }
-        
     }
     
     @objc func audioPrev() -> Void {
@@ -140,6 +146,7 @@ class Part1ViewController: BaseViewController {
     
 }
 
+//MARK: - TableView delegate
 extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -217,6 +224,8 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+// MARK: - Cell Delegate
 extension Part1ViewController: SubmitCellDelegate {
     func submitCellSelected() {
         isSubmit = true

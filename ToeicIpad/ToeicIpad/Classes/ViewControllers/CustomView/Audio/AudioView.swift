@@ -9,15 +9,14 @@
 import UIKit
 
 class AudioView: UIView {
+    
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressController: UISlider!
     @IBOutlet weak var timeStartLb: UILabel!
     @IBOutlet weak var timeEndLb: UILabel!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var tabBar: UITabBar!
-    
     @IBOutlet weak var customView: UIView!
-    
     @IBOutlet weak var speedBtn: UIButton!
     
     var pauseBtn:UIButton?
@@ -29,8 +28,13 @@ class AudioView: UIView {
     var view:UIView!
     var isCurrentlyPlayingHidden = false
     let speeds = ["1.5", "1.25", "1", "0.75", "0.5", "0.25"]
-
+    var listTest: Array<Any>?
+    var test: TestBook?
+    var part: Int = 0
+    var indexSelect: Int = 0
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    // MARK: - Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         progressController.setThumbImage(UIImage(named: "thump"), for: UIControl.State.normal)
@@ -45,23 +49,29 @@ class AudioView: UIView {
         self.timeEndLb.text = AVUtil.shareAudio.endString()
     }
     
+    func initTabBar(tabbar: UITabBar) -> Void {
+        self.tabBar.items = tabBar.items
+        self.tabBar.selectedItem = tabBar.selectedItem
+        self.tabBar.setNeedsLayout()
+        self.tabBar.layoutIfNeeded()
+    }
+    
     func processAudio() -> Void {
         self.progressView?.progress = AVUtil.shareAudio.getProgress()
         self.progressController?.value = (self.progressView?.progress)!
         if ((self.progressController?.value)! >= Float(1) ) {
             self.progressController?.value = 0
             self.progressView?.progress = 0
-            if (isRepeat == true){
-                AVUtil.shareAudio.resetAudio()
-            } else {
+            AVUtil.shareAudio.resetAudio()
+            if (isRepeat == false){
                 self.pause()
                 timer?.invalidate()
-
             }
         }
         timeStartLb.text = AVUtil.shareAudio.beginString()
     }
     
+    //MARK: - Action
     func play() -> Void {
         AVUtil.shareAudio.play()
         timer?.invalidate()
@@ -75,14 +85,6 @@ class AudioView: UIView {
         AVUtil.shareAudio.pause()
         timer?.invalidate()
         playBtn.setImage(UIImage(named: "audio_pause"), for: .normal)
-    }
-    
-    
-    func initTabBar(tabbar: UITabBar) -> Void {
-        self.tabBar.items = tabBar.items
-        self.tabBar.selectedItem = tabBar.selectedItem
-        self.tabBar.setNeedsLayout()
-        self.tabBar.layoutIfNeeded()
     }
     
     @IBAction func sliderTouchDown(_ sender: UISlider) {
@@ -138,11 +140,24 @@ class AudioView: UIView {
          NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
     }
     
-    
+    @IBAction func listBtnSelected(_ sender: UIButton) {
+        appDelegate.openTestVCPart(part: part, data: listTest!, index: indexSelect, test: test!)
+        let listQuestionVC = ListQuestionViewController(nibName: "ListQuestionViewController", bundle: nil)
+        listQuestionVC.countQuestion = (listTest?.count)!
+        listQuestionVC.delegate = self
+         Util.showPopover(popVC: listQuestionVC, root: self, sender: sender, size: CGSize(width: 100, height: 400))
+        
+    }
     
 }
 
-
+extension AudioView: ListQuestion_Delegate {
+    func listTestSelect(index: Int) {
+        appDelegate.openQuestion(part: part, index: index)
+    }
+    
+    
+}
 
 extension AudioView: SpeedTable_Delegate {
     func slecteedSpeed(speed: String) {
@@ -170,7 +185,6 @@ class SpeedTableView: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

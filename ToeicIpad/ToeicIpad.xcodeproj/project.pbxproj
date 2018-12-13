@@ -64,6 +64,8 @@
 		59D298E821C4EA6500433F03 /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E421C4EA6500433F03 /* TestManager.swift */; };
 		CECC151A8483079CD57EFF39 /* Pods_ToeicIpadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20C6B8187F6D298E0284479 /* Pods_ToeicIpadUITests.framework */; };
 		DF9C8CB9BF8D9FC045C11887 /* Pods_ToeicIpad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C94CBBCB5F58B4114632C5 /* Pods_ToeicIpad.framework */; };
+		FA113BC821C292F2000EC031 /* ListQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA113BC621C292F2000EC031 /* ListQuestionViewController.swift */; };
+		FA113BC921C292F2000EC031 /* ListQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA113BC721C292F2000EC031 /* ListQuestionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		B8572038EF10CBF84D889FEB /* Pods-ToeicIpadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadTests/Pods-ToeicIpadTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF9E21CD3907278DCA4DC120 /* Pods-ToeicIpad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpad.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpad/Pods-ToeicIpad.release.xcconfig"; sourceTree = "<group>"; };
 		C20C6B8187F6D298E0284479 /* Pods_ToeicIpadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToeicIpadUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA113BC621C292F2000EC031 /* ListQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListQuestionViewController.swift; sourceTree = "<group>"; };
+		FA113BC721C292F2000EC031 /* ListQuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListQuestionViewController.xib; sourceTree = "<group>"; };
 		FB06AFB53992B2CB57186C76 /* Pods-ToeicIpadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadUITests/Pods-ToeicIpadUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +272,7 @@
 				59725F4B21B9052C0013A170 /* Part2 */,
 				59725F4C21B905330013A170 /* Part3 */,
 				595D336C21BDFCBB00559A3E /* Part4 */,
+				FA113BC521C292C9000EC031 /* ListQuestion */,
 				596060C521BA0283004D64B0 /* Setting */,
 				596060C621BA02BA004D64B0 /* ThongKe */,
 				594905E8218FE186001E860C /* Home */,
@@ -512,6 +517,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FA113BC521C292C9000EC031 /* ListQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				FA113BC621C292F2000EC031 /* ListQuestionViewController.swift */,
+				FA113BC721C292F2000EC031 /* ListQuestionViewController.xib */,
+			);
+			path = ListQuestion;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -627,6 +641,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA113BC921C292F2000EC031 /* ListQuestionViewController.xib in Resources */,
 				59725F5421B905AE0013A170 /* Part3ViewController.xib in Resources */,
 				595D336B21BDF97700559A3E /* ThongKeViewController.xib in Resources */,
 				596060CB21BA0586004D64B0 /* DescriptionCell.xib in Resources */,
@@ -758,6 +773,7 @@
 			files = (
 				5995858921B7BCE6008E7AF0 /* Part1ViewController.swift in Sources */,
 				59D298E621C4EA6500433F03 /* QuestionPart1Manager.swift in Sources */,
+				FA113BC821C292F2000EC031 /* ListQuestionViewController.swift in Sources */,
 				596060D021BA1E0C004D64B0 /* QuestionPart3Manager.swift in Sources */,
 				59A1843721CB2D0E00E754B2 /* AudioView.swift in Sources */,
 				5995858421B7BC86008E7AF0 /* ListTestViewController.swift in Sources */,

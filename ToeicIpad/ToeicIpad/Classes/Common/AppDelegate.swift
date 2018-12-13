@@ -110,6 +110,78 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
           audioIsShow = false
     }
+    
+    func openTestVCPart(part: Int, data: Any, index: Int, test: TestBook) -> Void {
+        tabBarController?.selectedIndex = 0
+        if let topVC = self.getTopMostViewController() {
+            var listTestVC: ListTestViewController?
+            if (topVC.isKind(of: HomeViewController.self)) {
+                let homeVC = topVC as! HomeViewController
+                listTestVC = ListTestViewController(nibName: "ListTestViewController", bundle: nil)
+                listTestVC!.type = PartType(rawValue: part)
+                homeVC.navigationController?.pushViewController(listTestVC!, animated: true)
+            }
+            else if (topVC.isKind(of: ListTestViewController.self)) {
+                listTestVC = topVC as? ListTestViewController
+            }
+            if (listTestVC != nil) {
+                switch part {
+                case 1:
+                    let part1VC = Part1ViewController(nibName: "Part1ViewController", bundle: nil)
+                    part1VC.part1Datas = data as! Array<QuestionPart1>
+                    part1VC.indexTest = index
+                    part1VC.testData = test
+                    listTestVC!.navigationController?.pushViewController(part1VC, animated: true)
+                    break
+                case 2:
+                    break
+                case 3:
+                    break
+                case 4:
+                    break
+                default:
+                    break
+                }
+            }
+        }
+    }
+    
+    func openQuestion(part: Int, index: Int) {
+        if let topVC = self.getTopMostViewController() {
+            switch part {
+            case 1:
+                if (topVC.isKind(of: Part1ViewController.self)) {
+                    let part1VC = topVC as! Part1ViewController
+                    part1VC.indexTest = index
+                    part1VC.initData()
+                }
+                break
+            case 2:
+                break
+            case 3:
+                break
+            case 4:
+                break
+            default:
+                break
+            }
+        }
+    }
+    
+    func getTopMostViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return getTopMostViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return getTopMostViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return getTopMostViewController(base: presented)
+        }
+        return base
+    }
 
 
 }

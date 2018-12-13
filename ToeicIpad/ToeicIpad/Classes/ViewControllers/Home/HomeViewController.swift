@@ -18,6 +18,8 @@ class HomeViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var testImage: UIImageView!
+    
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     let listParts = [["type":"1", "title":"Part1: Photo"],
                      ["type":"2", "title":"Part2: Question - Response"],
                      ["type":"3", "title":"Part3: Short Conversation"],
@@ -31,6 +33,10 @@ class HomeViewController: BaseViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         initData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func initData() -> Void {

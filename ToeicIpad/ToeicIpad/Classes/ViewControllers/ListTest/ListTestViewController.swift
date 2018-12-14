@@ -14,17 +14,16 @@ class ListTestViewController: BaseViewController {
     
     @IBOutlet weak var listTestTableView: UITableView!
     
-    var type: PartType?
+    var type: Int = 0
     var listTests = TestManager.getAllTests()
     var part1VC: Part1ViewController?
     var part2VC: Part2ViewController?
     var part3VC: Part3ViewController?
     var part4VC: Part4ViewController?
-    var openTestIndex: Int = 0
+    var openTestPart: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "List Test"
         initUI()
         if (UserDefaults.standard.bool(forKey: Global.IS_FIRST_LOGIN)){
             initData()
@@ -41,6 +40,7 @@ class ListTestViewController: BaseViewController {
         listTestTableView.delegate = self
         listTestTableView.dataSource = self
         listTestTableView.register(UINib(nibName: "TestCell", bundle: nil), forCellReuseIdentifier: "testCell")
+        title = String(format: "Part %d", type)
     }
     
     func initData() -> Void {
@@ -62,18 +62,30 @@ class ListTestViewController: BaseViewController {
     }
     
     func openTest() -> Void {
-        switch openTestIndex {
+        switch openTestPart {
         case 1:
             if (part1VC != nil) {
-                openTestIndex = 0
+                openTestPart = 0
                 self.navigationController?.pushViewController(part1VC!, animated: true)
             }
             break
         case 2:
+            if (part2VC != nil) {
+                openTestPart = 0
+                self.navigationController?.pushViewController(part2VC!, animated: true)
+            }
             break
         case 3:
+            if (part3VC != nil) {
+                openTestPart = 0
+                self.navigationController?.pushViewController(part3VC!, animated: true)
+            }
             break
         case 4:
+            if (part4VC != nil) {
+                openTestPart = 0
+                self.navigationController?.pushViewController(part4VC!, animated: true)
+            }
             break
         default:
             break
@@ -94,17 +106,17 @@ extension ListTestViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell") as! TestCell
         let testData = listTests[indexPath.row]
-        switch type?.rawValue {
-        case PartType.part1.rawValue:
+        switch type {
+        case 1:
             cell.downloadBtn.isHidden = testData.isDataPart1
             break
-        case PartType.part2.rawValue:
+        case 2:
             cell.downloadBtn.isHidden = testData.isDataPart2
             break
-        case PartType.part3.rawValue:
+        case 3:
             cell.downloadBtn.isHidden = testData.isDataPart3
             break
-        case PartType.part4.rawValue:
+        case 4:
             cell.downloadBtn.isHidden = testData.isDataPart4
             break
         default:
@@ -118,22 +130,25 @@ extension ListTestViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch type?.rawValue {
-        case PartType.part1.rawValue:
+        switch type {
+        case 1:
             let part1VC = Part1ViewController(nibName: "Part1ViewController", bundle: nil)
             part1VC.testData = listTests[indexPath.row]
             self.navigationController?.pushViewController(part1VC, animated: true)
             break
-        case PartType.part2.rawValue:
+        case 2:
             let part2VC = Part2ViewController(nibName: "Part2ViewController", bundle: nil)
+            part2VC.testData = listTests[indexPath.row]
             self.navigationController?.pushViewController(part2VC, animated: true)
             break
-        case PartType.part3.rawValue:
+        case 3:
             let part3VC = Part3ViewController(nibName: "Part3ViewController", bundle: nil)
+            part3VC.testData = listTests[indexPath.row]
             self.navigationController?.pushViewController(part3VC, animated: true)
             break
-        case PartType.part4.rawValue:
+        case 4:
             let part4VC = Part4ViewController(nibName: "Part4ViewController", bundle: nil)
+            part4VC.testData = listTests[indexPath.row]
             self.navigationController?.pushViewController(part4VC, animated: true)
             break
         default:
@@ -154,8 +169,8 @@ extension ListTestViewController: UITableViewDelegate, UITableViewDataSource {
 extension ListTestViewController: TestCellDelegate {
     func downloadCellSelected(test: TestBook) {
         KRProgressHUD.show()
-        switch type?.rawValue {
-        case PartType.part1.rawValue:
+        switch type {
+        case 1:
             DownloadClient.shareClient.downloadDataPart1(test: test) { (isDownload) in
                 if (isDownload) {
                     DispatchQueue.main.async {
@@ -165,30 +180,32 @@ extension ListTestViewController: TestCellDelegate {
                 KRProgressHUD.dismiss()
             }
             break
-        case PartType.part2.rawValue:
-            DownloadClient.shareClient.downloadDataPart2(test_id: String(format: "%d", test.test_id)) { (isDownload) in
+        case 2:
+            DownloadClient.shareClient.downloadDataPart2(test: test) { (isDownload) in
                 if (isDownload) {
-                     print(String(format: "threed: %@", Thread.current))
                     DispatchQueue.main.async {
-                        TestManager.updateDataTest(test: test, part: 2)
                         self.reloadTableView()
                     }
                 }
                 KRProgressHUD.dismiss()
             }
             break
-        case PartType.part3.rawValue:
-            DownloadClient.shareClient.downloadPassagePart3(test_id: String(format: "%d", test.test_id)) { (isDownload) in
-                if (isDownload) {
-                    DispatchQueue.main.async {
-                        TestManager.updateDataTest(test: test, part: 3)
-                        self.reloadTableView()
+        case 3:
+            DownloadClient.shareClient.downloadPassagePart3(test: test) { (isPassage) in
+                if (isPassage) {
+                    DownloadClient.shareClient.downloadDataPart3(test: test) { (isDownload) in
+                        if (isDownload) {
+                            TestManager.updateDataTest(test: test, part: 3)
+                            DispatchQueue.main.async {
+                                self.reloadTableView()
+                            }
+                        }
+                        KRProgressHUD.dismiss()
                     }
                 }
-                KRProgressHUD.dismiss()
             }
             break
-        case PartType.part4.rawValue:
+        case 4:
             DownloadClient.shareClient.downloadPassagePart4(test_id: String(format: "%d", test.test_id)) { (isDownload) in
                 if (isDownload) {
                     DispatchQueue.main.async {

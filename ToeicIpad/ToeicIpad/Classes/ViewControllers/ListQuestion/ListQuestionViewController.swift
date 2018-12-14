@@ -17,6 +17,7 @@ class ListQuestionViewController: BaseViewController {
     var listTest: Array<Any>?
     var delegate: ListQuestion_Delegate?
     var countQuestion: Int = 0
+   
     
     @IBOutlet weak var tableView: UITableView!
     

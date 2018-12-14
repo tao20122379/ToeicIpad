@@ -83,10 +83,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let listTestVC = ListTestViewController(nibName: "ListTestViewController", bundle: nil)
-        listTestVC.openTestIndex = 0
+        listTestVC.openTestPart = 0
         let type = listParts[indexPath.row]["type"]
-   
-        listTestVC.type = PartType(rawValue: Int(type!)!)
+        listTestVC.type = Int(type!)!
         self.navigationController?.pushViewController(listTestVC, animated: true)
     }
     

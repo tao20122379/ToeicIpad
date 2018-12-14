@@ -87,6 +87,7 @@ class QuestionPart4Manager: NSObject {
 
 class QuestionPart4: Object {
     @objc dynamic var id = 0
+    @objc dynamic var test_id = 0
     @objc dynamic var passage_id = 0
     @objc dynamic var question = ""
     @objc dynamic var answerA = ""

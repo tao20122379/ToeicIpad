@@ -13,6 +13,7 @@ class Part4ViewController: BaseViewController {
     let passage4Data = QuestionPart4Manager.getPart4Passages(passage_id: 1)
     let part4Questions = QuestionPart4Manager.getPart4Questions(passage_id: 1)
     var isSubmit: Bool = false
+    var testData: TestBook?
     
     @IBOutlet weak var part4TableView: UITableView!
     

@@ -118,6 +118,9 @@ class Part1ViewController: BaseViewController {
             appDelegate.audioView?.part = 1
             appDelegate.audioView?.test = testData
             title = String(format: "%d/%d", indexTest + 1, part1Datas.count)
+        } else {
+            appDelegate.audioView?.removeAudio()
+            appDelegate.hideAidoView()
         }
     }
     

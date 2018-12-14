@@ -54,21 +54,6 @@ class DownloadClient: NSObject,UITableViewDelegate {
         task.resume()
     }
     
-    func downloadBooks() {
-        let params = NSMutableDictionary()
-        ApiClient.shareClient.callMethod(method: "list-book/search", withParams: params) { (data, error) in
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    json.forEach({ (bookData) in
-                        BookManager.addBook(bookData: bookData as NSDictionary)
-                    })
-                }catch {
-                    print(error)
-                }
-            }
-        }
-    }
     
     func downloadTests(compleHandler: @escaping(Bool?) -> Swift.Void) -> Swift.Void {
         let params = NSMutableDictionary()
@@ -95,7 +80,6 @@ class DownloadClient: NSObject,UITableViewDelegate {
     }
     
     func downloadDataPart1(test: TestBook, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
-        
         let params = NSMutableDictionary()
         params.setValue(String(format: "%d", test.test_id), forKey: "test_id")
         
@@ -123,102 +107,80 @@ class DownloadClient: NSObject,UITableViewDelegate {
         }
     }
     
-    func downloadDataPart2(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
+    func downloadDataPart2(test: TestBook, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
         let params = NSMutableDictionary()
-        params.setValue(test_id, forKey: "test_id")
-        ApiClient.shareClient.callMethod(method: "question-part2/search", withParams: params) { (data, error) in
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    json.forEach({ (question1Data) in
-                        QuestionPart2Manager.addQuestion2(data: question1Data as NSDictionary)
+        params.setValue(String(format: "%d", test.test_id), forKey: "test_id")
+        ApiClient.shareClient.alamofireCallMethod(method: "question-part2/search", withParams: params) { (response: DataResponse<Any>) in
+            switch (response.result) {
+            case .success(_):
+                if (response.result.value != nil) {
+                    let datas = response.result.value as! Array<NSDictionary>
+                    datas.forEach({ (data) in
+                        QuestionPart2Manager.addQuestion2(data: data )
                     })
-                    if (json.count > 0) {
+                    if (datas.count > 0) {
+                        TestManager.updateDataTest(test: test, part: 2)
                         compleHandler(true)
                     } else {
                         compleHandler(false)
                     }
-                }catch {
-                    compleHandler(false)
-                    print(error)
                 }
-            } else {
-                 compleHandler(false)
+                break
+            case .failure(_):
+                compleHandler(false)
+                break
             }
         }
     }
     
-    func downloadQuesionPart3(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
+    func downloadPassagePart3(test: TestBook, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
+        
         let params = NSMutableDictionary()
-        params.setValue(test_id, forKey: "test_id")
-        ApiClient.shareClient.callMethod(method: "question-part3/search", withParams: params) { (data, error) in
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    json.forEach({ (question1Data) in
-                        QuestionPart3Manager.addPart3Question(data: question1Data as NSDictionary)
+        params.setValue(String(format: "%d", test.test_id), forKey: "test_id")
+        ApiClient.shareClient.alamofireCallMethod(method: "passage-part3/search", withParams: params) { (response: DataResponse<Any>) in
+            switch (response.result) {
+            case .success(_):
+                if (response.result.value != nil) {
+                    let datas = response.result.value as! Array<NSDictionary>
+                    datas.forEach({ (data) in
+                        QuestionPart3Manager.addPart3Passage(data: data)
                     })
-                    if (json.count > 0) {
+                    if (datas.count > 0) {
                         compleHandler(true)
                     } else {
                         compleHandler(false)
                     }
-                }catch {
-                    print(error)
-                    compleHandler(false)
                 }
-            } else {
+                break
+            case .failure(_):
                 compleHandler(false)
+                break
             }
         }
     }
     
-    func downloadQuesionPart4(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
+    func downloadDataPart3(test: TestBook, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
         let params = NSMutableDictionary()
-        params.setValue(test_id, forKey: "test_id")
-        ApiClient.shareClient.callMethod(method: "question-part4/search", withParams: params) { (data, error) in
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    json.forEach({ (question1Data) in
-                        QuestionPart4Manager.addPart4Question(data: question1Data as NSDictionary)
+        params.setValue(String(format: "%d", test.test_id), forKey: "test_id")
+        ApiClient.shareClient.alamofireCallMethod(method: "question-part3/search", withParams: params) { (response: DataResponse<Any>) in
+            switch (response.result) {
+            case .success(_):
+                if (response.result.value != nil) {
+                    let datas = response.result.value as! Array<NSDictionary>
+                    datas.forEach({ (data) in
+                        QuestionPart3Manager.addPart3Question(data: data )
                     })
-                    if (json.count > 0) {
+                    if (datas.count > 0) {
+                        TestManager.updateDataTest(test: test, part: 3)
                         compleHandler(true)
                     } else {
                         compleHandler(false)
                     }
-                }catch {
-                    print(error)
-                    compleHandler(false)
                 }
-            } else {
+                break
+            case .failure(_):
                 compleHandler(false)
-            }
-        }
-    }
-    
-    func downloadPassagePart3(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
-        let params = NSMutableDictionary()
-        params.setValue(test_id, forKey: "test_id")
-        ApiClient.shareClient.callMethod(method: "passage-part3/search", withParams: params) { (data, error) in
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-                    json.forEach({ (question1Data) in
-                        QuestionPart3Manager.addPart3Passage(data: question1Data as NSDictionary)
-                    })
-                    if (json.count > 0) {
-                        compleHandler(true)
-                    } else {
-                        compleHandler(false)
-                    }
-                }catch {
-                    print(error)
-                    compleHandler(false)
-                }
-            } else {
-                compleHandler(false)
+                break
             }
         }
     }
@@ -244,6 +206,33 @@ class DownloadClient: NSObject,UITableViewDelegate {
                 }
             } else {
                     compleHandler(false)
+            }
+        }
+    }
+    
+
+    
+    func downloadQuesionPart4(test_id:String, compleHandler: @escaping(_ isDownload: Bool) -> Void) {
+        let params = NSMutableDictionary()
+        params.setValue(test_id, forKey: "test_id")
+        ApiClient.shareClient.callMethod(method: "question-part4/search", withParams: params) { (data, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+                    json.forEach({ (question1Data) in
+                        QuestionPart4Manager.addPart4Question(data: question1Data as NSDictionary)
+                    })
+                    if (json.count > 0) {
+                        compleHandler(true)
+                    } else {
+                        compleHandler(false)
+                    }
+                }catch {
+                    print(error)
+                    compleHandler(false)
+                }
+            } else {
+                compleHandler(false)
             }
         }
     }
@@ -282,7 +271,6 @@ class DownloadClient: NSObject,UITableViewDelegate {
                     compleHandler(false)
                     break
                 }
-            
         }
     }
     

@@ -67,6 +67,12 @@ class AVUtil: NSObject, AVAudioPlayerDelegate{
         }
     }
     
+    func removeAudio() {
+        playerController = nil
+        timeStart = 0
+        timeEnd = 0
+    }
+    
     func setSpeed(speed:Float) -> Void {
         if (playerController != nil) {
             playerController?.rate = speed

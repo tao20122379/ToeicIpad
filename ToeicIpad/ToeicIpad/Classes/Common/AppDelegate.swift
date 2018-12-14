@@ -118,13 +118,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if (topVC.isKind(of: HomeViewController.self)) {
                 let homeVC = topVC as! HomeViewController
                 listTestVC = ListTestViewController(nibName: "ListTestViewController", bundle: nil)
-                listTestVC!.type = PartType(rawValue: part)
+                listTestVC!.type = part
                 updateListTest(listTestVC: listTestVC!, part: part, data: data, test: test, index: index)
                 homeVC.navigationController?.pushViewController(listTestVC!, animated: true)
             }
             else if (topVC.isKind(of: ListTestViewController.self)) {
                 listTestVC = topVC as? ListTestViewController
                 updateListTest(listTestVC: listTestVC!, part: part, data: data, test: test, index: index)
+                listTestVC!.type = part
+                listTestVC!.title = String(format: "Part %d", part)
                 listTestVC?.openTest()
             }
           
@@ -138,10 +140,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             part1VC.part1Datas = data as! Array<QuestionPart1>
             part1VC.indexTest = index
             part1VC.testData = test
-            listTestVC.openTestIndex = 1
+            listTestVC.openTestPart = 1
             listTestVC.part1VC = part1VC
             break
         case 2:
+            let part2VC = Part2ViewController(nibName: "Part2ViewController", bundle: nil)
+            part2VC.part2Datas = data as! Array<QuestionPart2>
+            part2VC.indexTest = index
+            part2VC.testData = test
+            listTestVC.openTestPart = 2
+            listTestVC.part2VC = part2VC
+            break
             break
         case 3:
             break

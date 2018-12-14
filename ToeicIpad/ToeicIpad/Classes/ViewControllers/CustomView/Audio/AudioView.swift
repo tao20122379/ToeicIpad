@@ -39,7 +39,7 @@ class AudioView: UIView {
         super.awakeFromNib()
         progressController.setThumbImage(UIImage(named: "thump"), for: UIControl.State.normal)
     }
-
+    
     func initAudio(fileName: String, start: Double, end: Double) -> Void{
         AVUtil.shareAudio.playAudio(fileName: fileName, start: start, end: end)
         timer?.invalidate()
@@ -71,6 +71,16 @@ class AudioView: UIView {
         timeStartLb.text = AVUtil.shareAudio.beginString()
     }
     
+    func removeAudio() -> Void {
+        pause()
+        AVUtil.shareAudio.removeAudio()
+        processAudio()
+        part = 0
+        indexSelect = 0
+        listTest.removeAll()
+        test = nil
+    }
+    
     //MARK: - Action
     func play() -> Void {
         AVUtil.shareAudio.play()
@@ -88,7 +98,7 @@ class AudioView: UIView {
     }
     
     @IBAction func sliderTouchDown(_ sender: UISlider) {
-            self.timer?.invalidate()
+        self.timer?.invalidate()
     }
     
     @IBAction func sliderTouchUpiInside(_ sender: UISlider) {
@@ -137,18 +147,16 @@ class AudioView: UIView {
     }
     
     @IBAction func btnPrevSelected(_ sender: Any) {
-         NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
     }
     
     @IBAction func listBtnSelected(_ sender: UIButton) {
         if ((listTest.count) > 0) {
             appDelegate.openTestVCPart(part: part, data: listTest, index: indexSelect, test: test!)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
-                let listQuestionVC = ListQuestionViewController(nibName: "ListQuestionViewController", bundle: nil)
-                listQuestionVC.countQuestion = (self.listTest.count)
-                listQuestionVC.delegate = self
-                Util.showPopover(popVC: listQuestionVC, root: self, sender: sender, size: CGSize(width: 80, height: 460))
-            }
+            let listQuestionVC = ListQuestionViewController(nibName: "ListQuestionViewController", bundle: nil)
+            listQuestionVC.countQuestion = (self.listTest.count)
+            listQuestionVC.delegate = self
+            Util.showPopover(popVC: listQuestionVC, root: self, sender: sender, size: CGSize(width: 80, height: 460))
         }
     }
     
@@ -158,8 +166,6 @@ extension AudioView: ListQuestion_Delegate {
     func listTestSelect(index: Int) {
         NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_SELECT_LIST), object: nil, userInfo: ["part1_index": index])
     }
-    
-    
 }
 
 extension AudioView: SpeedTable_Delegate {

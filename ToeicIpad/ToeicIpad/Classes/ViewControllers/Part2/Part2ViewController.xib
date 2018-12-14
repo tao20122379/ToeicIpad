@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Part2ViewController" customModule="ToeicIpad" customModuleProvider="target">
             <connections>
+                <outlet property="noDataLabel" destination="7Lc-P9-um5" id="vcY-xk-QFG"/>
                 <outlet property="part2TableView" destination="sZd-W2-swc" id="Tp1-rx-xig"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,13 +26,21 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không có dữ liệu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-P9-um5">
+                    <rect key="frame" x="130" y="334.5" width="115.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sZd-W2-swc" secondAttribute="trailing" id="AfO-Y8-tEL"/>
                 <constraint firstItem="sZd-W2-swc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TNJ-km-Paa"/>
                 <constraint firstItem="sZd-W2-swc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="U8m-e1-gSQ"/>
+                <constraint firstItem="7Lc-P9-um5" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="U9Q-Dx-z60"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="sZd-W2-swc" secondAttribute="bottom" id="VuM-X0-8Vl"/>
+                <constraint firstItem="7Lc-P9-um5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="gKA-wP-chd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

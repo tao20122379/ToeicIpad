@@ -119,54 +119,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let homeVC = topVC as! HomeViewController
                 listTestVC = ListTestViewController(nibName: "ListTestViewController", bundle: nil)
                 listTestVC!.type = PartType(rawValue: part)
+                updateListTest(listTestVC: listTestVC!, part: part, data: data, test: test, index: index)
                 homeVC.navigationController?.pushViewController(listTestVC!, animated: true)
             }
             else if (topVC.isKind(of: ListTestViewController.self)) {
                 listTestVC = topVC as? ListTestViewController
+                updateListTest(listTestVC: listTestVC!, part: part, data: data, test: test, index: index)
+                listTestVC?.openTest()
             }
-            if (listTestVC != nil) {
-                switch part {
-                case 1:
-                    let part1VC = Part1ViewController(nibName: "Part1ViewController", bundle: nil)
-                    part1VC.part1Datas = data as! Array<QuestionPart1>
-                    part1VC.indexTest = index
-                    part1VC.testData = test
-                    listTestVC!.navigationController?.pushViewController(part1VC, animated: true)
-                    break
-                case 2:
-                    break
-                case 3:
-                    break
-                case 4:
-                    break
-                default:
-                    break
-                }
-            }
+          
         }
     }
     
-    func openQuestion(part: Int, index: Int) {
-        if let topVC = self.getTopMostViewController() {
-            switch part {
-            case 1:
-                if (topVC.isKind(of: Part1ViewController.self)) {
-                    let part1VC = topVC as! Part1ViewController
-                    part1VC.indexTest = index
-                    part1VC.initData()
-                }
-                break
-            case 2:
-                break
-            case 3:
-                break
-            case 4:
-                break
-            default:
-                break
-            }
+    func updateListTest(listTestVC: ListTestViewController, part: Int, data: Any, test: TestBook, index: Int) -> Void {
+        switch part {
+        case 1:
+            let part1VC = Part1ViewController(nibName: "Part1ViewController", bundle: nil)
+            part1VC.part1Datas = data as! Array<QuestionPart1>
+            part1VC.indexTest = index
+            part1VC.testData = test
+            listTestVC.openTestIndex = 1
+            listTestVC.part1VC = part1VC
+            break
+        case 2:
+            break
+        case 3:
+            break
+        case 4:
+            break
+        default:
+            break
         }
     }
+    
+
     
     func getTopMostViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {

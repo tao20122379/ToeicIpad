@@ -16,6 +16,11 @@ class ListTestViewController: BaseViewController {
     
     var type: PartType?
     var listTests = TestManager.getAllTests()
+    var part1VC: Part1ViewController?
+    var part2VC: Part2ViewController?
+    var part3VC: Part3ViewController?
+    var part4VC: Part4ViewController?
+    var openTestIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +29,12 @@ class ListTestViewController: BaseViewController {
         if (UserDefaults.standard.bool(forKey: Global.IS_FIRST_LOGIN)){
             initData()
         }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        openTest()
     }
     
     func initUI() -> Void {
@@ -49,6 +60,26 @@ class ListTestViewController: BaseViewController {
         listTests = TestManager.getAllTests()
         listTestTableView.reloadData()
     }
+    
+    func openTest() -> Void {
+        switch openTestIndex {
+        case 1:
+            if (part1VC != nil) {
+                openTestIndex = 0
+                self.navigationController?.pushViewController(part1VC!, animated: true)
+            }
+            break
+        case 2:
+            break
+        case 3:
+            break
+        case 4:
+            break
+        default:
+            break
+        }
+    }
+    
 }
 
 extension ListTestViewController: UITableViewDelegate, UITableViewDataSource {
@@ -170,7 +201,6 @@ extension ListTestViewController: TestCellDelegate {
             break
         default:
             KRProgressHUD.dismiss()
-
             break
         }
     }

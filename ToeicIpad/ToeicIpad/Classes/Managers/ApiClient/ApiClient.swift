@@ -35,6 +35,7 @@ class ApiClient {
         urlComponents?.queryItems = queryItems
         var urlRequest = URLRequest(url: (urlComponents?.url)!)
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.timeoutInterval = Global.TIMEOUT_INTERVAL
         
         Alamofire.request(urlRequest).responseJSON { (response: DataResponse<Any>) in
             completionHandler(response)
@@ -62,7 +63,7 @@ class ApiClient {
         
         //urlRequest.setValue(signature, forHTTPHeaderField: "Authorization")
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        urlRequest.timeoutInterval = Global.TIMEOUT_INTERVAL
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         

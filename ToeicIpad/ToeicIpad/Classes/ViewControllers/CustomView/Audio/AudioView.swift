@@ -23,12 +23,12 @@ class AudioView: UIView {
     var repeatBtn:UIButton?
     var stopBtn:UIButton?
     var timer:Timer?
-    let TIME_PROGRESS = 0.1
-    var isRepeat:Bool = false
+    let TIME_PROGRESS = 0.05
+    var isRepeat:Bool = true
     var view:UIView!
     var isCurrentlyPlayingHidden = false
     let speeds = ["1.5", "1.25", "1", "0.75", "0.5", "0.25"]
-    var listTest: Array<Any>?
+    var listTest: Array<Any> = Array<Any>()
     var test: TestBook?
     var part: Int = 0
     var indexSelect: Int = 0
@@ -141,19 +141,22 @@ class AudioView: UIView {
     }
     
     @IBAction func listBtnSelected(_ sender: UIButton) {
-        appDelegate.openTestVCPart(part: part, data: listTest!, index: indexSelect, test: test!)
-        let listQuestionVC = ListQuestionViewController(nibName: "ListQuestionViewController", bundle: nil)
-        listQuestionVC.countQuestion = (listTest?.count)!
-        listQuestionVC.delegate = self
-         Util.showPopover(popVC: listQuestionVC, root: self, sender: sender, size: CGSize(width: 100, height: 400))
-        
+        if ((listTest.count) > 0) {
+            appDelegate.openTestVCPart(part: part, data: listTest, index: indexSelect, test: test!)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                let listQuestionVC = ListQuestionViewController(nibName: "ListQuestionViewController", bundle: nil)
+                listQuestionVC.countQuestion = (self.listTest.count)
+                listQuestionVC.delegate = self
+                Util.showPopover(popVC: listQuestionVC, root: self, sender: sender, size: CGSize(width: 80, height: 460))
+            }
+        }
     }
     
 }
 
 extension AudioView: ListQuestion_Delegate {
     func listTestSelect(index: Int) {
-        appDelegate.openQuestion(part: part, index: index)
+        NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_SELECT_LIST), object: nil, userInfo: ["part1_index": index])
     }
     
     

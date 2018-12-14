@@ -13,6 +13,8 @@ import KRProgressHUD
 class Part1ViewController: BaseViewController {
     
     @IBOutlet weak var part1TableView: UITableView!
+    @IBOutlet weak var noDataLabel: UILabel!
+    
     var part1Datas: Array<QuestionPart1> = Array<QuestionPart1>()
     var isSubmit: Bool = false
     var testData: TestBook?
@@ -22,8 +24,8 @@ class Part1ViewController: BaseViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        initData()
         initUI()
+        initData()
     }
     
     func initUI() -> Void {
@@ -41,14 +43,15 @@ class Part1ViewController: BaseViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(audioPrev), name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(audioSelecteList(_:)), name: NSNotification.Name(Global.NOTIFICATION_SELECT_LIST), object: nil)
+        
     }
     
     func initData() -> Void {
-        title = "part1"
-     
         if (part1Datas.count <= 0) {
             let audioName = String(format: "part1_%d.mp3", testData!.test_id)
             if (!FileUtil.fileExitsAtName(fileName: audioName)) {
+                KRProgressHUD.show()
                 DownloadClient.shareClient.alamofireDownloadAudio(name: audioName) { (isAudio) in
                     if (isAudio) {
                         self.getDataPart1()
@@ -58,8 +61,8 @@ class Part1ViewController: BaseViewController {
                 getDataPart1()
             }
         } else {
-            loadAudio()
         }
+        title = String(format: "%d/%d", indexTest + 1, part1Datas.count)
     }
     
     
@@ -67,50 +70,59 @@ class Part1ViewController: BaseViewController {
     func getDataPart1() -> Void {
         if ((testData?.isDataPart1)!) {
             part1Datas = QuestionPart1Manager.getListQuestion1(test_id: testData?.test_id)
-            part1TableView.reloadData()
+            self.part1TableView.reloadData()
             self.appDelegate.showAudioView()
             self.loadAudio()
-            return
-        }
-        let actionStr = "question-part1/search"
-        let params = NSMutableDictionary()
-        params.setValue(String(format: "%d", (testData?.test_id)!), forKey: "test_id")
-        KRProgressHUD.show()
-        ApiClient.shareClient.alamofireCallMethod(method: actionStr, withParams: params) { (response: DataResponse<Any>) in
-            switch (response.result) {
-            case .success(_):
-                if (response.result.value != nil){
-                    let datas = response.result.value as! Array<Any>
-                    datas.forEach({ (data) in
-                        let question1 = QuestionPart1()
-                        question1.initWithDatas(data: data as! NSDictionary)
-                        self.part1Datas.append(question1)
-                        
-                    })
+        } else {
+            let actionStr = "question-part1/search"
+            let params = NSMutableDictionary()
+            params.setValue(String(format: "%d", (testData?.test_id)!), forKey: "test_id")
+            KRProgressHUD.show()
+            ApiClient.shareClient.alamofireCallMethod(method: actionStr, withParams: params) { (response: DataResponse<Any>) in
+                switch (response.result) {
+                case .success(_):
+                    if (response.result.value != nil){
+                        let datas = response.result.value as! Array<Any>
+                        datas.forEach({ (data) in
+                            let question1 = QuestionPart1()
+                            question1.initWithDatas(data: data as! NSDictionary)
+                            self.part1Datas.append(question1)
+                            
+                        })
+                    }
+                    self.part1TableView.reloadData()
+                    self.appDelegate.showAudioView()
+                    self.loadAudio()
+                    break
+                case .failure(_):
+                    break
                 }
-                self.part1TableView.reloadData()
-                self.appDelegate.showAudioView()
-                self.loadAudio()
-                break
-            case .failure(_):
-                break
+                if (self.part1Datas.count <= 0) {
+                    self.noDataLabel.isHidden = false
+                } else {
+                    self.noDataLabel.isHidden = true
+                }
+                KRProgressHUD.dismiss()
             }
-            KRProgressHUD.dismiss()
         }
+       
     }
     
     // MARK: - Function
     func loadAudio() -> Void {
-         appDelegate.audioView?.initAudio(fileName: String(format: "part1_%d.mp3", (self.testData?.test_id)!), start: part1Datas[indexTest].time_start, end: part1Datas[indexTest].time_end)
-        appDelegate.audioView?.play()
-        appDelegate.audioView?.listTest = part1Datas
-        appDelegate.audioView?.indexSelect = indexTest
-        appDelegate.audioView?.part = 1
-        appDelegate.audioView?.test = testData
+        if (indexTest < part1Datas.count) {
+            appDelegate.audioView?.initAudio(fileName: String(format: "part1_%d.mp3", (self.testData?.test_id)!), start: part1Datas[indexTest].time_start, end: part1Datas[indexTest].time_end)
+            appDelegate.audioView?.play()
+            appDelegate.audioView?.listTest = part1Datas
+            appDelegate.audioView?.indexSelect = indexTest
+            appDelegate.audioView?.part = 1
+            appDelegate.audioView?.test = testData
+            title = String(format: "%d/%d", indexTest + 1, part1Datas.count)
+        }
     }
     
      func loadImageView(imageView: UIImageView, imageName: String) -> Void {
- 
+        imageView.image = UIImage(named: "loading")
         if (FileUtil.fileExitsAtName(fileName: imageName)) {
             let url = FileUtil.urlOfFile(fileName: imageName)
             let data = try? Data(contentsOf: url)
@@ -142,6 +154,18 @@ class Part1ViewController: BaseViewController {
             indexTest = indexTest - 1
             part1TableView.reloadData()
         }
+    }
+    
+    @objc func audioSelecteList(_ notification: NSNotification) -> Void {
+        if let dict = notification.userInfo as NSDictionary? {
+            if let index = dict["part1_index"] as? Int{
+                isSubmit = false
+                indexTest = index
+                loadAudio()
+                part1TableView.reloadData()
+            }
+        }
+
     }
     
 }
@@ -206,6 +230,9 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 80

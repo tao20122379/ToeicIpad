@@ -16,7 +16,10 @@ class Global: NSObject {
     static let IS_FIRST_LOGIN = "is_first_login"
     static let NOTIFICATION_NEXT = "notification_next"
     static let NOTIFICATION_PREV = "notification_prev"
+    static let NOTIFICATION_SELECT_LIST = "notification_select_list"
     static let BASE_URL = "http://testcrm.tomorrowmarketers.org/"
     static let SAFE_AREA_TOP = "safe_area_top"
     static let SAFE_AREA_BOT = "safe_area_bot"
+    static let TIMEOUT_INTERVAL = 5.0
+    
 }

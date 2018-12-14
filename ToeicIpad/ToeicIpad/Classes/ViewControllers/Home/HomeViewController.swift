@@ -23,8 +23,7 @@ class HomeViewController: BaseViewController {
     let listParts = [["type":"1", "title":"Part1: Photo"],
                      ["type":"2", "title":"Part2: Question - Response"],
                      ["type":"3", "title":"Part3: Short Conversation"],
-                     ["type":"4", "title":"Part4: Short Tallks"],
-                     ["type":"5", "title":"All Test"]
+                     ["type":"4", "title":"Part4: Short Tallks"]
                      ]
     
     override func viewDidLoad() {
@@ -84,7 +83,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let listTestVC = ListTestViewController(nibName: "ListTestViewController", bundle: nil)
-      
+        listTestVC.openTestIndex = 0
         let type = listParts[indexPath.row]["type"]
    
         listTestVC.type = PartType(rawValue: Int(type!)!)

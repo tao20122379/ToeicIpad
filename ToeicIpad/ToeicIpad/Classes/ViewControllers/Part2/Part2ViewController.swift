@@ -184,6 +184,7 @@ extension Part2ViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 cell.initUI()
             }
+            cell.questionLabel.text = String(format: "%d.", indexTest + 1);
             cell.answerDLabel.text = ""
             cell.btnD.isHidden = true
             return cell

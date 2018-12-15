@@ -206,14 +206,18 @@ extension ListTestViewController: TestCellDelegate {
             }
             break
         case 4:
-            DownloadClient.shareClient.downloadPassagePart4(test_id: String(format: "%d", test.test_id)) { (isDownload) in
-                if (isDownload) {
-                    DispatchQueue.main.async {
-                        TestManager.updateDataTest(test: test, part: 4)
-                        self.reloadTableView()
+            DownloadClient.shareClient.downloadPassagePart4(test: test) { (isPassage) in
+                if (isPassage) {
+                    DownloadClient.shareClient.downloadDataPart4(test: test) { (isDownload) in
+                        if (isDownload) {
+                            TestManager.updateDataTest(test: test, part: 4)
+                            DispatchQueue.main.async {
+                                self.reloadTableView()
+                            }
+                        }
+                        KRProgressHUD.dismiss()
                     }
                 }
-                KRProgressHUD.dismiss()
             }
             break
         default:

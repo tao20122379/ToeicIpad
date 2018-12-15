@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Part4ViewController" customModule="ToeicIpad" customModuleProvider="target">
             <connections>
+                <outlet property="noDataLabel" destination="oKW-C1-SrN" id="7Ao-md-PJi"/>
                 <outlet property="part4TableView" destination="urL-Ys-A55" id="eUq-yU-tUm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,10 +26,18 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không có dữ liệu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKW-C1-SrN">
+                    <rect key="frame" x="130" y="324.5" width="115.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="oKW-C1-SrN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CXp-dc-GiD"/>
                 <constraint firstItem="urL-Ys-A55" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Vlt-1U-a4F"/>
+                <constraint firstItem="oKW-C1-SrN" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ZB4-hA-HHG"/>
                 <constraint firstItem="urL-Ys-A55" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mre-R5-usD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="urL-Ys-A55" secondAttribute="trailing" id="qPP-30-6A6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="urL-Ys-A55" secondAttribute="bottom" id="tih-ui-ql3"/>

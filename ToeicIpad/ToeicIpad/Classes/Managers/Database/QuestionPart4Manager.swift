@@ -48,14 +48,7 @@ class QuestionPart4Manager: NSObject {
     
     class internal func addPart4Question(data: NSDictionary) -> Swift.Void {
         let question4 = QuestionPart4()
-        question4.id = data["id"] as! Int
-        question4.passage_id = data["passage_id"] as! Int
-        question4.question = data["question"] as! String
-        question4.answerA = data["answerA"] as! String
-        question4.answerB = data["answerB"] as! String
-        question4.answerC = data["answerC"] as! String
-        question4.answerD = data["answerD"] as! String
-        question4.answer_true = data["answer_true"] as! Int
+        question4.initWithDatas(data: data)
         do {
             let realm = try Realm()
             try realm.write {
@@ -68,12 +61,7 @@ class QuestionPart4Manager: NSObject {
     
     class internal func addPart4Passage(data: NSDictionary) -> Swift.Void {
         let passage4 = PassagePart4()
-        passage4.id = data["id"] as! Int
-        passage4.test_id = data["test_id"] as! Int
-        passage4.passage = data["passage"] as! String
-        passage4.description_text = data["description_text"] as! String
-        passage4.time_start = data["time_start"] as! Double
-        passage4.time_end = data["time_end"] as! Double
+        passage4.initWithDatas(data: data)
         do {
             let realm = try Realm()
             try realm.write {
@@ -95,8 +83,21 @@ class QuestionPart4: Object {
     @objc dynamic var answerC = ""
     @objc dynamic var answerD = ""
     @objc dynamic var answer_true = 0
+    
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    func initWithDatas(data: NSDictionary) -> Void {
+        id = data["id"] as! Int
+        test_id = data["test_id"] as! Int
+        passage_id = data["passage_id"] as! Int
+        question = data["question"] as! String
+        answerA = data["answerA"] as! String
+        answerB = data["answerB"] as! String
+        answerC = data["answerC"] as! String
+        answerD = data["answerD"] as! String
+        answer_true = data["answer_true"] as! Int
     }
 }
 
@@ -110,5 +111,14 @@ class PassagePart4: Object {
     @objc dynamic var description_text = ""
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    func initWithDatas(data: NSDictionary) -> Void {
+        id = data["id"] as! Int
+        test_id = data["test_id"] as! Int
+        passage = data["passage"] as! String
+        description_text = data["description_text"] as! String
+        time_start = data["time_start"] as! Double
+        time_end = data["time_end"] as! Double
     }
 }

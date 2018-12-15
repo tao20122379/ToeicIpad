@@ -143,11 +143,11 @@ class AudioView: UIView {
     }
     
     @IBAction func btnNextSelected(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_NEXT), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_NEXT, part)), object: nil)
     }
     
     @IBAction func btnPrevSelected(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_PREV, part)), object: nil)
     }
     
     @IBAction func listBtnSelected(_ sender: UIButton) {
@@ -164,7 +164,7 @@ class AudioView: UIView {
 
 extension AudioView: ListQuestion_Delegate {
     func listTestSelect(index: Int) {
-        NotificationCenter.default.post(name: NSNotification.Name(Global.NOTIFICATION_SELECT_LIST), object: nil, userInfo: ["part1_index": index])
+        NotificationCenter.default.post(name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_SELECT_LIST, part)), object: nil, userInfo: ["part1_index": index])
     }
 }
 

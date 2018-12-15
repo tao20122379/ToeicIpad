@@ -37,6 +37,12 @@ class Part2ViewController: BaseViewController {
         part2TableView.register(UINib(nibName: "QuestionCell", bundle: nil), forCellReuseIdentifier: "questionCellPart2")
         part2TableView.register(UINib(nibName: "SubmitCell", bundle: nil), forCellReuseIdentifier: "submitCellPart2")
         part2TableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "descriptionCellPart2")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(audioNext), name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_NEXT, 2)), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(audioPrev), name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_PREV, 2)), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(audioSelecteList(_:)), name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_SELECT_LIST, 2)), object: nil)
     }
     
     func initData() -> Void {
@@ -47,7 +53,11 @@ class Part2ViewController: BaseViewController {
                 DownloadClient.shareClient.alamofireDownloadAudio(name: audioName) { (isAudio) in
                     if (isAudio) {
                         self.getDataPart2()
+                    } else {
+                        self.appDelegate.audioView?.removeAudio()
+                        self.appDelegate.hideAidoView()
                     }
+                     KRProgressHUD.dismiss()
                 }
             } else {
                 getDataPart2()
@@ -112,6 +122,37 @@ class Part2ViewController: BaseViewController {
             appDelegate.hideAidoView()
         }
     }
+    
+    // MARK: - Action
+    @objc func audioNext() -> Void {
+        if (indexTest < part2Datas.count - 1) {
+            isSubmit = false
+            indexTest = indexTest + 1
+            loadAudio()
+            part2TableView.reloadData()
+        }
+    }
+    
+    @objc func audioPrev() -> Void {
+        if (indexTest > 0) {
+            isSubmit = false
+            loadAudio()
+            indexTest = indexTest - 1
+            part2TableView.reloadData()
+        }
+    }
+    
+    @objc func audioSelecteList(_ notification: NSNotification) -> Void {
+        if let dict = notification.userInfo as NSDictionary? {
+            if let index = dict["part1_index"] as? Int{
+                isSubmit = false
+                indexTest = index
+                loadAudio()
+                part2TableView.reloadData()
+            }
+        }
+        
+    }
 
 }
 
@@ -123,8 +164,10 @@ extension Part2ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (indexTest >= part2Datas.count) {
+            self.noDataLabel.isHidden = false
             return 0
         }
+        self.noDataLabel.isHidden = true
         if (isSubmit) {
             return 3
         }
@@ -136,11 +179,13 @@ extension Part2ViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "questionCellPart2") as! QuestionCell
-            cell.answerDLabel.text = ""
-            cell.btnD.isHidden = true
             if (isSubmit) {
                 cell.showDataPart2(data: part2Datas[indexTest])
+            } else {
+                cell.initUI()
             }
+            cell.answerDLabel.text = ""
+            cell.btnD.isHidden = true
             return cell
         case 1:
             if (isSubmit) {

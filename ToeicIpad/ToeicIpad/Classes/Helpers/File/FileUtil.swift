@@ -19,7 +19,6 @@ class FileUtil: NSObject {
     class func urlOfFile(fileName: String) -> URL {
         let documentsUrl:URL =  (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL?)!
         print(documentsUrl);
-                print(documentsUrl);
         let destinationFileUrl = documentsUrl.appendingPathComponent(fileName)
         return destinationFileUrl
     }
@@ -65,7 +64,8 @@ class FileUtil: NSObject {
     }
     
     class func removeDocumentsFileWithName(fileName:String) -> Bool {
-        return true
+        
+        return ( ((try? FileManager.default.removeItem(atPath: self.pathOfFile(fileName: fileName) as String)) != nil))
     }
     
     class func removeDocumentsFileWithPath(filePath:String) -> Bool {

@@ -151,10 +151,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             listTestVC.openTestPart = 2
             listTestVC.part2VC = part2VC
             break
-            break
         case 3:
+            let part3VC = Part3ViewController(nibName: "Part3ViewController", bundle: nil)
+            part3VC.passageDatas = data as! Array<PassagePart3>
+            part3VC.indexTest = index
+            part3VC.testData = test
+            listTestVC.openTestPart = 3
+            listTestVC.part3VC = part3VC
             break
         case 4:
+            let part4VC = Part4ViewController(nibName: "Part4ViewController", bundle: nil)
+            part4VC.passageDatas = data as! Array<PassagePart4>
+            part4VC.indexTest = index
+            part4VC.testData = test
+            listTestVC.openTestPart = 4
+            listTestVC.part4VC = part4VC
             break
         default:
             break

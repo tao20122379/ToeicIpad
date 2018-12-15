@@ -39,11 +39,11 @@ class Part1ViewController: BaseViewController {
         part1TableView.register(UINib(nibName: "SubmitCell", bundle: nil), forCellReuseIdentifier: "submitCellPart1")
         part1TableView.register(UINib(nibName: "DescriptionCell", bundle: nil), forCellReuseIdentifier: "descriptionCellPart1")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(audioNext), name: NSNotification.Name(Global.NOTIFICATION_NEXT), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioNext), name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_NEXT, 1)), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(audioPrev), name: NSNotification.Name(Global.NOTIFICATION_PREV), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioPrev), name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_PREV, 1)), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(audioSelecteList(_:)), name: NSNotification.Name(Global.NOTIFICATION_SELECT_LIST), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioSelecteList(_:)), name: NSNotification.Name(String(format:"%@%d", Global.NOTIFICATION_SELECT_LIST, 1)), object: nil)
         
     }
     
@@ -55,7 +55,11 @@ class Part1ViewController: BaseViewController {
                 DownloadClient.shareClient.alamofireDownloadAudio(name: audioName) { (isAudio) in
                     if (isAudio) {
                         self.getDataPart1()
+                    } else {
+                        self.appDelegate.audioView?.removeAudio()
+                        self.appDelegate.hideAidoView()
                     }
+                    KRProgressHUD.dismiss()
                 }
             } else {
                 getDataPart1()
@@ -181,8 +185,10 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (indexTest >= part1Datas.count) {
+            self.noDataLabel.isHidden = false
             return 0
         }
+        self.noDataLabel.isHidden = true
         if (isSubmit) {
             return 4
         }

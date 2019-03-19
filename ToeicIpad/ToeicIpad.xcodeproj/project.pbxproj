@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		100F7A24CC659F44C9E54D80 /* Pods_ToeicIpadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E1749E83C1D993ACEEEBD4 /* Pods_ToeicIpadTests.framework */; };
+		591C78242240DD6F008ADA99 /* TestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591C78232240DD6F008ADA99 /* TestRouter.swift */; };
 		593C8A2A21B4C81300F87D9B /* AudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593C8A2921B4C81300F87D9B /* AudioView.xib */; };
 		594905AC218FDF2F001E860C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594905AB218FDF2F001E860C /* AppDelegate.swift */; };
 		594905B1218FDF2F001E860C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 594905AF218FDF2F001E860C /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		59A1843421CB2D0E00E754B2 /* AVUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A1843321CB2D0E00E754B2 /* AVUtil.swift */; };
 		59A1843721CB2D0E00E754B2 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A1843621CB2D0E00E754B2 /* AudioView.swift */; };
 		59C7A42C2192D438007251DB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C7A42B2192D438007251DB /* ApiClient.swift */; };
+		59D23C4D2240D3D3000C85DE /* loginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D23C4C2240D3D3000C85DE /* loginRouter.swift */; };
 		59D298E521C4EA6500433F03 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E121C4EA6500433F03 /* BookManager.swift */; };
 		59D298E621C4EA6500433F03 /* QuestionPart1Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */; };
 		59D298E721C4EA6500433F03 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D298E321C4EA6500433F03 /* DatabaseManager.swift */; };
@@ -89,6 +91,7 @@
 		1FA76661B10E96DF42A56A8D /* Pods-ToeicIpadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToeicIpadUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToeicIpadUITests/Pods-ToeicIpadUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		21E1749E83C1D993ACEEEBD4 /* Pods_ToeicIpadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToeicIpadTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C94CBBCB5F58B4114632C5 /* Pods_ToeicIpad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToeicIpad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		591C78232240DD6F008ADA99 /* TestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRouter.swift; sourceTree = "<group>"; };
 		593C8A2921B4C81300F87D9B /* AudioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioView.xib; sourceTree = "<group>"; };
 		594905A8218FDF2F001E860C /* ToeicIpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToeicIpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		594905AB218FDF2F001E860C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 		59A1843321CB2D0E00E754B2 /* AVUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVUtil.swift; sourceTree = "<group>"; };
 		59A1843621CB2D0E00E754B2 /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		59C7A42B2192D438007251DB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		59D23C4C2240D3D3000C85DE /* loginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginRouter.swift; sourceTree = "<group>"; };
 		59D298E121C4EA6500433F03 /* BookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		59D298E221C4EA6500433F03 /* QuestionPart1Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionPart1Manager.swift; sourceTree = "<group>"; };
 		59D298E321C4EA6500433F03 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 		594905DC218FE010001E860C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				59D23C4B2240D2BB000C85DE /* Router */,
 				5992F6A02195676E00ED9298 /* Helpers */,
 				594905E2218FE088001E860C /* Managers */,
 				594905E1218FE07E001E860C /* Common */,
@@ -490,6 +495,15 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		59D23C4B2240D2BB000C85DE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				59D23C4C2240D3D3000C85DE /* loginRouter.swift */,
+				591C78232240DD6F008ADA99 /* TestRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		59D298E021C4EA6500433F03 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,6 +552,7 @@
 				594905A5218FDF2F001E860C /* Frameworks */,
 				594905A6218FDF2F001E860C /* Resources */,
 				313A6481F57D26F6E2447B4E /* [CP] Embed Pods Frameworks */,
+				59A79AB92237846E00CCBCCA /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -746,6 +761,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		59A79AB92237846E00CCBCCA /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 556abeb58a6db7c055d0a56f6c55168ae9236a46 fb449882c10078bbe4bdf8748d5b2b32976fbd0ed19e78bd71b67e722844e813\n";
+			showEnvVarsInLog = 0;
+		};
 		DEB1D1EC6E7CE8B901E25552 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -776,6 +811,7 @@
 				FA113BC821C292F2000EC031 /* ListQuestionViewController.swift in Sources */,
 				596060D021BA1E0C004D64B0 /* QuestionPart3Manager.swift in Sources */,
 				59A1843721CB2D0E00E754B2 /* AudioView.swift in Sources */,
+				591C78242240DD6F008ADA99 /* TestRouter.swift in Sources */,
 				5995858421B7BC86008E7AF0 /* ListTestViewController.swift in Sources */,
 				594905EF218FE3AB001E860C /* BaseViewController.swift in Sources */,
 				594905EB218FE1B2001E860C /* HomeViewController.swift in Sources */,
@@ -783,6 +819,7 @@
 				594905E7218FE158001E860C /* Global.swift in Sources */,
 				59725F5321B905AE0013A170 /* Part3ViewController.swift in Sources */,
 				59725F4921B9004F0013A170 /* SubmitCell.swift in Sources */,
+				59D23C4D2240D3D3000C85DE /* loginRouter.swift in Sources */,
 				5992F69E2195269200ED9298 /* ProgressDownloadViewController.swift in Sources */,
 				595D336A21BDF97700559A3E /* ThongKeViewController.swift in Sources */,
 				594905E5218FE0B5001E860C /* Util.swift in Sources */,
@@ -981,7 +1018,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3267Z52VP5;
 				INFOPLIST_FILE = ToeicIpad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -990,7 +1027,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VofficeIpadKHN;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1003,7 +1040,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3267Z52VP5;
 				INFOPLIST_FILE = ToeicIpad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1012,7 +1049,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VofficeIpadKHN;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

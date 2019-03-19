@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.7.3)
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
   - DLRadioButton (1.4.12)
+  - Fabric (1.9.0)
   - KRActivityIndicatorView (3.0.0)
   - KRProgressHUD (3.4.0):
     - KRActivityIndicatorView (= 3.0.0)
@@ -13,7 +16,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Crashlytics
   - DLRadioButton
+  - Fabric
   - KRProgressHUD
   - OAuthSwift (~> 1.2.0)
   - RealmSwift
@@ -21,7 +26,9 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Crashlytics
     - DLRadioButton
+    - Fabric
     - KRActivityIndicatorView
     - KRProgressHUD
     - OAuthSwift
@@ -30,13 +37,15 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   KRActivityIndicatorView: c414000730a6f4969eeb354bee4f2aebc89c2c2e
   KRProgressHUD: 79c8703f82179fe34b3602f10b30726f887983fa
   OAuthSwift: 27b34fe80b76b67cd8f45571e0be2432bc9f6de1
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
 
-PODFILE CHECKSUM: c624f40672906f1581a684a6c40d64b5f69e529e
+PODFILE CHECKSUM: 3eccf1ecfb4b03d871a3581ae668dfea0113e791
 
 COCOAPODS: 1.5.3

@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 import AVKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,9 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tabBarController: UITabBarController?
     var audioIsShow: Bool = false
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        Fabric.with([Crashlytics.self])
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
+            if #available(iOS 10.0, *) {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
+            } else {
+                // Fallback on earlier versions
+            }
             print("Playback OK")
             try AVAudioSession.sharedInstance().setActive(true)
             print("Session is Active")

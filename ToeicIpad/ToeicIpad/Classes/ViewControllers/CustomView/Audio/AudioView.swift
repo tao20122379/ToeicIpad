@@ -43,9 +43,13 @@ class AudioView: UIView {
     func initAudio(fileName: String, start: Double, end: Double) -> Void{
         AVUtil.shareAudio.playAudio(fileName: fileName, start: start, end: end)
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: TIME_PROGRESS, repeats: true, block: { (timer) in
-            self.processAudio()
-        })
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: TIME_PROGRESS, repeats: true, block: { (timer) in
+                self.processAudio()
+            })
+        } else {
+            // Fallback on earlier versions
+        }
         self.timeEndLb.text = AVUtil.shareAudio.endString()
     }
     
@@ -85,9 +89,13 @@ class AudioView: UIView {
     func play() -> Void {
         AVUtil.shareAudio.play()
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: TIME_PROGRESS, repeats: true, block: { (timer) in
-            self.processAudio()
-        })
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: TIME_PROGRESS, repeats: true, block: { (timer) in
+                self.processAudio()
+            })
+        } else {
+            // Fallback on earlier versions
+        }
         playBtn.setImage(UIImage(named: "audio_play"), for: .normal)
     }
     
@@ -104,9 +112,13 @@ class AudioView: UIView {
     @IBAction func sliderTouchUpiInside(_ sender: UISlider) {
         AVUtil.shareAudio.setAudioTimeValue(value: sender.value)
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: TIME_PROGRESS, repeats: true, block: { (timer) in
-            self.processAudio()
-        })
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: TIME_PROGRESS, repeats: true, block: { (timer) in
+                self.processAudio()
+            })
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     @IBAction func playSelected(_ sender: UIButton) {

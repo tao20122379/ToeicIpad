@@ -196,6 +196,18 @@ extension Part1ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "imageCellPart1") as! Democell
+//        if (indexTest < part1Datas.count) {
+//            loadImageView(imageView: cell.part1ImageView, imageName: part1Datas[indexTest].image_name)
+//        }
+//        return cell
+        
+        
+        
+        
+        
+        
         switch indexPath.row {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "imageCellPart1") as! ImageCell

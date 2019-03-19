@@ -11,6 +11,8 @@
   pod 'DLRadioButton'
   pod 'KRProgressHUD'
   pod 'Alamofire'
+  pod 'Fabric'
+  pod 'Crashlytics'
   target 'ToeicIpadTests' do
     inherit! :search_paths
     # Pods for testing
